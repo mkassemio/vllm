@@ -11,12 +11,46 @@ steps:
   source_file_dependencies:
     - vllm/satellite/
     - vllm/v1/core/sched/scheduler.py
+    - vllm/v1/engine/core.py
+    - vllm/v1/engine/core_client.py
+    - vllm/v1/worker/gpu_worker.py
+    - vllm/distributed/device_communicators/cuda_communicator.py
+    - tests/v1/core/utils.py
     - tests/satellite/
   commands:
     - >-
       pytest -v -s
       --confcutdir=satellite
       satellite/
+
+- label: ":nvidia: (L4) Orbital Serving GPU Recovery"
+  key: orbital-serving-gpu
+  device: l4
+  num_devices: 1
+  timeout_in_minutes: 30
+  working_dir: "/vllm-workspace/tests"
+  source_file_dependencies:
+    - vllm/satellite/
+    - vllm/v1/core/sched/scheduler.py
+    - vllm/v1/engine/
+    - vllm/v1/worker/
+    - tests/satellite_gpu/
+  commands:
+    - pytest -v -s satellite_gpu/test_serving.py
+
+- label: ":nvidia: (2xL4) Orbital Communication"
+  key: orbital-communication-gpu
+  device: l4
+  num_devices: 2
+  timeout_in_minutes: 30
+  working_dir: "/vllm-workspace/tests"
+  source_file_dependencies:
+    - vllm/satellite/
+    - vllm/distributed/device_communicators/cuda_communicator.py
+    - vllm/v1/worker/gpu_worker.py
+    - tests/satellite_gpu/
+  commands:
+    - pytest -v -s satellite_gpu/test_tensor_parallel.py
 
 - label: ":nvidia: (H200 MIG 18GB) Engine Core"
   key: engine

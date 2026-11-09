@@ -1594,6 +1594,72 @@ class Worker(WorkerBase):
         # worker will always be healthy as long as it's running.
         return
 
+    def _orbital_caches(self):
+        from vllm.v1.kv_cache_interface import FullAttentionSpec
+
+        groups = self.model_runner.kv_cache_config.kv_cache_groups
+        if len(groups) != 1 or not isinstance(
+            groups[0].kv_cache_spec, FullAttentionSpec
+        ):
+            raise ValueError("Orbital KV migration requires one full-attention group")
+        caches = self.model_runner.kv_caches_by_layer
+        if set(caches) != set(groups[0].layer_names):
+            raise ValueError("Orbital KV migration requires all local attention layers")
+        return caches, groups[0].kv_cache_spec.block_size
+
+    def orbital_update_communication(self, plan: dict) -> dict:
+        """Collectively agree a new plan while EngineCore is between steps."""
+        from vllm.distributed.parallel_state import get_tp_group
+
+        communicator = get_tp_group().device_communicator
+        executor = getattr(communicator, "orbital_executor", None)
+        if executor is None:
+            raise ValueError("Orbital communication was not enabled at startup")
+        executor.install(plan)
+        return executor.statistics()
+
+    def orbital_communication_statistics(self) -> dict:
+        from vllm.distributed.parallel_state import get_tp_group
+
+        executor = getattr(get_tp_group().device_communicator, "orbital_executor", None)
+        return executor.statistics() if executor is not None else {"enabled": False}
+
+    def orbital_export_kv(
+        self, block_ids: list[int], computed_tokens: int, fingerprint: str
+    ) -> dict:
+        """Export only computed blocks after the coordinator freezes the source."""
+        from vllm.satellite.kv import export_kv
+
+        caches, block_size = self._orbital_caches()
+        return export_kv(
+            caches,
+            block_ids,
+            computed_tokens,
+            block_size,
+            fingerprint,
+            self.rank,
+            self.parallel_config.tensor_parallel_size,
+        )
+
+    def orbital_import_kv(
+        self, images: list[dict], block_ids: list[int], fingerprint: str
+    ) -> int:
+        """Load a validated image into exclusively reserved, inactive blocks."""
+        from vllm.satellite.kv import import_kv
+
+        caches, block_size = self._orbital_caches()
+        matches = [image for image in images if image["rank"] == self.rank]
+        if len(matches) != 1 or matches[0]["block_size"] != block_size:
+            raise ValueError("Missing or incompatible orbital rank image")
+        return import_kv(
+            matches[0],
+            caches,
+            block_ids,
+            fingerprint,
+            self.rank,
+            self.parallel_config.tensor_parallel_size,
+        )
+
     def save_sharded_state(
         self,
         path: str,

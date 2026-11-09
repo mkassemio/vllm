@@ -32,6 +32,7 @@ Where to get started with vLLM depends on the type of user. If you are looking t
 - Run open-source models on vLLM, we recommend starting with the [Quickstart Guide](./getting_started/quickstart.md)
 - Build applications with vLLM, we recommend starting with the [User Guide](./usage/README.md)
 - Build vLLM, we recommend starting with [Developer Guide](./contributing/README.md)
+- Explore this fork's experimental satellite extension: [Orbital serving engine](./design/orbital_serving.md)
 
 For information about the development of vLLM, see:
 

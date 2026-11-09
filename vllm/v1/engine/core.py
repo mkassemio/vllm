@@ -1266,6 +1266,38 @@ class EngineCore:
     def set_weight_version(self, weight_version: str) -> None:
         self._weight_version = weight_version
 
+    def orbital_control(self, command: str, payload: dict) -> dict:
+        """Run a trusted orbital control command at a synchronous step boundary."""
+        from vllm.satellite.engine_state import EngineStateAdapter
+        from vllm.satellite.scheduler import SatelliteScheduler
+
+        if self.batch_queue is not None:
+            raise ValueError("Orbital handoff requires drained synchronous execution")
+        if not isinstance(self.scheduler, SatelliteScheduler):
+            raise ValueError("Orbital control requires SatelliteScheduler")
+        if command == "status":
+            if payload:
+                raise ValueError(
+                    "Status requires SatelliteScheduler and an empty payload"
+                )
+            return self.scheduler.orbital_status()
+        if not hasattr(self, "_orbital_state"):
+            self._orbital_state = EngineStateAdapter(
+                self.scheduler, self.model_executor, self.request_block_hasher
+            )
+        return self._orbital_state.dispatch(command, payload)
+
+    def orbital_update_communication(self, plan: dict) -> list[dict]:
+        """Install an agreed collective plan only between synchronous steps."""
+        if (
+            self.batch_queue is not None
+            or self.vllm_config.scheduler_config.async_scheduling
+        ):
+            raise ValueError("Communication updates require synchronous execution")
+        return self.model_executor.collective_rpc(
+            "orbital_update_communication", args=(plan,)
+        )
+
     def get_weight_version(self) -> str:
         """Return the latest committed weight version."""
         return self._weight_version

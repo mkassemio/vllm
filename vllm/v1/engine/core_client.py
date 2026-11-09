@@ -284,6 +284,13 @@ class EngineCoreClient(ABC):
         running state."""
         raise NotImplementedError
 
+    def orbital_control(self, command: str, payload: dict) -> dict:
+        """Send a trusted orbital lifecycle command to one synchronous engine."""
+        raise NotImplementedError
+
+    async def orbital_control_async(self, command: str, payload: dict) -> dict:
+        raise NotImplementedError
+
     async def commit_elastic_ep(self) -> None:
         raise NotImplementedError
 
@@ -430,6 +437,9 @@ class InprocClient(EngineCoreClient):
 
     def get_supported_tasks(self) -> tuple[SupportedTask, ...]:
         return self.engine_core.get_supported_tasks()
+
+    def orbital_control(self, command: str, payload: dict) -> dict:
+        return self.engine_core.orbital_control(command, payload)
 
     def add_request(self, request: EngineCoreRequest) -> None:
         req, request_wave = self.engine_core.preprocess_add_request(request)
@@ -1166,6 +1176,9 @@ class SyncMPClient(MPClient):
     def get_weight_version(self) -> str:
         return self.call_utility("get_weight_version")
 
+    def orbital_control(self, command: str, payload: dict) -> dict:
+        return self.call_utility("orbital_control", command, payload)
+
     def collective_rpc(
         self,
         method: str | Callable[..., _R],
@@ -1492,6 +1505,9 @@ class AsyncMPClient(MPClient):
     async def compute_weight_checksums_async(self) -> list[dict[str, str]]:
         per_engine = await self.call_utility_all_async("compute_weight_checksums")
         return [worker for workers in per_engine for worker in workers]
+
+    async def orbital_control_async(self, command: str, payload: dict) -> dict:
+        return await self.call_utility_async("orbital_control", command, payload)
 
     async def handle_fault(
         self, ft_request: FaultToleranceRequest

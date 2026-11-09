@@ -1,0 +1,84 @@
+{
+  "backend": "gloo",
+  "dtype": "float32",
+  "torch_version": "2.15.0",
+  "samples": [
+    {
+      "algorithm": "native",
+      "message_bytes": 1024,
+      "median_s": 0.0006718329968862236,
+      "p95_s": 0.0029062090325169265
+    },
+    {
+      "algorithm": "native",
+      "message_bytes": 16384,
+      "median_s": 0.0005471250042319298,
+      "p95_s": 0.0007655410445295274
+    },
+    {
+      "algorithm": "native",
+      "message_bytes": 262144,
+      "median_s": 0.0013602920225821435,
+      "p95_s": 0.0015428750193677843
+    },
+    {
+      "algorithm": "direct",
+      "message_bytes": 1024,
+      "median_s": 0.000565375026781112,
+      "p95_s": 0.0007009999826550484
+    },
+    {
+      "algorithm": "direct",
+      "message_bytes": 16384,
+      "median_s": 0.00042754202149808407,
+      "p95_s": 0.0005174580146558583
+    },
+    {
+      "algorithm": "direct",
+      "message_bytes": 262144,
+      "median_s": 0.0006810000049881637,
+      "p95_s": 0.0009183749789372087
+    },
+    {
+      "algorithm": "allgather",
+      "message_bytes": 1024,
+      "median_s": 0.0004531670128926635,
+      "p95_s": 0.002146375016309321
+    },
+    {
+      "algorithm": "allgather",
+      "message_bytes": 16384,
+      "median_s": 0.0004422499914653599,
+      "p95_s": 0.0007810830138623714
+    },
+    {
+      "algorithm": "allgather",
+      "message_bytes": 262144,
+      "median_s": 0.0007502500084228814,
+      "p95_s": 0.0010406249784864485
+    }
+  ],
+  "plan": {
+    "version": 1,
+    "world_size": 2,
+    "max_scratch_bytes": 268435456,
+    "costs": [
+      {
+        "name": "native",
+        "latency_s": 0.0034874508390203116,
+        "seconds_per_byte": 0.0
+      },
+      {
+        "name": "direct",
+        "latency_s": 0.0008397455463073328,
+        "seconds_per_byte": 1.420344608130028e-09
+      },
+      {
+        "name": "allgather",
+        "latency_s": 0.002575650019571185,
+        "seconds_per_byte": 0.0
+      }
+    ]
+  },
+  "scope": "This execution group and tested sizes only; remeasure after route changes."
+}

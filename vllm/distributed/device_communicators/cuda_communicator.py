@@ -124,6 +124,28 @@ class CudaCommunicator(DeviceCommunicatorBase):
         # cuMem graph buffers cannot be IPC-registered; capture copies them instead.
         config = get_current_vllm_config_or_none()
         register = config is None or not config.use_cumem_cudagraph_pool
+        self.orbital_executor = None
+        if (
+            config is not None
+            and unique_name.split(":")[0] == "tp"
+            and isinstance(config.additional_config, dict)
+            and "orbital_communication" in config.additional_config
+        ):
+            from vllm.satellite.communication import CommunicationExecutor
+
+            if not config.model_config.enforce_eager:
+                raise ValueError("Orbital communication requires enforce_eager=True")
+            if (
+                config.scheduler_config.async_scheduling
+                or config.parallel_config.pipeline_parallel_size != 1
+                or config.parallel_config.data_parallel_size != 1
+            ):
+                raise ValueError("Orbital communication requires synchronous PP=DP=1")
+            self.orbital_executor = CommunicationExecutor(
+                self.device_group,
+                self.cpu_group,
+                config.additional_config["orbital_communication"],
+            )
 
         if use_torch_symm_mem and current_platform.is_cuda():
             self.symm_mem_comm = SymmMemCommunicator(
@@ -387,6 +409,8 @@ class CudaCommunicator(DeviceCommunicatorBase):
         )
 
     def all_reduce(self, input_):
+        if self.orbital_executor is not None:
+            return self.orbital_executor.all_reduce(input_)
         fi_ar_comm = self.fi_ar_comm
         use_fi_ar = (
             fi_ar_comm is not None
