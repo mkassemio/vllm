@@ -2,6 +2,7 @@
 
 Validation recorded on 2026-11-09 for `codex/orbital-serving-engine`.
 Upstream baseline: `8f2ba935a5cb82f5fc231eea6b687a87443e88a6`.
+Implementation commit: `125221177` (following the foundation commit `3816b836d`).
 See [architecture, usage, and limits](../../docs/design/orbital_serving.md).
 
 ## Executed locally
@@ -16,6 +17,10 @@ GLOO_SOCKET_IFNAME=lo0 .venv/bin/python -m pytest \
 PRE_COMMIT_HOME=/private/tmp/orbital-precommit .venv/bin/pre-commit run
 git diff --check
 ```
+
+Result: **67 passed**, one generated-version metadata warning, in 15.67 seconds.
+All applicable pre-commit checks passed, including mypy, formatting, lint, and
+Buildkite test selection. `git diff --check` passed. No checks were bypassed.
 
 The local suite covers:
 
