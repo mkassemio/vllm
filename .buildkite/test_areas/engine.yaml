@@ -2,6 +2,22 @@ group: Engine
 depends_on:
   - image-build
 steps:
+- label: ":nvidia: (L4) Orbital Serving Contracts"
+  key: orbital-serving-contracts
+  device: l4
+  num_devices: 1
+  timeout_in_minutes: 20
+  working_dir: "/vllm-workspace/tests"
+  source_file_dependencies:
+    - vllm/satellite/
+    - vllm/v1/core/sched/scheduler.py
+    - tests/satellite/
+  commands:
+    - >-
+      pytest -v -s
+      --confcutdir=satellite
+      satellite/
+
 - label: ":nvidia: (H200 MIG 18GB) Engine Core"
   key: engine
   automatic_shard: true

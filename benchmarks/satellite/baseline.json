@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "upstream_repository": "https://github.com/vllm-project/vllm",
+  "upstream_commit": "8f2ba935a5cb82f5fc231eea6b687a87443e88a6",
+  "fork_repository": "https://github.com/mkassemio/vllm",
+  "branch": "codex/orbital-serving-engine",
+  "prototype_reference_commit": "83630ab85eb27e456d99008cc0a27e025e73c0b4",
+  "local_platform": "macOS arm64",
+  "gpu_validation": "pending_linux_cuda_host",
+  "prototype_evidence": "Prior Orbit-TP measurements are not validation of this branch."
+}
