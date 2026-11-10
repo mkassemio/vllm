@@ -1,0 +1,50 @@
+{
+  "archives": {
+    "campaign.tar.gz": {
+      "sha256": "d955a72ff15d6b658a66e5377de297f5a5cf8d2e468f9c3778ee18363b04d1d9",
+      "bytes": 9651680
+    },
+    "harness.tar.gz": {
+      "sha256": "c0868b30e96037fa98bc0f5196c1d0d73255afd25b316227c8e5bc4345d7730d",
+      "bytes": 41498
+    },
+    "summary.json": {
+      "sha256": "cb5c322dfcd1af172308be5852316dffe2138c1a621c353ec67cced03ee0afd1",
+      "bytes": 432448
+    },
+    "environment.json": {
+      "sha256": "09458d5ae40ec125a37f4f8cd12d9baff7b66bdc16555319e09fec99c83728dd",
+      "bytes": 2036
+    }
+  },
+  "raw_files_checked": 338,
+  "raw_bytes_checked": 120401361,
+  "current_measurement_harness_matches_frozen_plan": true,
+  "validated_utc": "2026-11-10T18:51:42.480253+00:00",
+  "campaign_complete": true,
+  "case_count": 90,
+  "engine_launches": 9,
+  "output_validation": {
+    "requests_checked": 216,
+    "output_tokens_checked": 243648,
+    "reference_source": "immutable stock calibration"
+  },
+  "local_and_remote_summary_equal": true,
+  "logical_token_work_matches_all_cases": true,
+  "total_computed_token_work": 2133432,
+  "preemptions": 0,
+  "recomputed_token_work": 0,
+  "step_budget_overruns": 0,
+  "cpu_tests": {
+    "command": ".venv/bin/python -m pytest --confcutdir=tests/satellite tests/satellite -q",
+    "passed": 95,
+    "duration_s": 6.65,
+    "scope": "Final CPU suite including shape metrics, workload contracts, and raw-event consistency test."
+  },
+  "plotting": {
+    "matplotlib": "3.11.2",
+    "visual_review": "All three exported plots inspected; latency legend placement corrected and plots re-rendered."
+  },
+  "transfer": "Five parts individually SHA-256 verified, then full reassembled archive verified against remote original. Strict SSH host-key verification retained.",
+  "final_gpu_state": "Both GPUs idle; no active compute processes at archive time."
+}

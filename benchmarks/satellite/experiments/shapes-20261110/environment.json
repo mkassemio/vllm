@@ -1,0 +1,44 @@
+{
+  "recorded_utc": "2026-11-10T18:43:53.059529+00:00",
+  "host": "spheron-a100-80g-pcie-2x-1794269161613-oq3k80",
+  "platform": "Linux-6.14.0-37-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "engine": {
+    "source_commit": "8f2ba935a5cb82f5fc231eea6b687a87443e88a6",
+    "vllm_file": "/home/ubuntu/orbital-upstream-baseline-20261110/vllm/__init__.py",
+    "torch": "2.14.0+cu130",
+    "gpu": "NVIDIA A100 80GB PCIe",
+    "pid": 142646
+  },
+  "engine_options": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "dtype": "bfloat16",
+    "enforce_eager": true,
+    "async_scheduling": false,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": false,
+    "max_model_len": 18500,
+    "max_num_batched_tokens": 512,
+    "max_num_seqs": 8,
+    "gpu_memory_utilization": 0.25,
+    "scheduling_policy": "priority",
+    "seed": 42,
+    "disable_log_stats": true
+  },
+  "packages": {
+    "torch": "2.14.0+cu130",
+    "transformers": "5.22.0",
+    "numpy": "2.3.5",
+    "triton": "3.8.0"
+  },
+  "gpu_inventory_csv": "index, uuid, name, driver_version, memory.total [MiB], power.limit [W], clocks.max.sm [MHz]\n0, GPU-372830ee-3d65-dbbf-e5ba-267b8e940dfa, NVIDIA A100 80GB PCIe, 570.195.03, 81920 MiB, 300.00 W, 1410 MHz\n1, GPU-9b8e9bee-331b-4ac6-7a83-7d396eb8fbee, NVIDIA A100 80GB PCIe, 570.195.03, 81920 MiB, 300.00 W, 1410 MHz\n",
+  "final_gpu_state_csv": "index, memory.used [MiB], utilization.gpu [%]\n0, 0 MiB, 0 %\n1, 0 MiB, 0 %\n",
+  "final_active_gpu_processes": "",
+  "model_config_sha256": "18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45",
+  "model_max_position_embeddings": 32768,
+  "activation_sha256": "8aa0332b0099fd7331038f99bac57251ee4d42f0196b8cb75b8aa5e03c40e712",
+  "raw_files": 338,
+  "raw_bytes": 120401361,
+  "scope": "One physical GPU, serial engine launches; device one idle. Batch invariance and visible GPU set in each worker; raw options and source identities retained."
+}

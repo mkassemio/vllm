@@ -1,0 +1,18 @@
+{
+  "campaign.tar.gz": {
+    "sha256": "d955a72ff15d6b658a66e5377de297f5a5cf8d2e468f9c3778ee18363b04d1d9",
+    "bytes": 9651680
+  },
+  "harness.tar.gz": {
+    "sha256": "c0868b30e96037fa98bc0f5196c1d0d73255afd25b316227c8e5bc4345d7730d",
+    "bytes": 41498
+  },
+  "summary.json": {
+    "sha256": "cb5c322dfcd1af172308be5852316dffe2138c1a621c353ec67cced03ee0afd1",
+    "bytes": 432448
+  },
+  "environment.json": {
+    "sha256": "09458d5ae40ec125a37f4f8cd12d9baff7b66bdc16555319e09fec99c83728dd",
+    "bytes": 2036
+  }
+}

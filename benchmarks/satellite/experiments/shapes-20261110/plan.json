@@ -1,0 +1,596 @@
+{
+  "jobs": [
+    {
+      "name": "calibration",
+      "args": [
+        "calibrate",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110"
+      ]
+    },
+    {
+      "name": "rep0-orbital_flat",
+      "mode": "orbital_flat",
+      "repetition": 0,
+      "cases": [
+        {
+          "scenario": "sunlit",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-LO"
+        }
+      ],
+      "args": [
+        "run",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital_flat",
+        "--repetition",
+        "0",
+        "--calibration",
+        "/home/ubuntu/orbital-shapes-20261110/campaign/calibration/result.json",
+        "--geometry",
+        "/home/ubuntu/orbital-shapes-20261110/harness/geometry.json"
+      ]
+    },
+    {
+      "name": "rep0-orbital",
+      "mode": "orbital",
+      "repetition": 0,
+      "cases": [
+        {
+          "scenario": "sunlit",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-LO"
+        }
+      ],
+      "args": [
+        "run",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--repetition",
+        "0",
+        "--calibration",
+        "/home/ubuntu/orbital-shapes-20261110/campaign/calibration/result.json",
+        "--geometry",
+        "/home/ubuntu/orbital-shapes-20261110/harness/geometry.json"
+      ]
+    },
+    {
+      "name": "rep0-stock",
+      "mode": "stock",
+      "repetition": 0,
+      "cases": [
+        {
+          "scenario": "sunlit",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-LO"
+        }
+      ],
+      "args": [
+        "run",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock",
+        "--repetition",
+        "0",
+        "--calibration",
+        "/home/ubuntu/orbital-shapes-20261110/campaign/calibration/result.json",
+        "--geometry",
+        "/home/ubuntu/orbital-shapes-20261110/harness/geometry.json"
+      ]
+    },
+    {
+      "name": "rep1-orbital",
+      "mode": "orbital",
+      "repetition": 1,
+      "cases": [
+        {
+          "scenario": "sunlit",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "mixed"
+        }
+      ],
+      "args": [
+        "run",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--repetition",
+        "1",
+        "--calibration",
+        "/home/ubuntu/orbital-shapes-20261110/campaign/calibration/result.json",
+        "--geometry",
+        "/home/ubuntu/orbital-shapes-20261110/harness/geometry.json"
+      ]
+    },
+    {
+      "name": "rep1-stock",
+      "mode": "stock",
+      "repetition": 1,
+      "cases": [
+        {
+          "scenario": "sunlit",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "mixed"
+        }
+      ],
+      "args": [
+        "run",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock",
+        "--repetition",
+        "1",
+        "--calibration",
+        "/home/ubuntu/orbital-shapes-20261110/campaign/calibration/result.json",
+        "--geometry",
+        "/home/ubuntu/orbital-shapes-20261110/harness/geometry.json"
+      ]
+    },
+    {
+      "name": "rep1-orbital_flat",
+      "mode": "orbital_flat",
+      "repetition": 1,
+      "cases": [
+        {
+          "scenario": "sunlit",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "mixed"
+        }
+      ],
+      "args": [
+        "run",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital_flat",
+        "--repetition",
+        "1",
+        "--calibration",
+        "/home/ubuntu/orbital-shapes-20261110/campaign/calibration/result.json",
+        "--geometry",
+        "/home/ubuntu/orbital-shapes-20261110/harness/geometry.json"
+      ]
+    },
+    {
+      "name": "rep2-stock",
+      "mode": "stock",
+      "repetition": 2,
+      "cases": [
+        {
+          "scenario": "sunlit",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-SO"
+        }
+      ],
+      "args": [
+        "run",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock",
+        "--repetition",
+        "2",
+        "--calibration",
+        "/home/ubuntu/orbital-shapes-20261110/campaign/calibration/result.json",
+        "--geometry",
+        "/home/ubuntu/orbital-shapes-20261110/harness/geometry.json"
+      ]
+    },
+    {
+      "name": "rep2-orbital",
+      "mode": "orbital",
+      "repetition": 2,
+      "cases": [
+        {
+          "scenario": "sunlit",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-SO"
+        }
+      ],
+      "args": [
+        "run",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--repetition",
+        "2",
+        "--calibration",
+        "/home/ubuntu/orbital-shapes-20261110/campaign/calibration/result.json",
+        "--geometry",
+        "/home/ubuntu/orbital-shapes-20261110/harness/geometry.json"
+      ]
+    },
+    {
+      "name": "rep2-orbital_flat",
+      "mode": "orbital_flat",
+      "repetition": 2,
+      "cases": [
+        {
+          "scenario": "sunlit",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "SC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-SO"
+        },
+        {
+          "scenario": "recovery",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "LC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "mixed"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-LO"
+        },
+        {
+          "scenario": "sunlit",
+          "workload": "SC-SO"
+        }
+      ],
+      "args": [
+        "run",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital_flat",
+        "--repetition",
+        "2",
+        "--calibration",
+        "/home/ubuntu/orbital-shapes-20261110/campaign/calibration/result.json",
+        "--geometry",
+        "/home/ubuntu/orbital-shapes-20261110/harness/geometry.json"
+      ]
+    }
+  ],
+  "sources": {
+    "stock": "8f2ba935a5cb82f5fc231eea6b687a87443e88a6",
+    "orbital": "defa9de88f8cb047edb097c71c436374247acb72"
+  },
+  "geometry_sha256": "ac8490752bfbcdf32331669898c0cc96779c9d2adeef5bf44b76c6a072c8f6cb",
+  "shapes": {
+    "SC-SO": [
+      1000,
+      256
+    ],
+    "SC-LO": [
+      1000,
+      2000
+    ],
+    "LC-SO": [
+      16500,
+      256
+    ],
+    "LC-LO": [
+      16500,
+      2000
+    ]
+  },
+  "harness_sha256": {
+    "run_shape_experiments.py": "591ad18409bcc60140f2f75717709567ab245dbb4db3c7daf0abc5fdaffeb571",
+    "shape_utils.py": "52e1896a41dd334f5b5386ff62f43e4e48367e076e87cb8d03d6c2bf96f3871d",
+    "run_experiments.py": "b1211c5a2509d8fc5aeb7b72f38cdacdfaaa47884328ff3100d9fbc71c2192e2",
+    "experiment_worker.py": "b963df8dd161b4610cda83655c1983fc064ca7ff03b95ea7bed3ef6874c78818",
+    "experiment_utils.py": "94dc89abf1a284a647b138d93b194f033caad2fe372f188f5ba3cc98ccd4713c",
+    "xeoverse_trace.py": "1764fae5338c2a67a5d7e3d63773263194701ac412414ab576d0e43de68d75e4",
+    "run_shape_campaign.py": "8e2fe9fe82fbab52d95db0ee5e17aeedd4f7aef802eefaa620b5a7c4999de177",
+    "run_xeoverse_scheduler.py": "ba09e760f79842ece14daaae5d7efb1f004fdb626f9f2602c7d0131161df635e"
+  },
+  "measurement": {
+    "gpu": 0,
+    "repetitions": 3,
+    "watchdog_s": 300,
+    "request_deadlines": false,
+    "mixed_requests_per_shape": 2,
+    "max_model_len": 18500,
+    "max_num_batched_tokens": 512,
+    "max_num_seqs": 8
+  },
+  "sha256": "4db03e80c495333bfadf3fddc90cd479ec465a7a68c76de7e0e05dc7a66fb7d1"
+}

@@ -8,6 +8,7 @@ import subprocess
 import sys
 from copy import deepcopy
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -345,3 +346,210 @@ def test_saved_workload_cannot_drop_misses_or_change_generation_limits():
     result["requests"][0]["output_tokens"] = 17
     with pytest.raises(ValueError, match="metadata"):
         validate_saved_requests(original, result)
+
+
+def test_shape_workloads_preserve_exact_lengths_and_paired_mixed_denominator():
+    from collections import Counter
+
+    from benchmarks.satellite.shape_utils import SHAPES, case_plan, offered_requests
+
+    assert SHAPES == {
+        "SC-SO": (1000, 256),
+        "SC-LO": (1000, 2000),
+        "LC-SO": (16500, 256),
+        "LC-LO": (16500, 2000),
+    }
+    assert max(a + b for a, b in SHAPES.values()) == 18500
+    for repetition in range(3):
+        plan = case_plan(repetition)
+        assert len(plan) == 10
+        assert len({(c["scenario"], c["workload"]) for c in plan}) == 10
+        mixed = offered_requests("mixed", repetition)
+        assert mixed == offered_requests("mixed", repetition)
+        assert Counter(r["shape"] for r in mixed) == dict.fromkeys(SHAPES, 2)
+        assert len({r["id"] for r in mixed}) == 8
+        assert all(r["arrival_s"] == 0 and r["priority"] == 0 for r in mixed)
+        assert all("deadline_s" not in r for r in mixed)
+    with pytest.raises(ValueError, match="Unknown"):
+        offered_requests("unknown", 0)
+
+
+def token_receipts():
+    return {
+        "arrival_s": 0,
+        "output_tokens": 4,
+        "tokens": [10, 20, 30, 40],
+        "deliveries": [
+            {"received_s": t, "count": 1, "offset": n}
+            for n, t in enumerate((2, 3, 4, 5), 1)
+        ],
+        "outcome": "completed",
+        "finish_s": 5,
+    }
+
+
+def test_tpot_excludes_first_token_wait_and_never_fills_missing_tokens():
+    from benchmarks.satellite.shape_utils import latency_metrics
+
+    row = token_receipts()
+    result = latency_metrics(row)
+    assert result["ttft_s"] == 2
+    assert result["tpot_s"] == 1
+    assert result["completion_latency_s"] == 5
+    assert result["itl_p95_s"] == 1
+    row["outcome"] = "watchdog_expired"
+    row["finish_s"] = None
+    row["tokens"].pop()
+    row["deliveries"].pop()
+    result = latency_metrics(row)
+    assert result["ttft_s"] == 2
+    assert result["tpot_s"] is None
+    assert result["completion_latency_s"] is None
+    assert result["completed"] is False
+
+
+def test_chunked_receipts_do_not_invent_individual_token_latencies():
+    from benchmarks.satellite.shape_utils import latency_metrics
+
+    row = token_receipts()
+    row["deliveries"] = [
+        {"received_s": 2, "count": 2, "offset": 2},
+        {"received_s": 5, "count": 2, "offset": 4},
+    ]
+    result = latency_metrics(row)
+    assert result["tpot_s"] == 1
+    assert result["itl_p95_s"] is None
+    assert result["receipt_granularity"] == "chunks"
+
+
+@pytest.mark.parametrize(
+    "field,value", [("count", 0), ("offset", 2), ("received_s", float("nan"))]
+)
+def test_invalid_receipt_logs_cannot_produce_latency_metrics(field, value):
+    from benchmarks.satellite.shape_utils import latency_metrics
+
+    row = token_receipts()
+    row["deliveries"][0][field] = value
+    with pytest.raises(ValueError):
+        latency_metrics(row)
+    row = token_receipts()
+    row["output_tokens"] = 3
+    with pytest.raises(ValueError, match="limit"):
+        latency_metrics(row)
+
+
+def test_recovery_trace_uses_eclipse_exit_bracket_without_forced_pause():
+    from benchmarks.satellite.shape_utils import operating_trace
+
+    geometry = {
+        "transitions": [
+            {"offset_s": 100, "bracket_s": [99.999, 100.001], "eclipsed_after": False},
+            {"offset_s": 1000, "eclipsed_after": True},
+        ],
+        "segments": {"sunlit": {"start_offset_s": 220}},
+    }
+    result = operating_trace(geometry, "recovery", 300)
+    assert result["windows"] == [[0, 300]]
+    assert result["orbital_start_offset_s"] > 100.001
+    assert [s["max_step_s"] for s in result["step_limits"]] == [0.03, 0.05, 0.1]
+    assert result["step_limits"][0]["end_s"] == pytest.approx(9.998)
+    assert operating_trace(geometry, "sunlit", 300)["step_limits"] == [
+        {"start_s": 0.0, "end_s": 300.0, "max_step_s": 0.1}
+    ]
+    with pytest.raises(ValueError, match="remain sunlit"):
+        operating_trace(geometry, "recovery", 1000)
+
+
+def test_shapes_reject_insufficient_context_before_loading_gpu(tmp_path):
+    script = (
+        Path(__file__).resolve().parents[2]
+        / "benchmarks/satellite/run_shape_experiments.py"
+    )
+    output = tmp_path / "run"
+    process = subprocess.run(
+        [
+            sys.executable,
+            str(script),
+            "calibrate",
+            "--source",
+            str(tmp_path),
+            "--output",
+            str(output),
+            "--max-model-len",
+            "18499",
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert process.returncode == 2
+    assert "18500" in process.stderr
+    assert not output.exists()
+
+
+def test_shape_analysis_recomputes_metrics_and_rejects_changed_output():
+    from benchmarks.satellite.analyze_shape_experiments import validate_case_requests
+    from benchmarks.satellite.shape_utils import latency_metrics
+
+    row = token_receipts() | {"id": "r", "prompt_tokens": 1000}
+    row["metrics"] = latency_metrics(row)
+    metadata = {
+        k: row[k] for k in ("id", "arrival_s", "output_tokens", "prompt_tokens")
+    }
+    trace = {"requests": [metadata]}
+    result: dict[str, Any] = {
+        "requests": [row],
+        "all_completed": True,
+        "all_outputs_match_reference": True,
+    }
+    reference = {"1000": {"tokens": [10, 20, 30, 40]}}
+    validate_case_requests(result, trace, reference)
+    invalid = deepcopy(result)
+    invalid["requests"][0]["metrics"]["tpot_s"] = 0.001
+    with pytest.raises(ValueError, match="actual receipts"):
+        validate_case_requests(invalid, trace, reference)
+    invalid = deepcopy(result)
+    invalid["requests"][0]["tokens"][1] = 123
+    with pytest.raises(ValueError, match="stock reference"):
+        validate_case_requests(invalid, trace, reference)
+    invalid = deepcopy(result)
+    invalid["requests"] = []
+    with pytest.raises(ValueError, match="denominator"):
+        validate_case_requests(invalid, trace, reference)
+    invalid = deepcopy(result)
+    invalid["requests"][0]["outcome"] = "watchdog_expired"
+    invalid["requests"][0]["metrics"] = latency_metrics(invalid["requests"][0])
+    with pytest.raises(ValueError, match="Incomplete"):
+        validate_case_requests(invalid, trace, reference)
+
+
+def test_shape_analysis_cross_checks_receipts_against_raw_engine_events():
+    from benchmarks.satellite.analyze_shape_experiments import validate_event_receipts
+
+    row = token_receipts() | {"id": "r"}
+    result = {"requests": [row], "monotonic_start": 0, "step_calls": 4}
+    events: list[dict[str, Any]] = [
+        {
+            "start_mono": t - 0.5,
+            "end_mono": t,
+            "elapsed_s": 0.5,
+            "delivered_s": t,
+            "step_limit": None,
+            "outputs": [
+                {
+                    "id": "r",
+                    "tokens": [token],
+                    "error": None,
+                    "finish_reason": "length" if t == 5 else None,
+                }
+            ],
+        }
+        for t, token in zip((2, 3, 4, 5), row["tokens"])
+    ]
+    assert list(validate_event_receipts(iter(events), result, {})) == events
+    damaged = deepcopy(events)
+    damaged[0]["delivered_s"] += 0.1
+    with pytest.raises(ValueError, match="raw engine log"):
+        list(validate_event_receipts(iter(damaged), result, {}))
+    with pytest.raises(ValueError, match="missing or extra"):
+        list(validate_event_receipts(iter(events[:-1]), result, {}))

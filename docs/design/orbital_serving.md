@@ -518,3 +518,29 @@ isolated CUDA kernel duration or a hard real-time guarantee.
 The measured 36-run A100 comparison, including the latency/throughput tradeoff,
 cost-model diagnosis, and raw-data archives, is documented in
 [XeoVerse scheduler results](../../benchmarks/satellite/XEOVERSE_SCHEDULER.md).
+
+### Completion latency across workload shapes
+
+`run_shape_campaign.py` compares the unchanged stock scheduler, dynamic orbital
+scheduling, and a permissive-budget orbital control with exact SC-SO (1,000/256),
+SC-LO (1,000/2,000), LC-SO (16,500/256), and LC-LO (16,500/2,000) input/output
+lengths. Each shape runs alone and in an eight-request mixed batch. All requests
+run to full completion without the earlier campaign's synthetic deadlines.
+
+The harness measures TTFT, complete-output TPOT, completion latency, and actual
+inter-token gaps using client receipt times. Three independent engine launches
+per mode replay paired cases in steady sunlight and just after XeoVerse's eclipse
+exit, with assumed 100 ms and 30/50/100 ms step allowances respectively.
+The analyzer independently checks exact outputs, receipt-derived metrics,
+workload denominators, and frozen source/configuration identities.
+
+See the [workload-shape protocol and results](../../benchmarks/satellite/SHAPE_EXPERIMENTS.md)
+for measurement boundaries, controls, limitations, and reproduction commands.
+
+The 2026-11-10 campaign completed all 90 cases and 216 requests with exact stock
+output agreement. Median mixed-batch completion took 47.97 s for stock versus
+52.29 s for dynamic scheduling in steady sunlight, and 47.12 s versus 65.65 s
+during recovery. There were no observed step-budget overruns, preemptions, or
+recomputed work in any configuration. The existing additive profile substantially
+overestimates batched decode cost on this small-model A100 workload; the report
+includes the permissive control, per-shape TTFT/TPOT, and raw evidence.
