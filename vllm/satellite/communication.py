@@ -6,10 +6,13 @@ from __future__ import annotations
 
 from collections import Counter
 from dataclasses import asdict, dataclass
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from vllm.satellite.contracts import finite, integer
 from vllm.satellite.state import canonical_json
+
+if TYPE_CHECKING:
+    from vllm.distributed.device_communicators.pynccl import PyNcclCommunicator
 
 
 @dataclass(frozen=True)
@@ -70,9 +73,20 @@ class CommunicationExecutor:
     A collective failure must tear down the group and recover requests elsewhere.
     """
 
-    def __init__(self, device_group, control_group, plan: dict):
+    def __init__(
+        self,
+        device_group,
+        control_group,
+        plan: dict,
+        pynccl_comm: PyNcclCommunicator | None = None,
+    ):
         self.device_group = device_group
         self.control_group = control_group
+        self.pynccl_comm = (
+            pynccl_comm
+            if pynccl_comm is not None and not pynccl_comm.disabled
+            else None
+        )
         self.plan: CollectivePlan | None = None
         self.calls: Counter[str] = Counter()
         self.input_bytes: Counter[str] = Counter()
@@ -91,12 +105,24 @@ class CommunicationExecutor:
             plan = CollectivePlan.from_dict(values)
             if plan.world_size != dist.get_world_size(self.device_group):
                 raise ValueError("Collective calibration has the wrong group size")
+            if self.pynccl_comm is not None and (
+                self.pynccl_comm.world_size != plan.world_size
+                or self.pynccl_comm.rank != dist.get_rank(self.device_group)
+                or self.pynccl_comm.group is not self.control_group
+                or dist.get_process_group_ranks(self.device_group)
+                != dist.get_process_group_ranks(self.control_group)
+            ):
+                raise ValueError("PyNCCL transport does not match the execution group")
             if self.plan is not None and (
                 plan.version < self.plan.version
                 or (plan.version == self.plan.version and plan != self.plan)
             ):
                 raise ValueError("Collective plan versions must increase")
-            proposal = {"plan": asdict(plan), "error": None}
+            proposal = {
+                "plan": asdict(plan),
+                "transport": "pynccl" if self.pynccl_comm is not None else "torch",
+                "error": None,
+            }
         except (TypeError, ValueError) as error:
             proposal = {"plan": None, "error": str(error)}
         proposals: list[Any] = [None] * dist.get_world_size(self.control_group)
@@ -117,11 +143,18 @@ class CommunicationExecutor:
         assert self.plan is not None
         size = tensor.numel() * tensor.element_size()
         mode = self.plan.select(size)
+        if self.pynccl_comm is not None and self.pynccl_comm.disabled:
+            raise RuntimeError("The agreed PyNCCL transport is disabled")
         if mode == "native":
-            result = tensor.clone()
-            dist.all_reduce(result, group=self.device_group)
+            if self.pynccl_comm is not None:
+                result = self.pynccl_comm.all_reduce(tensor)
+            else:
+                result = tensor.clone()
+                dist.all_reduce(result, group=self.device_group)
         else:
-            result = gathered_sum(tensor, self.device_group, mode == "direct")
+            result = gathered_sum(
+                tensor, self.device_group, mode == "direct", self.pynccl_comm
+            )
         self.calls[mode] += 1
         self.input_bytes[mode] += size
         return result
@@ -129,6 +162,7 @@ class CommunicationExecutor:
     def statistics(self) -> dict:
         return {
             "plan_version": self.plan.version if self.plan else None,
+            "transport": "pynccl" if self.pynccl_comm is not None else "torch",
             "calls": dict(self.calls),
             "input_bytes": dict(self.input_bytes),
             "direct_send_bytes": self.input_bytes["direct"]

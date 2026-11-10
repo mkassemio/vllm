@@ -145,6 +145,7 @@ class CudaCommunicator(DeviceCommunicatorBase):
                 self.device_group,
                 self.cpu_group,
                 config.additional_config["orbital_communication"],
+                pynccl_comm=self.pynccl_comm if current_platform.is_cuda() else None,
             )
 
         if use_torch_symm_mem and current_platform.is_cuda():

@@ -272,12 +272,20 @@ order. They implement SUM without compression, but their rounding can differ
 from NCCL. Direct exchange sends `(TP - 1) * message_bytes` per rank; shared
 links and large messages can make it slower than native collectives.
 
+CUDA engines reuse vLLM's PyNCCL communicator when available. Grouped sends and
+receives execute on the caller's CUDA stream, followed by local addition on that
+same stream. For TP=2, direct exchange receives only the peer's contribution and
+uses one binary addition; it avoids copying its own input and materializing
+FP32 conversion buffers. The binary sum retains the original single-rounding
+semantics for FP16/BF16. Larger groups retain rank-ordered FP32 accumulation.
+Results are out of place and inputs are preserved.
+
 Measure the actual group before choosing costs:
 
 ```bash
 torchrun --standalone --nproc-per-node=2 \
   benchmarks/satellite/calibrate_collectives.py \
-  --backend nccl --output /tmp/collective-costs.json
+  --backend nccl --transport pynccl --output /tmp/collective-costs.json
 ```
 
 The report includes measured median and p95 times and a conservative linear fit
@@ -287,13 +295,20 @@ and `seconds_per_byte`; plans also require increasing `version`, `world_size`,
 and `max_scratch_bytes`. Native must be present. The lowest estimated cost wins,
 subject to the extra-scratch limit. Backend-internal native scratch is excluded.
 Remeasure when routes, group membership, dtype, contention, or GPU clocks change.
+Use `--transport pynccl` to measure the CUDA engine's PyNCCL path, or
+`--transport torch` to measure the c10d fallback. The latter is also the only
+transport for Gloo. `--profile-dir` additionally records per-rank Chrome traces
+and operator summaries after each case's timed iterations; profiler timings must
+not be interpreted as uninstrumented latency.
 
-All ranks agree the full plan before use. Synchronous, eager, PP=DP=1 execution
+All ranks agree the full plan and transport before use. PyNCCL availability
+disagreement fails initialization; a transport disabled after agreement raises
+an error rather than switching one rank to c10d. Synchronous, eager, PP=DP=1 execution
 is required. Between steps, the EngineCore utility
 `orbital_update_communication(plan)` updates every worker collectively; a
 mismatched update fails on all participating ranks without installing it.
-`collective_rpc("orbital_communication_statistics")` returns per-rank call and
-payload counts. A failed collective fails the group: never switch algorithms
+`collective_rpc("orbital_communication_statistics")` returns the transport and
+per-rank call and payload counts. A failed collective fails the group: never switch algorithms
 on one rank and continue. Group resizing, parameter reshards, changing attention
 replication, CUDA graphs, and transparent recovery from broken NCCL groups are
 not implemented in this branch.
@@ -343,3 +358,11 @@ The handoff tests consume EngineCore outputs through the journal; they do not
 test migration of an existing HTTP connection or frontend session.
 No CPU result substitutes for running them. Record the GPU model, drivers,
 PyTorch/CUDA/NCCL versions, model revision, traces, and branch SHA with results.
+
+For repeated comparisons, add `--warmup-runs 1 --repeats 3` to each evaluation
+command. Modes `scheduler` and `communication` isolate the two sources of
+overhead, while `orbital` enables both. Run configurations sequentially on an
+otherwise idle host with identical arguments. Reports preserve each measured
+run and its accuracy, as well as median latency and throughput. These defaults
+compare eager TP=2 execution with custom all-reduce disabled; they do not compare
+against stock vLLM's fastest possible CUDA-graph configuration.

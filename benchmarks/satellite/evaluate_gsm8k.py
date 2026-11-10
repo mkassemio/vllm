@@ -9,6 +9,7 @@ not energy savings or performance under satellite resource constraints.
 
 import argparse
 import json
+import statistics
 import tempfile
 import time
 from pathlib import Path
@@ -20,22 +21,32 @@ from vllm.satellite.contracts import Forecast, OperatingWindow
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", choices=("stock", "orbital"), required=True)
+    parser.add_argument(
+        "--mode",
+        choices=("stock", "scheduler", "communication", "orbital"),
+        required=True,
+    )
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--num-questions", type=int, default=64)
     parser.add_argument("--tensor-parallel-size", type=int, default=2)
+    parser.add_argument("--repeats", type=int, default=1)
+    parser.add_argument("--warmup-runs", type=int, default=0)
     parser.add_argument(
         "--collective", choices=("native", "direct", "allgather"), default="direct"
     )
     args = parser.parse_args()
-    if args.num_questions < 1 or args.tensor_parallel_size < 1:
-        parser.error("Question count and TP degree must be positive")
+    if min(args.num_questions, args.tensor_parallel_size, args.repeats) < 1:
+        parser.error("Question count, TP degree and repeats must be positive")
+    if args.warmup_runs < 0:
+        parser.error("Warmup runs must be nonnegative")
+    use_scheduler = args.mode in ("scheduler", "orbital")
+    use_communication = args.mode in ("communication", "orbital")
     revision = "7ae557604adf67be50417f59c2c2f167def9a775"
     with tempfile.TemporaryDirectory(prefix="orbital-eval-") as directory:
         path = Path(directory) / "forecast.json"
         extra: dict = {}
         options: dict = {}
-        if args.mode == "orbital":
+        if use_scheduler:
             extra["orbital"] = {
                 "forecast_path": str(path),
                 "profile": {
@@ -45,6 +56,8 @@ def main():
                     "power_w": 100,
                 },
             }
+            options["scheduler_cls"] = "vllm.satellite.scheduler.SatelliteScheduler"
+        if use_communication:
             costs = [{"name": "native", "latency_s": 1, "seconds_per_byte": 0}]
             if args.collective != "native":
                 costs.append(
@@ -56,7 +69,6 @@ def main():
                 "max_scratch_bytes": 268435456,
                 "costs": costs,
             }
-            options["scheduler_cls"] = "vllm.satellite.scheduler.SatelliteScheduler"
         llm = LLM(
             model="Qwen/Qwen2.5-0.5B-Instruct",
             revision=revision,
@@ -74,7 +86,7 @@ def main():
             additional_config=extra,
             **options,
         )
-        if args.mode == "orbital":
+        if use_scheduler:
             now = time.time()
             forecast = Forecast(
                 1,
@@ -86,21 +98,31 @@ def main():
         llm.generate(
             ["Warm up this model."], SamplingParams(temperature=0, max_tokens=8)
         )
-        result = evaluate_gsm8k_offline(
-            llm, num_questions=args.num_questions, num_shots=5, max_tokens=256
-        )
+        runs = []
+        for index in range(args.warmup_runs + args.repeats):
+            result = evaluate_gsm8k_offline(
+                llm, num_questions=args.num_questions, num_shots=5, max_tokens=256
+            )
+            if index >= args.warmup_runs:
+                runs.append(result)
         report: dict = {
             "mode": args.mode,
             "model_revision": revision,
             "tensor_parallel_size": args.tensor_parallel_size,
-            "collective": args.collective if args.mode == "orbital" else "stock",
-            "result": result,
+            "collective": args.collective if use_communication else "stock",
+            "result": runs[-1],
+            "runs": runs,
+            "warmup_runs": args.warmup_runs,
+            "median_latency_s": statistics.median(run["latency"] for run in runs),
+            "median_output_tokens_per_second": statistics.median(
+                run["tokens_per_second"] for run in runs
+            ),
             "scope": (
                 "Accuracy regression with permissive synthetic budgets; "
                 "not a satellite performance claim."
             ),
         }
-        if args.mode == "orbital":
+        if use_communication:
             report["communication"] = llm.collective_rpc(
                 "orbital_communication_statistics"
             )
