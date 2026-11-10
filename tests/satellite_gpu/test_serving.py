@@ -16,6 +16,7 @@ from vllm.satellite.contracts import Forecast, OperatingWindow
 from vllm.satellite.state import RequestSnapshot
 
 MODEL = "Qwen/Qwen2.5-0.5B-Instruct"
+MODEL_REVISION = "7ae557604adf67be50417f59c2c2f167def9a775"
 
 
 def orbital_config(tmp_path):
@@ -43,12 +44,15 @@ def orbital_config(tmp_path):
 
 def arguments():
     return dict(
+        revision=MODEL_REVISION,
         enforce_eager=True,
         async_scheduling=False,
+        enable_chunked_prefill=True,
         max_model_len=256,
         max_num_batched_tokens=32,
         max_num_seqs=4,
         enable_prefix_caching=False,
+        gpu_memory_utilization=0.2,
         seed=42,
     )
 
@@ -102,7 +106,9 @@ def test_checkpoint_restore_continues_real_model_tokens(
         llm = runner.llm
         prompt = "The capital of France is"
         params = SamplingParams(temperature=0, max_tokens=12, ignore_eos=True)
-        expected = list(llm.generate([prompt], params)[0].outputs[0].token_ids)
+        # generate() changes its parameters to FINAL_ONLY; the stepped request
+        # needs cumulative outputs so it can be paused before completion.
+        expected = list(llm.generate([prompt], params.clone())[0].outputs[0].token_ids)
         engine = llm.llm_engine
         request_id = engine.add_request("recover", prompt, params)
         partial: list[int] = []
