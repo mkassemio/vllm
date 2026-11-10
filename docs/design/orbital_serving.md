@@ -399,11 +399,13 @@ The scheduler trace schema contains `schema_version: 1`, `duration_s`, disjoint
 `output_tokens`, integer `priority`, and `class` (`interactive` or `onboard`).
 Every deadline must fall within the measurement horizon. Relative timestamps
 are mapped once to host monotonic time and the engine's Unix-time forecasts.
-An external XeoVerse/resource adapter can emit this format. The supplied traces
-are synthetic compute availability, not physical eclipse or ground-contact
-predictions. The harness does not yet integrate XeoVerse network emulation.
+Optional `step_limits` entries contain `start_s`, `end_s`, and `max_step_s`.
+They must partition all open compute time, with positive finite duration caps.
+The `make-trace` command generates synthetic availability. The XeoVerse adapter
+below derives availability from orbital geometry and an explicit mission policy.
+The harness does not integrate XeoVerse network emulation.
 
-Scheduler modes are `stock`, `stock_guard`, and `orbital`. All receive identical
+Scheduler modes are `stock`, `stock_guard`, `orbital`, and `orbital_flat`. All receive identical
 open-loop arrivals and priority metadata and share the same external gate: no
 new step is requested in a closed window, and existing KV remains resident.
 `stock_guard` also stops requesting steps near a window's end using a calibrated
@@ -411,6 +413,9 @@ p99 duration plus margin. Orbital additionally uses its batch-level policy and
 deadline metadata. Both stock modes cancel expired requests externally. Steps
 that straddle window boundaries are measured, not silently discarded. This
 gate is an in-process equivalent of pause/keep, not an HTTP pause benchmark.
+`orbital_flat` retains orbital priorities, deadlines, and window prediction but
+uses a permissive ten-second step allowance instead of trace `step_limits`.
+This ablation isolates the changing per-step allowance, not all forecasting.
 
 All offered requests remain in deadline-goodput denominators. Token timestamps
 record actual gateway receipt of chunks; first-token percentiles disclose their
@@ -460,5 +465,56 @@ calibration, and greedy-reference hashes before aggregating results. Missing
 latency and energy stay null. Per-run completion counts and handoff ranges
 remain visible. `plot_experiments.py summary.json pilot.png` exports a figure
 using matplotlib, which is only needed in the analysis environment. Scheduler
-step logs also expose repeated prefill after decoding; reported excess prefill
-is a lower bound because steps that reset progress are not fully counted.
+step logs also expose repeated prefill after decoding. The original pilot's
+excess-prefill metric is a lower bound. New logs retain completed request
+objects, preemption events, and computed-token start offsets, allowing the
+XeoVerse analyzer to count overlap with previously computed token positions.
+
+### XeoVerse scheduler comparison
+
+`xeoverse_trace.py` uses the supplied XeoVerse checkout's Walker constellation,
+SGP4 propagator, and Sun direction. It selects 45-second sunlit, eclipse-entry,
+and eclipse-exit segments for satellite zero. The export records source hashes,
+positions, numerical transition brackets, and a one-to-one orbital/wall clock.
+Its cylindrical Earth-shadow approximation omits penumbra. The modeled fleet
+has 144 satellites; the experiment measures one TP=1 serving replica on an A100.
+
+Inference pauses in shadow and keeps resident KV under an **assumed mission
+policy**. In sunlight, the step allowance is 30 ms within ten seconds of eclipse,
+50 ms at ten to twenty seconds, and 100 ms farther away. These are supplied
+compute-slot budgets, not a validated battery, thermal, or spacecraft power model.
+Stock is measured against the same budgets; the harness reports overruns rather
+than silently removing expensive steps. No hardware power limit is changed.
+
+```bash
+# Use the XeoVerse environment for geometry export.
+/path/to/xeoverse/.venv/bin/python benchmarks/satellite/xeoverse_trace.py \
+  --xeoverse /path/to/xeoverse --output /tmp/xeoverse-traces
+# Use the Linux CUDA environment for actual inference.
+PYTHONPATH=. .venv/bin/python benchmarks/satellite/run_xeoverse_scheduler.py \
+  --stock /path/to/upstream --orbital /path/to/orbital \
+  --traces /tmp/xeoverse-traces --output /tmp/xeoverse-campaign
+.venv/bin/python benchmarks/satellite/analyze_xeoverse_scheduler.py \
+  /tmp/xeoverse-campaign --output /tmp/xeoverse-summary.json
+```
+
+The runner calibrates each batch size, checks that the minimum allowance can
+fit an estimated decode step, then runs 36 serial fresh-engine comparisons:
+three scenarios, three arrival seeds, and four configurations. Stock uses its
+unchanged priority scheduler with chunked prefill at 128 or 512 batch tokens;
+both receive the calibrated closing guard. Orbital and `orbital_flat` use 512.
+Loading, reference generation, and warmup precede each measurement window.
+All offered requests, including arrivals during eclipse, remain in the results.
+
+The analyzer checks the frozen plan, trace, serving commit, calibration, harness,
+and cross-mode greedy-reference identities. Incomplete campaigns fail analysis
+unless explicitly marked `--allow-partial`. Metrics include per-class deadline
+completions, conditional TTFT and observation counts, actual prefill chunk sizes,
+preemptions, repeated computed-token work, device energy, and budget overruns.
+The step-duration cap is evaluated at the actual start of each executed step;
+whole-step wall time includes CPU scheduling and GPU execution. It is not an
+isolated CUDA kernel duration or a hard real-time guarantee.
+
+The measured 36-run A100 comparison, including the latency/throughput tradeoff,
+cost-model diagnosis, and raw-data archives, is documented in
+[XeoVerse scheduler results](../../benchmarks/satellite/XEOVERSE_SCHEDULER.md).

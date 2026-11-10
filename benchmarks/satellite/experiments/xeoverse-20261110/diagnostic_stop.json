@@ -1,0 +1,10 @@
+{
+  "status": "stopped_after_calibration_review",
+  "reason": "25 ms slot was below the 26.908 ms calibrated single-decode estimate; main campaign minimum raised to 30 ms before comparing performance outcomes.",
+  "launcher_pid": 123647,
+  "action": "Stopped only launcher; in-flight request run allowed to finish normally.",
+  "included_in_main_comparison": false,
+  "main_campaign": "campaign-v2",
+  "main_profile_guard": "Reject per-step allowances below the calibrated minimum decode duration.",
+  "completed_scheduler_runs": 3
+}

@@ -1,0 +1,21 @@
+{
+  "captured_utc": "2026-11-10T17:07:11.620595+00:00",
+  "host": "spheron-a100-80g-pcie-2x-1794269161613-oq3k80",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "torch": "2.14.0+cu130",
+  "cuda_runtime": "13.0",
+  "nccl": [
+    2,
+    30,
+    7
+  ],
+  "sources": {
+    "stock": "8f2ba935a5cb82f5fc231eea6b687a87443e88a6",
+    "orbital": "ae83cf9bb7bdd64dc808b5016a441c9ae672c253"
+  },
+  "gpu_csv": "index, uuid, pci.bus_id, name, driver_version, memory.total [MiB], power.limit [W]\n0, GPU-372830ee-3d65-dbbf-e5ba-267b8e940dfa, 00000000:00:07.0, NVIDIA A100 80GB PCIe, 570.195.03, 81920 MiB, 300.00 W\n1, GPU-9b8e9bee-331b-4ac6-7a83-7d396eb8fbee, 00000000:00:08.0, NVIDIA A100 80GB PCIe, 570.195.03, 81920 MiB, 300.00 W\n",
+  "gpu_used": 0,
+  "concurrent_gpu_jobs": false,
+  "runtime_changed": false,
+  "scheduler_runs": 36
+}

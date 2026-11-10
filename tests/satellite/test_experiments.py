@@ -243,3 +243,105 @@ def test_invalid_handoff_is_rejected_before_loading_a_gpu(tmp_path, arguments, m
     assert process.returncode == 2
     assert message in process.stderr
     assert not output.exists()
+
+
+def test_resource_limits_must_cover_open_time_without_holes_or_overlap():
+    item = trace()
+    item["step_limits"] = [
+        {"start_s": 0, "end_s": 1, "max_step_s": 0.1},
+        {"start_s": 1, "end_s": 3, "max_step_s": 0.025},
+        {"start_s": 5, "end_s": 10, "max_step_s": 0.05},
+    ]
+    assert validate_trace(item) == item
+    for field, value in (("start_s", 2), ("max_step_s", float("nan"))):
+        invalid = deepcopy(item)
+        invalid["step_limits"][1][field] = value
+        with pytest.raises(ValueError):
+            validate_trace(invalid)
+    invalid = deepcopy(item)
+    invalid["step_limits"][1]["start_s"] = 0.5
+    with pytest.raises(ValueError, match="disjoint"):
+        validate_trace(invalid)
+
+
+def test_xeoverse_segments_preserve_real_time_and_eclipse_gate():
+    from benchmarks.satellite.xeoverse_trace import segment_limits, shadow_margin
+
+    assert shadow_margin([7000, 0, 0], [1, 0, 0]) > 0
+    assert shadow_margin([-7000, 0, 0], [1, 0, 0]) < 0
+    assert shadow_margin([-7000, 7000, 0], [1, 0, 0]) > 0
+    windows, limits = segment_limits(67, 45, 0, 100)
+    assert windows == [[0, 33]]
+    assert [(s["start_s"], s["end_s"], s["max_step_s"]) for s in limits] == [
+        (0, 13, 0.1),
+        (13, 23, 0.05),
+        (23, 33, 0.030),
+    ]
+    windows, limits = segment_limits(88, 45, 100, 500)
+    assert windows == [[12, 45]]
+    assert [s["max_step_s"] for s in limits] == [0.030, 0.05, 0.1]
+
+
+def test_step_analysis_counts_recomputed_work_and_keeps_empty_steps_separate():
+    from benchmarks.satellite.analyze_xeoverse_scheduler import event_metrics
+
+    events = []
+    for start, tokens, preempted, executed, elapsed in (
+        (0, 100, [], True, 0.04),
+        (100, 1, [], True, 0.02),
+        (0, 50, ["r"], True, 0.03),
+        (50, 100, [], True, 0.02),
+        (150, 0, [], False, 0.01),
+    ):
+        events.append(
+            {
+                "preempted": preempted,
+                "model_executed": executed,
+                "elapsed_s": elapsed,
+                "step_limit": {"max_step_s": 0.03},
+                "scheduled": [
+                    {
+                        "request_id": "r",
+                        "computed_start": start,
+                        "tokens": tokens,
+                        "kind": "prefill",
+                    }
+                ],
+            }
+        )
+    result = event_metrics(events)
+    assert result["recomputed_token_work"] == 101
+    assert result["computed_token_work"] == 251
+    assert result["model_executed_steps"] == 4
+    assert result["preemptions"] == 1
+    assert result["step_budget_overruns"] == 1
+    assert result["phases"]["0.03"]["prefill_chunks"]["count"] == 4
+
+
+def test_xeoverse_analysis_refuses_to_call_partial_campaign_complete(tmp_path):
+    from benchmarks.satellite.analyze_xeoverse_scheduler import summarize
+    from benchmarks.satellite.experiment_utils import digest
+
+    plan = {"jobs": [{"name": "missing", "args": ["scheduler"]}]}
+    (tmp_path / "plan.json").write_text(json.dumps(plan | {"sha256": digest(plan)}))
+    with pytest.raises(ValueError, match="Incomplete campaign"):
+        summarize(tmp_path)
+    result = summarize(tmp_path, allow_partial=True)
+    assert result["complete"] is False
+    assert result["pending"] == ["missing"]
+
+
+def test_saved_workload_cannot_drop_misses_or_change_generation_limits():
+    from benchmarks.satellite.analyze_xeoverse_scheduler import validate_saved_requests
+
+    original = trace()
+    result = {"requests": [original["requests"][0] | {"tokens": [1]}]}
+    validate_saved_requests(original, result)
+    with pytest.raises(ValueError, match="denominator"):
+        validate_saved_requests(original, {"requests": []})
+    result["requests"][0]["tokens"] = list(range(17))
+    with pytest.raises(ValueError, match="generation allowance"):
+        validate_saved_requests(original, result)
+    result["requests"][0]["output_tokens"] = 17
+    with pytest.raises(ValueError, match="metadata"):
+        validate_saved_requests(original, result)

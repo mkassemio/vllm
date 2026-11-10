@@ -26,33 +26,45 @@ def main():
 
         def step():
             before = {
-                name: (r.num_computed_tokens, r.num_prompt_tokens)
+                name: (r, r.num_computed_tokens, r.num_preemptions)
                 for name, r in engine.scheduler.requests.items()
             }
             start = time.monotonic()
             output = core.get_output()
             end = time.monotonic()
             scheduled = []
-            for name, (computed, prompt_length) in before.items():
-                request = engine.scheduler.requests.get(name)
-                if request is not None:
-                    count = request.num_computed_tokens - computed
-                    if count > 0:
-                        scheduled.append(
-                            {
-                                "request_id": name,
-                                "tokens": count,
-                                "kind": "prefill"
-                                if computed < prompt_length
-                                else "decode",
-                            }
-                        )
+            preemptions = []
+            for name, (request, computed, previous_preemptions) in before.items():
+                reset = request.num_preemptions > previous_preemptions
+                if reset:
+                    preemptions.append(name)
+                origin = 0 if reset else computed
+                count = request.num_computed_tokens - origin
+                if count > 0:
+                    scheduled.append(
+                        {
+                            "request_id": name,
+                            "tokens": count,
+                            "computed_start": origin,
+                            "kind": "prefill"
+                            if origin < request.num_prompt_tokens or count > 1
+                            else "decode",
+                        }
+                    )
+            policy = getattr(engine.scheduler, "orbital_plan", None)
             return {
                 "start_mono": start,
                 "end_mono": end,
                 "elapsed_s": end - start,
                 "model_executed": core.last_step_model_executed,
                 "scheduled": scheduled,
+                "preempted": preemptions,
+                "policy": {
+                    "estimated_s": policy.estimated_s,
+                    "token_limits": policy.token_limits,
+                }
+                if policy is not None
+                else None,
                 "outputs": [
                     {
                         "id": o.request_id,

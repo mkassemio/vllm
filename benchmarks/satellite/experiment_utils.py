@@ -84,6 +84,30 @@ def validate_trace(trace):
         if not 0 <= end <= start < stop <= horizon:
             raise ValueError("Windows must be ordered, disjoint, and inside horizon")
         end = stop
+    if "step_limits" in trace:
+        covered = []
+        for limit in trace["step_limits"]:
+            start, stop, cap = (limit[k] for k in ("start_s", "end_s", "max_step_s"))
+            if not all(math.isfinite(v) for v in (start, stop, cap)) or cap <= 0:
+                raise ValueError(
+                    "Step limits must be finite with positive duration caps"
+                )
+            if not 0 <= start < stop <= horizon:
+                raise ValueError("Step limits must be inside the horizon")
+            if covered and start < covered[-1][1]:
+                raise ValueError("Step limits must be ordered and disjoint")
+            if covered and start == covered[-1][1]:
+                covered[-1][1] = stop
+            else:
+                covered.append([start, stop])
+        merged = []
+        for start, stop in trace["windows"]:
+            if merged and start == merged[-1][1]:
+                merged[-1][1] = stop
+            else:
+                merged.append([start, stop])
+        if covered != merged:
+            raise ValueError("Step limits must exactly cover the compute windows")
     seen = set()
     for request in trace["requests"]:
         name = request["id"]
@@ -107,6 +131,13 @@ def validate_trace(trace):
 
 def window_at(windows, now):
     return next(((a, b) for a, b in windows if a <= now < b), None)
+
+
+def step_limit_at(trace, now):
+    return next(
+        (s for s in trace.get("step_limits", []) if s["start_s"] <= now < s["end_s"]),
+        None,
+    )
 
 
 def outside_windows(start, end, windows):

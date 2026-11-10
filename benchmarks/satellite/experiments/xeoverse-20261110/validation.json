@@ -1,0 +1,38 @@
+{
+  "main_runs": 36,
+  "all_generated_prefixes_match_reference": true,
+  "independent_saved_output_check": {
+    "requests_checked": 6480,
+    "missing_complete_reference_hashes": [],
+    "scope": "Complete observed outputs must hash to the recorded reference; all saved prefixes are then compared independently."
+  },
+  "raw_files_sha256_verified": 282,
+  "executed_harness_matches_plan": true,
+  "cpu_unique_passed": 85,
+  "cpu_suites": [
+    {
+      "file": "xeoverse-components.xml",
+      "passed": 84
+    },
+    {
+      "file": "xeoverse-analysis-tests.xml",
+      "passed": 17
+    }
+  ],
+  "cpu_note": "84-case component suite plus the final 17-case harness/analysis suite, with 16 overlapping cases.",
+  "diagnostic_runs": 3,
+  "diagnostics_excluded_from_main_results": true,
+  "serving_runtime_changed": false,
+  "gpu_jobs_complete": true,
+  "gpu_idle_at_completion": true,
+  "archive_sha256": {
+    "campaign-v1.tar.gz": "3e40bf31300c00c9adee376d8808054831ce593392d46ff91bf22171b37d4390",
+    "campaign-v2.tar.gz": "9fc4cac7e25e919597b6d6e15a8905961d2d8a1e44c1d0e31469b3ab38d51d3a",
+    "harness-v1.tar.gz": "45b399255d77f2414006232c21e35fcc3db5c6eb1c6915850b7e03e4169470cb",
+    "harness-v2.tar.gz": "dbcb9d1dcd64383c60216a188140d6e34b44f99fde1fbff0f97533a621fedf04"
+  },
+  "local_xeoverse_source_snapshot": {
+    "path": "/private/tmp/orbital-xeoverse-artifacts/xeoverse-source.tar.gz",
+    "sha256": "d55f9c72cead1cd0cb79317c5704f4b6cf2e6eec7b771419d782ea686c121072"
+  }
+}

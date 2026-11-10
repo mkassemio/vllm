@@ -25,6 +25,7 @@ from experiment_utils import (
     energy_snapshot,
     outside_windows,
     percentile,
+    step_limit_at,
     summarize_requests,
     validate_trace,
     wait_until,
@@ -73,8 +74,17 @@ def options(args, forecast=None, profile=None):
     return result
 
 
-def forecast_file(path, windows, epoch, args, version=1, horizon_s=3600):
+def forecast_file(
+    path, windows, epoch, args, version=1, horizon_s=3600, step_limits=None
+):
     now = time.time()
+    limits = (
+        step_limits
+        if step_limits is not None
+        else [
+            {"start_s": start, "end_s": end, "max_step_s": 10} for start, end in windows
+        ]
+    )
     write_json(
         path,
         {
@@ -83,15 +93,15 @@ def forecast_file(path, windows, epoch, args, version=1, horizon_s=3600):
             "expires_s": epoch + horizon_s + 1,
             "windows": [
                 {
-                    "start_s": epoch + start,
-                    "end_s": epoch + end,
+                    "start_s": epoch + limit["start_s"],
+                    "end_s": epoch + limit["end_s"],
                     "max_power_w": 1000,
                     "energy_j": 1_000_000,
-                    "max_step_s": 10,
+                    "max_step_s": limit["max_step_s"],
                     "max_tokens": args.batch_tokens,
                     "max_requests": args.max_seqs,
                 }
-                for start, end in windows
+                for limit in limits
             ],
         },
     )
@@ -194,7 +204,7 @@ def scheduler(args):
     calibration = json.loads(args.calibration.read_text())
     profile = calibration["profile"]
     path = args.output / "forecast.json"
-    orbital = args.mode == "orbital"
+    orbital = args.mode in ("orbital", "orbital_flat")
     config = options(args, path if orbital else None, profile)
     for field in (
         "model",
@@ -244,6 +254,9 @@ def scheduler(args):
                 args,
                 version=2,
                 horizon_s=trace["duration_s"],
+                step_limits=trace.get("step_limits")
+                if args.mode == "orbital"
+                else None,
             )
         write_json(args.output / "trace.json", trace)
         pending = sorted(records.values(), key=lambda r: (r["arrival_s"], r["id"]))
@@ -308,7 +321,12 @@ def scheduler(args):
                 executed += 1
                 events.write(
                     json.dumps(
-                        result | {"delivered_s": delivered, "outside_s": violation}
+                        result
+                        | {
+                            "delivered_s": delivered,
+                            "outside_s": violation,
+                            "step_limit": step_limit_at(trace, start),
+                        }
                     )
                     + "\n"
                 )
@@ -365,7 +383,7 @@ def scheduler(args):
             "requests": rows,
             "final_status": actor.call("status"),
             "scope": (
-                "TP1, eager, synchronous EngineCore; synthetic compute windows; "
+                "TP1, eager, synchronous EngineCore; trace-defined compute windows; "
                 "local token recipient; no power cap or ground-contact emulation"
             ),
         }
@@ -640,7 +658,9 @@ def main():
         child.add_argument("--max-seqs", type=int, default=8)
         if name == "scheduler":
             child.add_argument(
-                "--mode", choices=("stock", "stock_guard", "orbital"), required=True
+                "--mode",
+                choices=("stock", "stock_guard", "orbital", "orbital_flat"),
+                required=True,
             )
             child.add_argument("--trace", type=Path, required=True)
             child.add_argument("--calibration", type=Path, required=True)

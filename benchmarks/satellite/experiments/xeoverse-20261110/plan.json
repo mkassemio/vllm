@@ -1,0 +1,622 @@
+{
+  "jobs": [
+    {
+      "name": "calibration-128",
+      "args": [
+        "calibrate",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--batch-tokens",
+        "128"
+      ]
+    },
+    {
+      "name": "calibration-512",
+      "args": [
+        "calibrate",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--batch-tokens",
+        "512"
+      ]
+    },
+    {
+      "name": "ingress-0-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-ingress-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "ingress-0-stock512",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-ingress-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "ingress-0-orbital_flat",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital_flat",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-ingress-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "ingress-0-stock128",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "128",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-ingress-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-128/result.json"
+      ]
+    },
+    {
+      "name": "ingress-2-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-ingress-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "ingress-2-stock512",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-ingress-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "ingress-2-stock128",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "128",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-ingress-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-128/result.json"
+      ]
+    },
+    {
+      "name": "ingress-2-orbital_flat",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital_flat",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-ingress-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "egress-0-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-egress-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "egress-0-stock512",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-egress-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "egress-0-orbital_flat",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital_flat",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-egress-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "egress-0-stock128",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "128",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-egress-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-128/result.json"
+      ]
+    },
+    {
+      "name": "ingress-1-orbital_flat",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital_flat",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-ingress-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "ingress-1-stock512",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-ingress-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "ingress-1-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-ingress-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "ingress-1-stock128",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "128",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-ingress-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-128/result.json"
+      ]
+    },
+    {
+      "name": "sunlit-0-stock512",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-sunlit-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "sunlit-0-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-sunlit-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "sunlit-0-stock128",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "128",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-sunlit-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-128/result.json"
+      ]
+    },
+    {
+      "name": "sunlit-0-orbital_flat",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital_flat",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-sunlit-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "sunlit-1-orbital_flat",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital_flat",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-sunlit-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "sunlit-1-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-sunlit-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "sunlit-1-stock512",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-sunlit-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "sunlit-1-stock128",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "128",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-sunlit-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-128/result.json"
+      ]
+    },
+    {
+      "name": "sunlit-2-orbital_flat",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital_flat",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-sunlit-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "sunlit-2-stock512",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-sunlit-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "sunlit-2-stock128",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "128",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-sunlit-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-128/result.json"
+      ]
+    },
+    {
+      "name": "sunlit-2-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-sunlit-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "egress-1-stock512",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-egress-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "egress-1-stock128",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "128",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-egress-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-128/result.json"
+      ]
+    },
+    {
+      "name": "egress-1-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-egress-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "egress-1-orbital_flat",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital_flat",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-egress-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "egress-2-stock512",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-egress-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "egress-2-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-egress-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "egress-2-orbital_flat",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital_flat",
+        "--batch-tokens",
+        "512",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-egress-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-512/result.json"
+      ]
+    },
+    {
+      "name": "egress-2-stock128",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--batch-tokens",
+        "128",
+        "--trace",
+        "/home/ubuntu/orbital-xeoverse-20261110/traces-v2/trace-egress-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-xeoverse-20261110/campaign-v2/calibration-128/result.json"
+      ]
+    }
+  ],
+  "sources": {
+    "stock": "8f2ba935a5cb82f5fc231eea6b687a87443e88a6",
+    "orbital": "ae83cf9bb7bdd64dc808b5016a441c9ae672c253"
+  },
+  "traces": {
+    "trace-egress-0.json": "1c0eff16f13a2b1b279d0ee6f89c90cbec0aaac6885b6f4ab58af9edcddc0427",
+    "trace-egress-1.json": "fd81858858d68b0c30e490bdcff48b68e608515eda2c1fee702aca39452b6cbe",
+    "trace-egress-2.json": "7fe9708402599ffe985847438c6d3fe3fa49f6e1f80748b4ddbe521743c77a0f",
+    "trace-ingress-0.json": "5fa26a49bda1f6801f0c140af957e7a357bfda0b8fde0646562f045fffcef40a",
+    "trace-ingress-1.json": "69d9a88b990a723db21120f3b8fb59038f549b6c5c6756580cf2eabb09c1ffeb",
+    "trace-ingress-2.json": "50b8d1206698af7af8cea0f37271a0d6fd88bb409f732fc50b9c7b24272f9383",
+    "trace-sunlit-0.json": "ebdb50f04b6d5a34711586a1d6cc59f56aa1e49c34c731998798a89b10242457",
+    "trace-sunlit-1.json": "efa087b2fbf1556265a4c892b1a53199e8160586409c00f03cd362c8706d621c",
+    "trace-sunlit-2.json": "286e921339e6a02142be6b5a8b47a5e95121921e1cc6cd9bbadedf7dc12b3d8f"
+  },
+  "harness_sha256": {
+    "run_xeoverse_scheduler.py": "ba09e760f79842ece14daaae5d7efb1f004fdb626f9f2602c7d0131161df635e",
+    "run_experiments.py": "b1211c5a2509d8fc5aeb7b72f38cdacdfaaa47884328ff3100d9fbc71c2192e2",
+    "experiment_worker.py": "b963df8dd161b4610cda83655c1983fc064ca7ff03b95ea7bed3ef6874c78818",
+    "experiment_utils.py": "94dc89abf1a284a647b138d93b194f033caad2fe372f188f5ba3cc98ccd4713c"
+  },
+  "sha256": "2e9f72712d05ed399da1796ebfc4857a33c396ea6f5b99501edc5f11994fa817"
+}
