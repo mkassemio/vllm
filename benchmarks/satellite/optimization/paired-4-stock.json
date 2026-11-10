@@ -1,0 +1,36 @@
+{
+  "mode": "stock",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "tensor_parallel_size": 2,
+  "collective": "stock",
+  "result": {
+    "accuracy": 0.28125,
+    "invalid_rate": 0.0,
+    "latency": 27.772311937000268,
+    "questions_per_second": 2.304453447922519,
+    "total_output_tokens": 7135,
+    "tokens_per_second": 256.91055235823706,
+    "num_questions": 64,
+    "num_shots": 5,
+    "max_tokens": 256,
+    "timestamp": 1794273690.3578448
+  },
+  "runs": [
+    {
+      "accuracy": 0.28125,
+      "invalid_rate": 0.0,
+      "latency": 27.772311937000268,
+      "questions_per_second": 2.304453447922519,
+      "total_output_tokens": 7135,
+      "tokens_per_second": 256.91055235823706,
+      "num_questions": 64,
+      "num_shots": 5,
+      "max_tokens": 256,
+      "timestamp": 1794273690.3578448
+    }
+  ],
+  "warmup_runs": 1,
+  "median_latency_s": 27.772311937000268,
+  "median_output_tokens_per_second": 256.91055235823706,
+  "scope": "Accuracy regression with permissive synthetic budgets; not a satellite performance claim."
+}

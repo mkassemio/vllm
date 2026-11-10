@@ -1,0 +1,127 @@
+{
+  "scope": "One profiled collective per rank and stage. Counts establish executed operations; profiled timings are not latency measurements.",
+  "records": [
+    {
+      "stage": "before",
+      "rank": 0,
+      "algorithm": "direct",
+      "elements": 7168,
+      "dtype": "bfloat16",
+      "operators": {
+        "aten::view": 2,
+        "aten::empty": 1,
+        "aten::select": 4,
+        "aten::as_strided": 4,
+        "aten::copy_": 4,
+        "c10d::send": 1,
+        "c10d::recv_": 1,
+        "aten::to": 2,
+        "aten::_to_copy": 2,
+        "aten::empty_strided": 3,
+        "aten::clone": 1,
+        "aten::add_": 1,
+        "aten::view_as": 1
+      },
+      "nccl_kernels": {
+        "ncclDevKernel_SendRecv(ncclDevKernelArgsStorage<4096ul>)": 1
+      }
+    },
+    {
+      "stage": "before",
+      "rank": 1,
+      "algorithm": "direct",
+      "elements": 7168,
+      "dtype": "bfloat16",
+      "operators": {
+        "aten::view": 2,
+        "aten::empty": 1,
+        "aten::select": 4,
+        "aten::as_strided": 4,
+        "aten::copy_": 4,
+        "c10d::send": 1,
+        "c10d::recv_": 1,
+        "aten::to": 2,
+        "aten::_to_copy": 2,
+        "aten::empty_strided": 3,
+        "aten::clone": 1,
+        "aten::add_": 1,
+        "aten::view_as": 1
+      },
+      "nccl_kernels": {
+        "ncclDevKernel_SendRecv(ncclDevKernelArgsStorage<4096ul>)": 1
+      }
+    },
+    {
+      "stage": "after-torch",
+      "rank": 0,
+      "algorithm": "direct",
+      "elements": 7168,
+      "dtype": "bfloat16",
+      "operators": {
+        "aten::view": 2,
+        "aten::empty_like": 1,
+        "aten::empty_strided": 1,
+        "c10d::send": 1,
+        "c10d::recv_": 1,
+        "aten::add": 1,
+        "aten::view_as": 1
+      },
+      "nccl_kernels": {
+        "ncclDevKernel_SendRecv(ncclDevKernelArgsStorage<4096ul>)": 1
+      }
+    },
+    {
+      "stage": "after-torch",
+      "rank": 1,
+      "algorithm": "direct",
+      "elements": 7168,
+      "dtype": "bfloat16",
+      "operators": {
+        "aten::view": 2,
+        "aten::empty_like": 1,
+        "aten::empty_strided": 1,
+        "c10d::send": 1,
+        "c10d::recv_": 1,
+        "aten::add": 1,
+        "aten::view_as": 1
+      },
+      "nccl_kernels": {
+        "ncclDevKernel_SendRecv(ncclDevKernelArgsStorage<4096ul>)": 1
+      }
+    },
+    {
+      "stage": "after-pynccl",
+      "rank": 0,
+      "algorithm": "direct",
+      "elements": 7168,
+      "dtype": "bfloat16",
+      "operators": {
+        "aten::view": 2,
+        "aten::empty_like": 1,
+        "aten::empty_strided": 1,
+        "aten::add": 1,
+        "aten::view_as": 1
+      },
+      "nccl_kernels": {
+        "ncclDevKernel_SendRecv(ncclDevKernelArgsStorage<4096ul>)": 1
+      }
+    },
+    {
+      "stage": "after-pynccl",
+      "rank": 1,
+      "algorithm": "direct",
+      "elements": 7168,
+      "dtype": "bfloat16",
+      "operators": {
+        "aten::view": 2,
+        "aten::empty_like": 1,
+        "aten::empty_strided": 1,
+        "aten::add": 1,
+        "aten::view_as": 1
+      },
+      "nccl_kernels": {
+        "ncclDevKernel_SendRecv(ncclDevKernelArgsStorage<4096ul>)": 1
+      }
+    }
+  ]
+}

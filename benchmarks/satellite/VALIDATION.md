@@ -5,6 +5,9 @@ Upstream baseline: `8f2ba935a5cb82f5fc231eea6b687a87443e88a6`.
 Implementation commit: `125221177` (following the foundation commit `3816b836d`).
 GPU tests and evaluation script: `5c5d820264784d88c719fc4a6780157c21ea6c54`.
 See [architecture, usage, and limits](../../docs/design/orbital_serving.md).
+The [follow-up collective investigation](OPTIMIZATION.md) records the optimized
+runtime, repeated stock comparisons, and profiling evidence; the initial results
+below are preserved as historical measurements.
 
 ## Result summary
 

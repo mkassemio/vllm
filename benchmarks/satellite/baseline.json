@@ -9,5 +9,7 @@
   "gpu_validation": "two_a100_80gb_pcie_eight_real_model_tests_passed",
   "gpu_validation_record": "linux_a100_validation.json",
   "validation_commit": "5c5d820264784d88c719fc4a6780157c21ea6c54",
+  "optimization_commit": "680c291c03fa15c6a3d3b13cb6261c652a8f3df3",
+  "optimization_record": "OPTIMIZATION.md",
   "prototype_evidence": "Prior Orbit-TP measurements are not validation of this branch."
 }

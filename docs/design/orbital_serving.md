@@ -13,6 +13,8 @@ GPUs passed eight real-model tests, including independent-process handoffs by
 recomputation and KV transfer. A 64-question GSM8K comparison matched stock
 accuracy. See the [validation report](https://github.com/mkassemio/vllm/blob/codex/orbital-serving-engine/benchmarks/satellite/VALIDATION.md)
 for the environment, measured overhead, regression results, and limitations.
+The [collective optimization report](https://github.com/mkassemio/vllm/blob/codex/orbital-serving-engine/benchmarks/satellite/OPTIMIZATION.md)
+records repeated stock comparisons and the dispatch/copy changes on A100 GPUs.
 This is not a flight-ready deployment.
 
 ## Architecture
@@ -301,9 +303,10 @@ transport for Gloo. `--profile-dir` additionally records per-rank Chrome traces
 and operator summaries after each case's timed iterations; profiler timings must
 not be interpreted as uninstrumented latency.
 
-All ranks agree the full plan and transport before use. PyNCCL availability
-disagreement fails initialization; a transport disabled after agreement raises
-an error rather than switching one rank to c10d. Synchronous, eager, PP=DP=1 execution
+After communicators are constructed, all ranks agree the full plan and transport
+before use. Transport disagreement fails orbital plan installation; a transport
+disabled after agreement raises an error rather than switching one rank to c10d.
+Synchronous, eager, PP=DP=1 execution
 is required. Between steps, the EngineCore utility
 `orbital_update_communication(plan)` updates every worker collectively; a
 mismatched update fails on all participating ranks without installing it.

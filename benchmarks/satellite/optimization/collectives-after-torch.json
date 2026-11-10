@@ -1,0 +1,87 @@
+{
+  "backend": "nccl",
+  "transport": "torch",
+  "dtype": "bfloat16",
+  "torch_version": "2.14.0+cu130",
+  "repeats": 100,
+  "warmup": 20,
+  "samples": [
+    {
+      "algorithm": "native",
+      "message_bytes": 1792,
+      "median_s": 0.00010733649992289429,
+      "p95_s": 0.00013269999999465654
+    },
+    {
+      "algorithm": "native",
+      "message_bytes": 14336,
+      "median_s": 0.00014067450001675752,
+      "p95_s": 0.00016008099964892608
+    },
+    {
+      "algorithm": "native",
+      "message_bytes": 229376,
+      "median_s": 0.0007075969999732479,
+      "p95_s": 0.0007438200000251527
+    },
+    {
+      "algorithm": "direct",
+      "message_bytes": 1792,
+      "median_s": 0.00021905800008426013,
+      "p95_s": 0.00024875799999790615
+    },
+    {
+      "algorithm": "direct",
+      "message_bytes": 14336,
+      "median_s": 0.00021754899989900878,
+      "p95_s": 0.00024409000025116256
+    },
+    {
+      "algorithm": "direct",
+      "message_bytes": 229376,
+      "median_s": 0.0005913919999329664,
+      "p95_s": 0.0006363980000969605
+    },
+    {
+      "algorithm": "allgather",
+      "message_bytes": 1792,
+      "median_s": 0.00016478499992444995,
+      "p95_s": 0.0001948769995578914
+    },
+    {
+      "algorithm": "allgather",
+      "message_bytes": 14336,
+      "median_s": 0.00017129749994637677,
+      "p95_s": 0.00019973600001321756
+    },
+    {
+      "algorithm": "allgather",
+      "message_bytes": 229376,
+      "median_s": 0.0005428209999536193,
+      "p95_s": 0.0005683389999830979
+    }
+  ],
+  "plan": {
+    "version": 1,
+    "world_size": 2,
+    "max_scratch_bytes": 268435456,
+    "costs": [
+      {
+        "name": "native",
+        "latency_s": 0.00015343768772804005,
+        "seconds_per_byte": 3.2378974696137185e-09
+      },
+      {
+        "name": "direct",
+        "latency_s": 0.0002947314105542596,
+        "seconds_per_byte": 2.1083646446583424e-09
+      },
+      {
+        "name": "allgather",
+        "latency_s": 0.00023025388889113591,
+        "seconds_per_byte": 2.0080974209451653e-09
+      }
+    ]
+  },
+  "scope": "This execution group and tested sizes only; remeasure after route changes."
+}

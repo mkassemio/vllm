@@ -1,0 +1,428 @@
+{
+  "date": "2026-11-10",
+  "baseline_commit": "441afdfd1a677b9b4786da2adbe72acabe012c9d",
+  "implementation_commit": "680c291c03fa15c6a3d3b13cb6261c652a8f3df3",
+  "tested_git_blobs": {
+    "vllm/satellite/collectives.py": "7e014623a6cbf8ff2e489f6460891e8d3f859d1d",
+    "vllm/satellite/communication.py": "08c767eaf223dd1ce5250d540f4802e928a6349b",
+    "vllm/distributed/device_communicators/cuda_communicator.py": "26a4a8d096f5c76feaf78874a1f315a8c9ae5fb3",
+    "tests/satellite/test_communication.py": "a9036b3bc20b237565561e7c2b684f5ebc4eb7fa",
+    "tests/satellite_gpu/test_tensor_parallel.py": "8e0ae9c95d84662912274db7759bd1e8a87cf5e9",
+    "benchmarks/satellite/evaluate_gsm8k.py": "33bac68dc50aeb96b027bc8fefe7cca79cafea09",
+    "benchmarks/satellite/calibrate_collectives.py": "b0adca7a40e696e33ed80b32693b066574c4cbb9"
+  },
+  "compiled_extensions_commit": "8f2ba935a5cb82f5fc231eea6b687a87443e88a6",
+  "dataset_sha256": {
+    "train": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+    "test": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14"
+  },
+  "paired_runs": [
+    {
+      "file": "paired-1-stock.json",
+      "mode": "stock",
+      "latency_s": 27.37774485099999,
+      "clock_samples": 56,
+      "gpu_metrics": {
+        "0": {
+          "clocks.current.sm [MHz]": {
+            "min": 1410.0,
+            "median": 1410.0,
+            "max": 1410.0
+          },
+          "clocks.current.memory [MHz]": {
+            "min": 1512.0,
+            "median": 1512.0,
+            "max": 1512.0
+          },
+          "power.draw [W]": {
+            "min": 71.8,
+            "median": 74.635,
+            "max": 85.97
+          },
+          "temperature.gpu": {
+            "min": 38.0,
+            "median": 38.0,
+            "max": 39.0
+          },
+          "utilization.gpu [%]": {
+            "min": 18.0,
+            "median": 28.0,
+            "max": 96.0
+          }
+        },
+        "1": {
+          "clocks.current.sm [MHz]": {
+            "min": 1410.0,
+            "median": 1410.0,
+            "max": 1410.0
+          },
+          "clocks.current.memory [MHz]": {
+            "min": 1512.0,
+            "median": 1512.0,
+            "max": 1512.0
+          },
+          "power.draw [W]": {
+            "min": 77.97,
+            "median": 81.16499999999999,
+            "max": 87.52
+          },
+          "temperature.gpu": {
+            "min": 40.0,
+            "median": 41.0,
+            "max": 41.0
+          },
+          "utilization.gpu [%]": {
+            "min": 58.0,
+            "median": 76.5,
+            "max": 96.0
+          }
+        }
+      }
+    },
+    {
+      "file": "paired-2-orbital.json",
+      "mode": "orbital",
+      "latency_s": 27.985704396000074,
+      "clock_samples": 56,
+      "gpu_metrics": {
+        "0": {
+          "clocks.current.sm [MHz]": {
+            "min": 1410.0,
+            "median": 1410.0,
+            "max": 1410.0
+          },
+          "clocks.current.memory [MHz]": {
+            "min": 1512.0,
+            "median": 1512.0,
+            "max": 1512.0
+          },
+          "power.draw [W]": {
+            "min": 73.56,
+            "median": 76.07,
+            "max": 82.64
+          },
+          "temperature.gpu": {
+            "min": 39.0,
+            "median": 40.0,
+            "max": 40.0
+          },
+          "utilization.gpu [%]": {
+            "min": 31.0,
+            "median": 63.5,
+            "max": 92.0
+          }
+        },
+        "1": {
+          "clocks.current.sm [MHz]": {
+            "min": 1410.0,
+            "median": 1410.0,
+            "max": 1410.0
+          },
+          "clocks.current.memory [MHz]": {
+            "min": 1512.0,
+            "median": 1512.0,
+            "max": 1512.0
+          },
+          "power.draw [W]": {
+            "min": 73.78,
+            "median": 76.245,
+            "max": 85.53
+          },
+          "temperature.gpu": {
+            "min": 42.0,
+            "median": 42.0,
+            "max": 42.0
+          },
+          "utilization.gpu [%]": {
+            "min": 16.0,
+            "median": 45.5,
+            "max": 92.0
+          }
+        }
+      }
+    },
+    {
+      "file": "paired-3-orbital.json",
+      "mode": "orbital",
+      "latency_s": 28.397170481999638,
+      "clock_samples": 58,
+      "gpu_metrics": {
+        "0": {
+          "clocks.current.sm [MHz]": {
+            "min": 1410.0,
+            "median": 1410.0,
+            "max": 1410.0
+          },
+          "clocks.current.memory [MHz]": {
+            "min": 1512.0,
+            "median": 1512.0,
+            "max": 1512.0
+          },
+          "power.draw [W]": {
+            "min": 73.35,
+            "median": 76.86,
+            "max": 83.53
+          },
+          "temperature.gpu": {
+            "min": 40.0,
+            "median": 41.0,
+            "max": 41.0
+          },
+          "utilization.gpu [%]": {
+            "min": 28.0,
+            "median": 75.0,
+            "max": 92.0
+          }
+        },
+        "1": {
+          "clocks.current.sm [MHz]": {
+            "min": 1410.0,
+            "median": 1410.0,
+            "max": 1410.0
+          },
+          "clocks.current.memory [MHz]": {
+            "min": 1512.0,
+            "median": 1512.0,
+            "max": 1512.0
+          },
+          "power.draw [W]": {
+            "min": 74.89,
+            "median": 78.41,
+            "max": 87.01
+          },
+          "temperature.gpu": {
+            "min": 42.0,
+            "median": 43.0,
+            "max": 43.0
+          },
+          "utilization.gpu [%]": {
+            "min": 15.0,
+            "median": 26.0,
+            "max": 92.0
+          }
+        }
+      }
+    },
+    {
+      "file": "paired-4-stock.json",
+      "mode": "stock",
+      "latency_s": 27.772311937000268,
+      "clock_samples": 56,
+      "gpu_metrics": {
+        "0": {
+          "clocks.current.sm [MHz]": {
+            "min": 1410.0,
+            "median": 1410.0,
+            "max": 1410.0
+          },
+          "clocks.current.memory [MHz]": {
+            "min": 1512.0,
+            "median": 1512.0,
+            "max": 1512.0
+          },
+          "power.draw [W]": {
+            "min": 74.17,
+            "median": 81.395,
+            "max": 87.2
+          },
+          "temperature.gpu": {
+            "min": 41.0,
+            "median": 42.0,
+            "max": 42.0
+          },
+          "utilization.gpu [%]": {
+            "min": 28.0,
+            "median": 81.5,
+            "max": 96.0
+          }
+        },
+        "1": {
+          "clocks.current.sm [MHz]": {
+            "min": 1410.0,
+            "median": 1410.0,
+            "max": 1410.0
+          },
+          "clocks.current.memory [MHz]": {
+            "min": 1512.0,
+            "median": 1512.0,
+            "max": 1512.0
+          },
+          "power.draw [W]": {
+            "min": 75.99,
+            "median": 78.745,
+            "max": 89.42
+          },
+          "temperature.gpu": {
+            "min": 43.0,
+            "median": 44.0,
+            "max": 44.0
+          },
+          "utilization.gpu [%]": {
+            "min": 17.0,
+            "median": 63.5,
+            "max": 96.0
+          }
+        }
+      }
+    },
+    {
+      "file": "paired-5-stock.json",
+      "mode": "stock",
+      "latency_s": 27.29994295800043,
+      "clock_samples": 56,
+      "gpu_metrics": {
+        "0": {
+          "clocks.current.sm [MHz]": {
+            "min": 1410.0,
+            "median": 1410.0,
+            "max": 1410.0
+          },
+          "clocks.current.memory [MHz]": {
+            "min": 1512.0,
+            "median": 1512.0,
+            "max": 1512.0
+          },
+          "power.draw [W]": {
+            "min": 75.57,
+            "median": 81.815,
+            "max": 87.05
+          },
+          "temperature.gpu": {
+            "min": 42.0,
+            "median": 42.0,
+            "max": 42.0
+          },
+          "utilization.gpu [%]": {
+            "min": 34.0,
+            "median": 72.0,
+            "max": 95.0
+          }
+        },
+        "1": {
+          "clocks.current.sm [MHz]": {
+            "min": 1410.0,
+            "median": 1410.0,
+            "max": 1410.0
+          },
+          "clocks.current.memory [MHz]": {
+            "min": 1512.0,
+            "median": 1512.0,
+            "max": 1512.0
+          },
+          "power.draw [W]": {
+            "min": 76.64,
+            "median": 83.67,
+            "max": 88.8
+          },
+          "temperature.gpu": {
+            "min": 44.0,
+            "median": 44.0,
+            "max": 45.0
+          },
+          "utilization.gpu [%]": {
+            "min": 20.0,
+            "median": 55.0,
+            "max": 96.0
+          }
+        }
+      }
+    },
+    {
+      "file": "paired-6-orbital.json",
+      "mode": "orbital",
+      "latency_s": 28.86011743600011,
+      "clock_samples": 58,
+      "gpu_metrics": {
+        "0": {
+          "clocks.current.sm [MHz]": {
+            "min": 1410.0,
+            "median": 1410.0,
+            "max": 1410.0
+          },
+          "clocks.current.memory [MHz]": {
+            "min": 1512.0,
+            "median": 1512.0,
+            "max": 1512.0
+          },
+          "power.draw [W]": {
+            "min": 74.06,
+            "median": 81.5,
+            "max": 85.42
+          },
+          "temperature.gpu": {
+            "min": 42.0,
+            "median": 42.0,
+            "max": 42.0
+          },
+          "utilization.gpu [%]": {
+            "min": 18.0,
+            "median": 76.0,
+            "max": 92.0
+          }
+        },
+        "1": {
+          "clocks.current.sm [MHz]": {
+            "min": 1410.0,
+            "median": 1410.0,
+            "max": 1410.0
+          },
+          "clocks.current.memory [MHz]": {
+            "min": 1512.0,
+            "median": 1512.0,
+            "max": 1512.0
+          },
+          "power.draw [W]": {
+            "min": 76.03,
+            "median": 85.22,
+            "max": 89.2
+          },
+          "temperature.gpu": {
+            "min": 44.0,
+            "median": 44.0,
+            "max": 45.0
+          },
+          "utilization.gpu [%]": {
+            "min": 16.0,
+            "median": 64.0,
+            "max": 92.0
+          }
+        }
+      }
+    }
+  ],
+  "paired_summary": {
+    "stock": {
+      "median_s": 27.37774485099999,
+      "min_s": 27.29994295800043,
+      "max_s": 27.772311937000268
+    },
+    "orbital": {
+      "median_s": 28.397170481999638,
+      "min_s": 27.985704396000074,
+      "max_s": 28.86011743600011
+    }
+  },
+  "paired_median_overhead_percent": 3.723555890186536,
+  "test_results": {
+    "gpu-tests": {
+      "tests": 9.0,
+      "failures": 0.0,
+      "errors": 0.0,
+      "skipped": 0.0,
+      "time": 294.641
+    },
+    "linux-communication": {
+      "tests": 5.0,
+      "failures": 0.0,
+      "errors": 0.0,
+      "skipped": 0.0,
+      "time": 23.91
+    }
+  },
+  "local_components": {
+    "passed": 68,
+    "duration_s": 12.79,
+    "platform": "macOS arm64 / PyTorch 2.15.0"
+  },
+  "telemetry_scope": "1 Hz nvidia-smi samples during the timed generation window; GPU clocks and temperature only, not a control for all host variability."
+}

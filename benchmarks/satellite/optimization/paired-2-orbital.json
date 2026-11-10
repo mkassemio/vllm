@@ -1,0 +1,60 @@
+{
+  "mode": "orbital",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "tensor_parallel_size": 2,
+  "collective": "direct",
+  "result": {
+    "accuracy": 0.28125,
+    "invalid_rate": 0.0,
+    "latency": 27.985704396000074,
+    "questions_per_second": 2.2868818699145326,
+    "total_output_tokens": 7135,
+    "tokens_per_second": 254.95159596625297,
+    "num_questions": 64,
+    "num_shots": 5,
+    "max_tokens": 256,
+    "timestamp": 1794273514.1826375
+  },
+  "runs": [
+    {
+      "accuracy": 0.28125,
+      "invalid_rate": 0.0,
+      "latency": 27.985704396000074,
+      "questions_per_second": 2.2868818699145326,
+      "total_output_tokens": 7135,
+      "tokens_per_second": 254.95159596625297,
+      "num_questions": 64,
+      "num_shots": 5,
+      "max_tokens": 256,
+      "timestamp": 1794273514.1826375
+    }
+  ],
+  "warmup_runs": 1,
+  "median_latency_s": 27.985704396000074,
+  "median_output_tokens_per_second": 254.95159596625297,
+  "scope": "Accuracy regression with permissive synthetic budgets; not a satellite performance claim.",
+  "communication": [
+    {
+      "plan_version": 1,
+      "transport": "pynccl",
+      "calls": {
+        "direct": 107016
+      },
+      "input_bytes": {
+        "direct": 9381318912
+      },
+      "direct_send_bytes": 9381318912
+    },
+    {
+      "plan_version": 1,
+      "transport": "pynccl",
+      "calls": {
+        "direct": 107016
+      },
+      "input_bytes": {
+        "direct": 9381318912
+      },
+      "direct_send_bytes": 9381318912
+    }
+  ]
+}

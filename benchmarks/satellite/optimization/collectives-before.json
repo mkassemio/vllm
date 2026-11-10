@@ -1,0 +1,87 @@
+{
+  "backend": "nccl",
+  "transport": "torch",
+  "dtype": "bfloat16",
+  "torch_version": "2.14.0+cu130",
+  "repeats": 100,
+  "warmup": 20,
+  "samples": [
+    {
+      "algorithm": "native",
+      "message_bytes": 1792,
+      "median_s": 0.00010657049983819888,
+      "p95_s": 0.00013155799979358562
+    },
+    {
+      "algorithm": "native",
+      "message_bytes": 14336,
+      "median_s": 0.00013622150004266587,
+      "p95_s": 0.0001654719999351073
+    },
+    {
+      "algorithm": "native",
+      "message_bytes": 229376,
+      "median_s": 0.0007067449998885422,
+      "p95_s": 0.0007509020001634781
+    },
+    {
+      "algorithm": "direct",
+      "message_bytes": 1792,
+      "median_s": 0.0005277385000681534,
+      "p95_s": 0.0005573680000452441
+    },
+    {
+      "algorithm": "direct",
+      "message_bytes": 14336,
+      "median_s": 0.0005269210000733437,
+      "p95_s": 0.0005439329997898312
+    },
+    {
+      "algorithm": "direct",
+      "message_bytes": 229376,
+      "median_s": 0.0007501869999941846,
+      "p95_s": 0.0009500780001872045
+    },
+    {
+      "algorithm": "allgather",
+      "message_bytes": 1792,
+      "median_s": 0.00037069749987495015,
+      "p95_s": 0.00040078500023810193
+    },
+    {
+      "algorithm": "allgather",
+      "message_bytes": 14336,
+      "median_s": 0.0003627579999374575,
+      "p95_s": 0.00038657799996144604
+    },
+    {
+      "algorithm": "allgather",
+      "message_bytes": 229376,
+      "median_s": 0.0005947300001025724,
+      "p95_s": 0.0006556930002261652
+    }
+  ],
+  "plan": {
+    "version": 1,
+    "world_size": 2,
+    "max_scratch_bytes": 268435456,
+    "costs": [
+      {
+        "name": "native",
+        "latency_s": 0.0001520165412366887,
+        "seconds_per_byte": 3.2662156895167577e-09
+      },
+      {
+        "name": "direct",
+        "latency_s": 0.0006649753880693132,
+        "seconds_per_byte": 2.157484366618169e-09
+      },
+      {
+        "name": "allgather",
+        "latency_s": 0.00047840811316315126,
+        "seconds_per_byte": 1.4139995103632894e-09
+      }
+    ]
+  },
+  "scope": "This execution group and tested sizes only; remeasure after route changes."
+}

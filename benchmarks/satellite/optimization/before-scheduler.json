@@ -1,0 +1,60 @@
+{
+  "mode": "scheduler",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "tensor_parallel_size": 2,
+  "collective": "stock",
+  "result": {
+    "accuracy": 0.28125,
+    "invalid_rate": 0.0,
+    "latency": 30.296932618000028,
+    "questions_per_second": 2.112425069789946,
+    "total_output_tokens": 7135,
+    "tokens_per_second": 235.5023886398635,
+    "num_questions": 64,
+    "num_shots": 5,
+    "max_tokens": 256,
+    "timestamp": 1794271715.605365
+  },
+  "runs": [
+    {
+      "accuracy": 0.28125,
+      "invalid_rate": 0.0,
+      "latency": 28.79026630599992,
+      "questions_per_second": 2.2229735327825826,
+      "total_output_tokens": 7135,
+      "tokens_per_second": 247.82681494380824,
+      "num_questions": 64,
+      "num_shots": 5,
+      "max_tokens": 256,
+      "timestamp": 1794271655.2193456
+    },
+    {
+      "accuracy": 0.28125,
+      "invalid_rate": 0.0,
+      "latency": 30.0157225439998,
+      "questions_per_second": 2.1322158714048256,
+      "total_output_tokens": 7135,
+      "tokens_per_second": 237.70875378864736,
+      "num_questions": 64,
+      "num_shots": 5,
+      "max_tokens": 256,
+      "timestamp": 1794271685.2720969
+    },
+    {
+      "accuracy": 0.28125,
+      "invalid_rate": 0.0,
+      "latency": 30.296932618000028,
+      "questions_per_second": 2.112425069789946,
+      "total_output_tokens": 7135,
+      "tokens_per_second": 235.5023886398635,
+      "num_questions": 64,
+      "num_shots": 5,
+      "max_tokens": 256,
+      "timestamp": 1794271715.605365
+    }
+  ],
+  "warmup_runs": 1,
+  "median_latency_s": 30.0157225439998,
+  "median_output_tokens_per_second": 237.70875378864736,
+  "scope": "Accuracy regression with permissive synthetic budgets; not a satellite performance claim."
+}

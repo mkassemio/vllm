@@ -1,0 +1,82 @@
+{
+  "mode": "communication",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "tensor_parallel_size": 2,
+  "collective": "direct",
+  "result": {
+    "accuracy": 0.28125,
+    "invalid_rate": 0.0,
+    "latency": 37.76764156099989,
+    "questions_per_second": 1.6945723205043468,
+    "total_output_tokens": 7135,
+    "tokens_per_second": 188.9183360437268,
+    "num_questions": 64,
+    "num_shots": 5,
+    "max_tokens": 256,
+    "timestamp": 1794271900.0951705
+  },
+  "runs": [
+    {
+      "accuracy": 0.28125,
+      "invalid_rate": 0.0,
+      "latency": 37.81050724900024,
+      "questions_per_second": 1.6926511876323016,
+      "total_output_tokens": 7135,
+      "tokens_per_second": 188.70415974619488,
+      "num_questions": 64,
+      "num_shots": 5,
+      "max_tokens": 256,
+      "timestamp": 1794271824.636959
+    },
+    {
+      "accuracy": 0.28125,
+      "invalid_rate": 0.0,
+      "latency": 37.621080297999924,
+      "questions_per_second": 1.7011739028504844,
+      "total_output_tokens": 7135,
+      "tokens_per_second": 189.65430932559698,
+      "num_questions": 64,
+      "num_shots": 5,
+      "max_tokens": 256,
+      "timestamp": 1794271862.292928
+    },
+    {
+      "accuracy": 0.28125,
+      "invalid_rate": 0.0,
+      "latency": 37.76764156099989,
+      "questions_per_second": 1.6945723205043468,
+      "total_output_tokens": 7135,
+      "tokens_per_second": 188.9183360437268,
+      "num_questions": 64,
+      "num_shots": 5,
+      "max_tokens": 256,
+      "timestamp": 1794271900.0951705
+    }
+  ],
+  "warmup_runs": 1,
+  "median_latency_s": 37.76764156099989,
+  "median_output_tokens_per_second": 188.9183360437268,
+  "scope": "Accuracy regression with permissive synthetic budgets; not a satellite performance claim.",
+  "communication": [
+    {
+      "plan_version": 1,
+      "calls": {
+        "direct": 213248
+      },
+      "input_bytes": {
+        "direct": 18735856384
+      },
+      "direct_send_bytes": 18735856384
+    },
+    {
+      "plan_version": 1,
+      "calls": {
+        "direct": 213248
+      },
+      "input_bytes": {
+        "direct": 18735856384
+      },
+      "direct_send_bytes": 18735856384
+    }
+  ]
+}

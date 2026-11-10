@@ -1,0 +1,84 @@
+{
+  "mode": "orbital",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "tensor_parallel_size": 2,
+  "collective": "direct",
+  "result": {
+    "accuracy": 0.28125,
+    "invalid_rate": 0.0,
+    "latency": 28.710290133999933,
+    "questions_per_second": 2.229165908853304,
+    "total_output_tokens": 7135,
+    "tokens_per_second": 248.51716811981754,
+    "num_questions": 64,
+    "num_shots": 5,
+    "max_tokens": 256,
+    "timestamp": 1794272781.9576113
+  },
+  "runs": [
+    {
+      "accuracy": 0.28125,
+      "invalid_rate": 0.0,
+      "latency": 28.191922794999755,
+      "questions_per_second": 2.270153776504784,
+      "total_output_tokens": 7135,
+      "tokens_per_second": 253.08667492752554,
+      "num_questions": 64,
+      "num_shots": 5,
+      "max_tokens": 256,
+      "timestamp": 1794272724.6307538
+    },
+    {
+      "accuracy": 0.28125,
+      "invalid_rate": 0.0,
+      "latency": 28.545931496999856,
+      "questions_per_second": 2.242000756105168,
+      "total_output_tokens": 7135,
+      "tokens_per_second": 249.94805304391207,
+      "num_questions": 64,
+      "num_shots": 5,
+      "max_tokens": 256,
+      "timestamp": 1794272753.2120438
+    },
+    {
+      "accuracy": 0.28125,
+      "invalid_rate": 0.0,
+      "latency": 28.710290133999933,
+      "questions_per_second": 2.229165908853304,
+      "total_output_tokens": 7135,
+      "tokens_per_second": 248.51716811981754,
+      "num_questions": 64,
+      "num_shots": 5,
+      "max_tokens": 256,
+      "timestamp": 1794272781.9576113
+    }
+  ],
+  "warmup_runs": 1,
+  "median_latency_s": 28.545931496999856,
+  "median_output_tokens_per_second": 249.94805304391207,
+  "scope": "Accuracy regression with permissive synthetic budgets; not a satellite performance claim.",
+  "communication": [
+    {
+      "plan_version": 1,
+      "transport": "pynccl",
+      "calls": {
+        "direct": 213248
+      },
+      "input_bytes": {
+        "direct": 18735856384
+      },
+      "direct_send_bytes": 18735856384
+    },
+    {
+      "plan_version": 1,
+      "transport": "pynccl",
+      "calls": {
+        "direct": 213248
+      },
+      "input_bytes": {
+        "direct": 18735856384
+      },
+      "direct_send_bytes": 18735856384
+    }
+  ]
+}
