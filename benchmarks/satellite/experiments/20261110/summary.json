@@ -1,0 +1,519 @@
+{
+  "scheduler": [
+    {
+      "scenario": "steady",
+      "mode": "orbital",
+      "independent_launches": 3,
+      "completed": [
+        47,
+        44,
+        47
+      ],
+      "offered_each": [
+        80,
+        80,
+        80
+      ],
+      "interactive_completed": [
+        40,
+        40,
+        40
+      ],
+      "onboard_completed": [
+        7,
+        4,
+        7
+      ],
+      "median_interactive_ttft_ms": 73.91855067157027,
+      "ttft_runs_observed": 3,
+      "median_device_energy_j": 1421.603999999992,
+      "boundary_overrun_ms": [
+        3.880551000293053,
+        0.0,
+        0.0
+      ],
+      "recomputation_evidence": [
+        {
+          "requests_prefilled_after_decoding": [
+            "r0002",
+            "r0012",
+            "r0032",
+            "r0046",
+            "r0070"
+          ],
+          "excess_prefill_tokens_lower_bound": 12429,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        },
+        {
+          "requests_prefilled_after_decoding": [
+            "r0000",
+            "r0008",
+            "r0042"
+          ],
+          "excess_prefill_tokens_lower_bound": 14706,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        },
+        {
+          "requests_prefilled_after_decoding": [
+            "r0018",
+            "r0028",
+            "r0042",
+            "r0048",
+            "r0062"
+          ],
+          "excess_prefill_tokens_lower_bound": 15325,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        }
+      ]
+    },
+    {
+      "scenario": "steady",
+      "mode": "stock",
+      "independent_launches": 3,
+      "completed": [
+        53,
+        49,
+        53
+      ],
+      "offered_each": [
+        80,
+        80,
+        80
+      ],
+      "interactive_completed": [
+        40,
+        40,
+        40
+      ],
+      "onboard_completed": [
+        13,
+        9,
+        13
+      ],
+      "median_interactive_ttft_ms": 266.57238604324493,
+      "ttft_runs_observed": 3,
+      "median_device_energy_j": 1436.0530000000144,
+      "boundary_overrun_ms": [
+        17.644740000832826,
+        4.159492999860959,
+        13.915751000240562
+      ],
+      "recomputation_evidence": [
+        {
+          "requests_prefilled_after_decoding": [],
+          "excess_prefill_tokens_lower_bound": 0,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        },
+        {
+          "requests_prefilled_after_decoding": [],
+          "excess_prefill_tokens_lower_bound": 0,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        },
+        {
+          "requests_prefilled_after_decoding": [],
+          "excess_prefill_tokens_lower_bound": 0,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        }
+      ]
+    },
+    {
+      "scenario": "steady",
+      "mode": "stock_guard",
+      "independent_launches": 3,
+      "completed": [
+        53,
+        49,
+        53
+      ],
+      "offered_each": [
+        80,
+        80,
+        80
+      ],
+      "interactive_completed": [
+        40,
+        40,
+        40
+      ],
+      "onboard_completed": [
+        13,
+        9,
+        13
+      ],
+      "median_interactive_ttft_ms": 257.0277001940915,
+      "ttft_runs_observed": 3,
+      "median_device_energy_j": 1436.3229999999749,
+      "boundary_overrun_ms": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "recomputation_evidence": [
+        {
+          "requests_prefilled_after_decoding": [],
+          "excess_prefill_tokens_lower_bound": 0,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        },
+        {
+          "requests_prefilled_after_decoding": [],
+          "excess_prefill_tokens_lower_bound": 0,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        },
+        {
+          "requests_prefilled_after_decoding": [],
+          "excess_prefill_tokens_lower_bound": 0,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        }
+      ]
+    },
+    {
+      "scenario": "windows",
+      "mode": "orbital",
+      "independent_launches": 3,
+      "completed": [
+        26,
+        28,
+        25
+      ],
+      "offered_each": [
+        80,
+        80,
+        80
+      ],
+      "interactive_completed": [
+        25,
+        27,
+        25
+      ],
+      "onboard_completed": [
+        1,
+        1,
+        0
+      ],
+      "median_interactive_ttft_ms": 81.68477987178235,
+      "ttft_runs_observed": 3,
+      "median_device_energy_j": 1306.795999999973,
+      "boundary_overrun_ms": [
+        10.001353000552271,
+        1.2035089999695714,
+        8.777450000343023
+      ],
+      "recomputation_evidence": [
+        {
+          "requests_prefilled_after_decoding": [
+            "r0046",
+            "r0057",
+            "r0070"
+          ],
+          "excess_prefill_tokens_lower_bound": 6303,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        },
+        {
+          "requests_prefilled_after_decoding": [
+            "r0008"
+          ],
+          "excess_prefill_tokens_lower_bound": 4730,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        },
+        {
+          "requests_prefilled_after_decoding": [
+            "r0009",
+            "r0028",
+            "r0062"
+          ],
+          "excess_prefill_tokens_lower_bound": 6359,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        }
+      ]
+    },
+    {
+      "scenario": "windows",
+      "mode": "stock",
+      "independent_launches": 3,
+      "completed": [
+        29,
+        26,
+        29
+      ],
+      "offered_each": [
+        80,
+        80,
+        80
+      ],
+      "interactive_completed": [
+        23,
+        24,
+        24
+      ],
+      "onboard_completed": [
+        6,
+        2,
+        5
+      ],
+      "median_interactive_ttft_ms": 386.94590475415947,
+      "ttft_runs_observed": 3,
+      "median_device_energy_j": 1320.7339999999967,
+      "boundary_overrun_ms": [
+        26.309925001077872,
+        28.19495200037636,
+        22.702131000732706
+      ],
+      "recomputation_evidence": [
+        {
+          "requests_prefilled_after_decoding": [],
+          "excess_prefill_tokens_lower_bound": 0,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        },
+        {
+          "requests_prefilled_after_decoding": [],
+          "excess_prefill_tokens_lower_bound": 0,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        },
+        {
+          "requests_prefilled_after_decoding": [],
+          "excess_prefill_tokens_lower_bound": 0,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        }
+      ]
+    },
+    {
+      "scenario": "windows",
+      "mode": "stock_guard",
+      "independent_launches": 3,
+      "completed": [
+        28,
+        25,
+        30
+      ],
+      "offered_each": [
+        80,
+        80,
+        80
+      ],
+      "interactive_completed": [
+        22,
+        23,
+        25
+      ],
+      "onboard_completed": [
+        6,
+        2,
+        5
+      ],
+      "median_interactive_ttft_ms": 391.7374954399211,
+      "ttft_runs_observed": 3,
+      "median_device_energy_j": 1316.4780000000028,
+      "boundary_overrun_ms": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "recomputation_evidence": [
+        {
+          "requests_prefilled_after_decoding": [],
+          "excess_prefill_tokens_lower_bound": 0,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        },
+        {
+          "requests_prefilled_after_decoding": [],
+          "excess_prefill_tokens_lower_bound": 0,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        },
+        {
+          "requests_prefilled_after_decoding": [],
+          "excess_prefill_tokens_lower_bound": 0,
+          "scope": "Observed positive computed-token deltas; reset steps can be omitted"
+        }
+      ]
+    }
+  ],
+  "paired_differences": [
+    {
+      "scenario": "steady",
+      "seed": 0,
+      "orbital_minus_stock_guard_completed": -6
+    },
+    {
+      "scenario": "steady",
+      "seed": 1,
+      "orbital_minus_stock_guard_completed": -5
+    },
+    {
+      "scenario": "steady",
+      "seed": 2,
+      "orbital_minus_stock_guard_completed": -6
+    },
+    {
+      "scenario": "windows",
+      "seed": 0,
+      "orbital_minus_stock_guard_completed": -2
+    },
+    {
+      "scenario": "windows",
+      "seed": 1,
+      "orbital_minus_stock_guard_completed": 3
+    },
+    {
+      "scenario": "windows",
+      "seed": 2,
+      "orbital_minus_stock_guard_completed": -5
+    }
+  ],
+  "handoff": [
+    {
+      "context_tokens": 256,
+      "mode": "recompute",
+      "engine_launches": 1,
+      "request_repeats": 3,
+      "median_gap_ms": 73.92378599979565,
+      "gap_range_ms": [
+        73.88811800046824,
+        85.02675199997611
+      ],
+      "kv_image_bytes": 0,
+      "exact_tokens": true,
+      "reference_sha256": "562a19f428e97cd0b38af5a410301dfdf7d8face226a707c0c1c0ff33f6780ce"
+    },
+    {
+      "context_tokens": 256,
+      "mode": "stock_replay",
+      "engine_launches": 1,
+      "request_repeats": 3,
+      "median_gap_ms": 65.15052400027344,
+      "gap_range_ms": [
+        64.86979399960546,
+        66.28486099907605
+      ],
+      "kv_image_bytes": 0,
+      "exact_tokens": true,
+      "reference_sha256": "562a19f428e97cd0b38af5a410301dfdf7d8face226a707c0c1c0ff33f6780ce"
+    },
+    {
+      "context_tokens": 256,
+      "mode": "transfer",
+      "engine_launches": 1,
+      "request_repeats": 3,
+      "median_gap_ms": 56.0712570004398,
+      "gap_range_ms": [
+        52.833058000032906,
+        71.65198599977884
+      ],
+      "kv_image_bytes": 3934640,
+      "exact_tokens": true,
+      "reference_sha256": "562a19f428e97cd0b38af5a410301dfdf7d8face226a707c0c1c0ff33f6780ce"
+    },
+    {
+      "context_tokens": 2048,
+      "mode": "recompute",
+      "engine_launches": 1,
+      "request_repeats": 3,
+      "median_gap_ms": 373.3607829999528,
+      "gap_range_ms": [
+        372.99406200145313,
+        382.43119999970077
+      ],
+      "kv_image_bytes": 0,
+      "exact_tokens": true,
+      "reference_sha256": "144d7da01d32977aef839e75f6f86c86e1a810d1865d2bb3326897a6943d0029"
+    },
+    {
+      "context_tokens": 2048,
+      "mode": "restart",
+      "engine_launches": 1,
+      "request_repeats": 3,
+      "median_gap_ms": 683.9065380008833,
+      "gap_range_ms": [
+        672.0119930014334,
+        701.2992780000786
+      ],
+      "kv_image_bytes": 0,
+      "exact_tokens": true,
+      "reference_sha256": "144d7da01d32977aef839e75f6f86c86e1a810d1865d2bb3326897a6943d0029"
+    },
+    {
+      "context_tokens": 2048,
+      "mode": "stock_replay",
+      "engine_launches": 1,
+      "request_repeats": 3,
+      "median_gap_ms": 364.5123269998294,
+      "gap_range_ms": [
+        353.8322459990013,
+        371.9419059998472
+      ],
+      "kv_image_bytes": 0,
+      "exact_tokens": true,
+      "reference_sha256": "144d7da01d32977aef839e75f6f86c86e1a810d1865d2bb3326897a6943d0029"
+    },
+    {
+      "context_tokens": 2048,
+      "mode": "transfer",
+      "engine_launches": 1,
+      "request_repeats": 3,
+      "median_gap_ms": 231.30978900007904,
+      "gap_range_ms": [
+        212.0578089998162,
+        345.39612800108443
+      ],
+      "kv_image_bytes": 25954800,
+      "exact_tokens": true,
+      "reference_sha256": "144d7da01d32977aef839e75f6f86c86e1a810d1865d2bb3326897a6943d0029"
+    },
+    {
+      "context_tokens": 2048,
+      "mode": "wait",
+      "engine_launches": 1,
+      "request_repeats": 3,
+      "median_gap_ms": 2025.262056999054,
+      "gap_range_ms": [
+        2024.879332000637,
+        2026.292361000742
+      ],
+      "kv_image_bytes": 0,
+      "exact_tokens": true,
+      "reference_sha256": "144d7da01d32977aef839e75f6f86c86e1a810d1865d2bb3326897a6943d0029"
+    },
+    {
+      "context_tokens": 8192,
+      "mode": "recompute",
+      "engine_launches": 1,
+      "request_repeats": 3,
+      "median_gap_ms": 1368.9696689998527,
+      "gap_range_ms": [
+        1359.197474001121,
+        1384.092125999814
+      ],
+      "kv_image_bytes": 0,
+      "exact_tokens": true,
+      "reference_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0"
+    },
+    {
+      "context_tokens": 8192,
+      "mode": "stock_replay",
+      "engine_launches": 1,
+      "request_repeats": 3,
+      "median_gap_ms": 1299.9920649999694,
+      "gap_range_ms": [
+        1287.784518999615,
+        1305.9413809987745
+      ],
+      "kv_image_bytes": 0,
+      "exact_tokens": true,
+      "reference_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0"
+    },
+    {
+      "context_tokens": 8192,
+      "mode": "transfer",
+      "engine_launches": 1,
+      "request_repeats": 3,
+      "median_gap_ms": 1105.0224459995661,
+      "gap_range_ms": [
+        1088.9370699987921,
+        1161.131054001089
+      ],
+      "kv_image_bytes": 101452312,
+      "exact_tokens": true,
+      "reference_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0"
+    }
+  ],
+  "scope": "Descriptive pilot; three seeds cannot establish a broad performance claim; handoff repeats share one engine pair"
+}

@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "issued_s": 1794276865.5990033,
+  "expires_s": 1794276882.7989998,
+  "windows": [
+    {
+      "start_s": 1794276865.7989998,
+      "end_s": 1794276869.7989998,
+      "max_power_w": 1000,
+      "energy_j": 1000000,
+      "max_step_s": 10,
+      "max_tokens": 128,
+      "max_requests": 8
+    },
+    {
+      "start_s": 1794276872.199,
+      "end_s": 1794276876.199,
+      "max_power_w": 1000,
+      "energy_j": 1000000,
+      "max_step_s": 10,
+      "max_tokens": 128,
+      "max_requests": 8
+    },
+    {
+      "start_s": 1794276878.5989997,
+      "end_s": 1794276881.7989998,
+      "max_power_w": 1000,
+      "energy_j": 1000000,
+      "max_step_s": 10,
+      "max_tokens": 128,
+      "max_requests": 8
+    }
+  ]
+}

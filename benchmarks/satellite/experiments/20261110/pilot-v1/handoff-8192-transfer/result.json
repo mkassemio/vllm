@@ -1,0 +1,1055 @@
+{
+  "kind": "handoff",
+  "mode": "transfer",
+  "engines": [
+    {
+      "source_commit": "12b28fdd4c1775bed8a4a1fca1fb090e5a13ee5e",
+      "vllm_file": "/home/ubuntu/orbital-validation-20261110/vllm/__init__.py",
+      "torch": "2.14.0+cu130",
+      "gpu": "NVIDIA A100 80GB PCIe",
+      "pid": 46740
+    },
+    {
+      "source_commit": "12b28fdd4c1775bed8a4a1fca1fb090e5a13ee5e",
+      "vllm_file": "/home/ubuntu/orbital-validation-20261110/vllm/__init__.py",
+      "torch": "2.14.0+cu130",
+      "gpu": "NVIDIA A100 80GB PCIe",
+      "pid": 47035
+    }
+  ],
+  "engine_options": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "dtype": "bfloat16",
+    "enforce_eager": true,
+    "async_scheduling": false,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": false,
+    "max_model_len": 12288,
+    "max_num_batched_tokens": 128,
+    "max_num_seqs": 8,
+    "gpu_memory_utilization": 0.25,
+    "scheduling_policy": "priority",
+    "seed": 42,
+    "disable_log_stats": true
+  },
+  "context_tokens": 8192,
+  "output_tokens": 64,
+  "outage_s": 2,
+  "runs": [
+    {
+      "repetition": 0,
+      "cut_tokens": 16,
+      "recovery_gap_s": 1.161131054001089,
+      "transition_s": 1.1345669019992783,
+      "completion_s": 3.9808411429985426,
+      "measured_device_energy_j": 597.5489999999991,
+      "energy_samples": [
+        {
+          "monotonic_s": 8889.617078086,
+          "total_device_j": {
+            "0": 492176.856,
+            "1": 468431.081
+          }
+        },
+        {
+          "monotonic_s": 8893.624931556,
+          "total_device_j": {
+            "0": 492485.346,
+            "1": 468720.14
+          }
+        }
+      ],
+      "exact_tokens": true,
+      "output_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0",
+      "output_tokens": 64,
+      "stale_source_fenced": true,
+      "kv_image_bytes": 101452312,
+      "rpc_events": [
+        {
+          "node": "source",
+          "command": "checkpoint",
+          "elapsed_s": 0.007635695999852032,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "prepare",
+          "elapsed_s": 0.006902876000822289,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "checkpoint",
+          "elapsed_s": 0.6296333139998751,
+          "kv_payload_bytes": 101452312
+        },
+        {
+          "node": "target",
+          "command": "load",
+          "elapsed_s": 0.4516973709996819,
+          "kv_payload_bytes": 101452312
+        },
+        {
+          "node": "target",
+          "command": "inspect",
+          "elapsed_s": 0.007834731999537325,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "activate",
+          "elapsed_s": 0.00017119100084528327,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.008762449000641936,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.00025518000074953306,
+          "kv_payload_bytes": 0
+        }
+      ],
+      "deliveries": [
+        {
+          "offset": 1,
+          "mono": 8890.998271747
+        },
+        {
+          "offset": 2,
+          "mono": 8891.023689349
+        },
+        {
+          "offset": 3,
+          "mono": 8891.047846716
+        },
+        {
+          "offset": 4,
+          "mono": 8891.07139243
+        },
+        {
+          "offset": 5,
+          "mono": 8891.095360381
+        },
+        {
+          "offset": 6,
+          "mono": 8891.119117883
+        },
+        {
+          "offset": 7,
+          "mono": 8891.14289243
+        },
+        {
+          "offset": 8,
+          "mono": 8891.167929293
+        },
+        {
+          "offset": 9,
+          "mono": 8891.191906871
+        },
+        {
+          "offset": 10,
+          "mono": 8891.215543197
+        },
+        {
+          "offset": 11,
+          "mono": 8891.2393172
+        },
+        {
+          "offset": 12,
+          "mono": 8891.263060728
+        },
+        {
+          "offset": 13,
+          "mono": 8891.287164735
+        },
+        {
+          "offset": 14,
+          "mono": 8891.311023107
+        },
+        {
+          "offset": 15,
+          "mono": 8891.3345039
+        },
+        {
+          "offset": 16,
+          "mono": 8891.358300667
+        },
+        {
+          "offset": 17,
+          "mono": 8892.519431721
+        },
+        {
+          "offset": 18,
+          "mono": 8892.542687679
+        },
+        {
+          "offset": 19,
+          "mono": 8892.565722662
+        },
+        {
+          "offset": 20,
+          "mono": 8892.588866198
+        },
+        {
+          "offset": 21,
+          "mono": 8892.612035854
+        },
+        {
+          "offset": 22,
+          "mono": 8892.635068582
+        },
+        {
+          "offset": 23,
+          "mono": 8892.657896494
+        },
+        {
+          "offset": 24,
+          "mono": 8892.681616377
+        },
+        {
+          "offset": 25,
+          "mono": 8892.704789018
+        },
+        {
+          "offset": 26,
+          "mono": 8892.727814783
+        },
+        {
+          "offset": 27,
+          "mono": 8892.750753804
+        },
+        {
+          "offset": 28,
+          "mono": 8892.773578962
+        },
+        {
+          "offset": 29,
+          "mono": 8892.796829559
+        },
+        {
+          "offset": 30,
+          "mono": 8892.820038199
+        },
+        {
+          "offset": 31,
+          "mono": 8892.843390479
+        },
+        {
+          "offset": 32,
+          "mono": 8892.866756535
+        },
+        {
+          "offset": 33,
+          "mono": 8892.889937282
+        },
+        {
+          "offset": 34,
+          "mono": 8892.912933211
+        },
+        {
+          "offset": 35,
+          "mono": 8892.936670555
+        },
+        {
+          "offset": 36,
+          "mono": 8892.959358113
+        },
+        {
+          "offset": 37,
+          "mono": 8892.982498463
+        },
+        {
+          "offset": 38,
+          "mono": 8893.005875159
+        },
+        {
+          "offset": 39,
+          "mono": 8893.0291216
+        },
+        {
+          "offset": 40,
+          "mono": 8893.051983756
+        },
+        {
+          "offset": 41,
+          "mono": 8893.07459429
+        },
+        {
+          "offset": 42,
+          "mono": 8893.096820047
+        },
+        {
+          "offset": 43,
+          "mono": 8893.11848149
+        },
+        {
+          "offset": 44,
+          "mono": 8893.140343232
+        },
+        {
+          "offset": 45,
+          "mono": 8893.163722583
+        },
+        {
+          "offset": 46,
+          "mono": 8893.18690861
+        },
+        {
+          "offset": 47,
+          "mono": 8893.210366398
+        },
+        {
+          "offset": 48,
+          "mono": 8893.23350734
+        },
+        {
+          "offset": 49,
+          "mono": 8893.256503699
+        },
+        {
+          "offset": 50,
+          "mono": 8893.2796968
+        },
+        {
+          "offset": 51,
+          "mono": 8893.3024971
+        },
+        {
+          "offset": 52,
+          "mono": 8893.324107879
+        },
+        {
+          "offset": 53,
+          "mono": 8893.346405722
+        },
+        {
+          "offset": 54,
+          "mono": 8893.36959785
+        },
+        {
+          "offset": 55,
+          "mono": 8893.392391037
+        },
+        {
+          "offset": 56,
+          "mono": 8893.415335688
+        },
+        {
+          "offset": 57,
+          "mono": 8893.438442816
+        },
+        {
+          "offset": 58,
+          "mono": 8893.4604064
+        },
+        {
+          "offset": 59,
+          "mono": 8893.483380588
+        },
+        {
+          "offset": 60,
+          "mono": 8893.506980625
+        },
+        {
+          "offset": 61,
+          "mono": 8893.529954442
+        },
+        {
+          "offset": 62,
+          "mono": 8893.553259612
+        },
+        {
+          "offset": 63,
+          "mono": 8893.57687627
+        },
+        {
+          "offset": 64,
+          "mono": 8893.599981896
+        }
+      ]
+    },
+    {
+      "repetition": 1,
+      "cut_tokens": 16,
+      "recovery_gap_s": 1.1050224459995661,
+      "transition_s": 1.0793136150005012,
+      "completion_s": 3.9790175239995733,
+      "measured_device_energy_j": 583.6319999999832,
+      "energy_samples": [
+        {
+          "monotonic_s": 8893.670271735,
+          "total_device_j": {
+            "0": 492492.108,
+            "1": 468727.614
+          }
+        },
+        {
+          "monotonic_s": 8897.675608659,
+          "total_device_j": {
+            "0": 492793.515,
+            "1": 469009.839
+          }
+        }
+      ],
+      "exact_tokens": true,
+      "output_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0",
+      "output_tokens": 64,
+      "stale_source_fenced": true,
+      "kv_image_bytes": 101452312,
+      "rpc_events": [
+        {
+          "node": "source",
+          "command": "checkpoint",
+          "elapsed_s": 0.002506041000742698,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "prepare",
+          "elapsed_s": 0.0023488160004490055,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "checkpoint",
+          "elapsed_s": 0.5955720179990749,
+          "kv_payload_bytes": 101452312
+        },
+        {
+          "node": "target",
+          "command": "load",
+          "elapsed_s": 0.44083732999934,
+          "kv_payload_bytes": 101452312
+        },
+        {
+          "node": "target",
+          "command": "inspect",
+          "elapsed_s": 0.007820614999218378,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "activate",
+          "elapsed_s": 0.00012985400098841637,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.007934328999908757,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.00026636199982021935,
+          "kv_payload_bytes": 0
+        }
+      ],
+      "deliveries": [
+        {
+          "offset": 1,
+          "mono": 8895.089793435
+        },
+        {
+          "offset": 2,
+          "mono": 8895.112992477
+        },
+        {
+          "offset": 3,
+          "mono": 8895.135356605
+        },
+        {
+          "offset": 4,
+          "mono": 8895.158925593
+        },
+        {
+          "offset": 5,
+          "mono": 8895.182771222
+        },
+        {
+          "offset": 6,
+          "mono": 8895.206242056
+        },
+        {
+          "offset": 7,
+          "mono": 8895.229924609
+        },
+        {
+          "offset": 8,
+          "mono": 8895.253601008
+        },
+        {
+          "offset": 9,
+          "mono": 8895.277221955
+        },
+        {
+          "offset": 10,
+          "mono": 8895.301459933
+        },
+        {
+          "offset": 11,
+          "mono": 8895.325347182
+        },
+        {
+          "offset": 12,
+          "mono": 8895.348964261
+        },
+        {
+          "offset": 13,
+          "mono": 8895.372593773
+        },
+        {
+          "offset": 14,
+          "mono": 8895.396835809
+        },
+        {
+          "offset": 15,
+          "mono": 8895.420813388
+        },
+        {
+          "offset": 16,
+          "mono": 8895.444845759
+        },
+        {
+          "offset": 17,
+          "mono": 8896.549868205
+        },
+        {
+          "offset": 18,
+          "mono": 8896.573277153
+        },
+        {
+          "offset": 19,
+          "mono": 8896.596690648
+        },
+        {
+          "offset": 20,
+          "mono": 8896.619789861
+        },
+        {
+          "offset": 21,
+          "mono": 8896.642819363
+        },
+        {
+          "offset": 22,
+          "mono": 8896.666148309
+        },
+        {
+          "offset": 23,
+          "mono": 8896.690029535
+        },
+        {
+          "offset": 24,
+          "mono": 8896.713163754
+        },
+        {
+          "offset": 25,
+          "mono": 8896.736702125
+        },
+        {
+          "offset": 26,
+          "mono": 8896.760088549
+        },
+        {
+          "offset": 27,
+          "mono": 8896.783169208
+        },
+        {
+          "offset": 28,
+          "mono": 8896.806845399
+        },
+        {
+          "offset": 29,
+          "mono": 8896.830099864
+        },
+        {
+          "offset": 30,
+          "mono": 8896.853472954
+        },
+        {
+          "offset": 31,
+          "mono": 8896.877204468
+        },
+        {
+          "offset": 32,
+          "mono": 8896.900883173
+        },
+        {
+          "offset": 33,
+          "mono": 8896.92457347
+        },
+        {
+          "offset": 34,
+          "mono": 8896.948341122
+        },
+        {
+          "offset": 35,
+          "mono": 8896.97206332
+        },
+        {
+          "offset": 36,
+          "mono": 8896.995429396
+        },
+        {
+          "offset": 37,
+          "mono": 8897.018843401
+        },
+        {
+          "offset": 38,
+          "mono": 8897.042361385
+        },
+        {
+          "offset": 39,
+          "mono": 8897.06564228
+        },
+        {
+          "offset": 40,
+          "mono": 8897.089109957
+        },
+        {
+          "offset": 41,
+          "mono": 8897.112669638
+        },
+        {
+          "offset": 42,
+          "mono": 8897.136058296
+        },
+        {
+          "offset": 43,
+          "mono": 8897.159907382
+        },
+        {
+          "offset": 44,
+          "mono": 8897.183690494
+        },
+        {
+          "offset": 45,
+          "mono": 8897.207035751
+        },
+        {
+          "offset": 46,
+          "mono": 8897.230717732
+        },
+        {
+          "offset": 47,
+          "mono": 8897.254463433
+        },
+        {
+          "offset": 48,
+          "mono": 8897.278107824
+        },
+        {
+          "offset": 49,
+          "mono": 8897.302094159
+        },
+        {
+          "offset": 50,
+          "mono": 8897.325477597
+        },
+        {
+          "offset": 51,
+          "mono": 8897.348778951
+        },
+        {
+          "offset": 52,
+          "mono": 8897.372154555
+        },
+        {
+          "offset": 53,
+          "mono": 8897.39552531
+        },
+        {
+          "offset": 54,
+          "mono": 8897.419051748
+        },
+        {
+          "offset": 55,
+          "mono": 8897.441485427
+        },
+        {
+          "offset": 56,
+          "mono": 8897.464867945
+        },
+        {
+          "offset": 57,
+          "mono": 8897.488220576
+        },
+        {
+          "offset": 58,
+          "mono": 8897.511648748
+        },
+        {
+          "offset": 59,
+          "mono": 8897.53529907
+        },
+        {
+          "offset": 60,
+          "mono": 8897.55874697
+        },
+        {
+          "offset": 61,
+          "mono": 8897.582291021
+        },
+        {
+          "offset": 62,
+          "mono": 8897.604807246
+        },
+        {
+          "offset": 63,
+          "mono": 8897.627851245
+        },
+        {
+          "offset": 64,
+          "mono": 8897.650966328
+        }
+      ]
+    },
+    {
+      "repetition": 2,
+      "cut_tokens": 16,
+      "recovery_gap_s": 1.0889370699987921,
+      "transition_s": 1.0633560109999962,
+      "completion_s": 3.953007793999859,
+      "measured_device_energy_j": 584.75,
+      "energy_samples": [
+        {
+          "monotonic_s": 8897.715345461,
+          "total_device_j": {
+            "0": 492800.322,
+            "1": 469018.114
+          }
+        },
+        {
+          "monotonic_s": 8901.692597234,
+          "total_device_j": {
+            "0": 493102.565,
+            "1": 469300.621
+          }
+        }
+      ],
+      "exact_tokens": true,
+      "output_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0",
+      "output_tokens": 64,
+      "stale_source_fenced": true,
+      "kv_image_bytes": 101452312,
+      "rpc_events": [
+        {
+          "node": "source",
+          "command": "checkpoint",
+          "elapsed_s": 0.002491735000148765,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "prepare",
+          "elapsed_s": 0.0027747379990614718,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "checkpoint",
+          "elapsed_s": 0.5865400220009178,
+          "kv_payload_bytes": 101452312
+        },
+        {
+          "node": "target",
+          "command": "load",
+          "elapsed_s": 0.4333134139997128,
+          "kv_payload_bytes": 101452312
+        },
+        {
+          "node": "target",
+          "command": "inspect",
+          "elapsed_s": 0.008576879999964149,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "activate",
+          "elapsed_s": 0.00012174900075478945,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.00799584700143896,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.0002561939982115291,
+          "kv_payload_bytes": 0
+        }
+      ],
+      "deliveries": [
+        {
+          "offset": 1,
+          "mono": 8899.114540465
+        },
+        {
+          "offset": 2,
+          "mono": 8899.13864975
+        },
+        {
+          "offset": 3,
+          "mono": 8899.162362189
+        },
+        {
+          "offset": 4,
+          "mono": 8899.186209071
+        },
+        {
+          "offset": 5,
+          "mono": 8899.209983757
+        },
+        {
+          "offset": 6,
+          "mono": 8899.233955104
+        },
+        {
+          "offset": 7,
+          "mono": 8899.257884432
+        },
+        {
+          "offset": 8,
+          "mono": 8899.281564739
+        },
+        {
+          "offset": 9,
+          "mono": 8899.305860908
+        },
+        {
+          "offset": 10,
+          "mono": 8899.329685518
+        },
+        {
+          "offset": 11,
+          "mono": 8899.353319809
+        },
+        {
+          "offset": 12,
+          "mono": 8899.377027398
+        },
+        {
+          "offset": 13,
+          "mono": 8899.40082644
+        },
+        {
+          "offset": 14,
+          "mono": 8899.424765155
+        },
+        {
+          "offset": 15,
+          "mono": 8899.449154309
+        },
+        {
+          "offset": 16,
+          "mono": 8899.474461543
+        },
+        {
+          "offset": 17,
+          "mono": 8900.563398613
+        },
+        {
+          "offset": 18,
+          "mono": 8900.586948985
+        },
+        {
+          "offset": 19,
+          "mono": 8900.610107772
+        },
+        {
+          "offset": 20,
+          "mono": 8900.63331022
+        },
+        {
+          "offset": 21,
+          "mono": 8900.657135642
+        },
+        {
+          "offset": 22,
+          "mono": 8900.680236427
+        },
+        {
+          "offset": 23,
+          "mono": 8900.703758537
+        },
+        {
+          "offset": 24,
+          "mono": 8900.727294623
+        },
+        {
+          "offset": 25,
+          "mono": 8900.751243158
+        },
+        {
+          "offset": 26,
+          "mono": 8900.774987956
+        },
+        {
+          "offset": 27,
+          "mono": 8900.798897256
+        },
+        {
+          "offset": 28,
+          "mono": 8900.822705045
+        },
+        {
+          "offset": 29,
+          "mono": 8900.846046645
+        },
+        {
+          "offset": 30,
+          "mono": 8900.86984752
+        },
+        {
+          "offset": 31,
+          "mono": 8900.893572542
+        },
+        {
+          "offset": 32,
+          "mono": 8900.917268921
+        },
+        {
+          "offset": 33,
+          "mono": 8900.940656728
+        },
+        {
+          "offset": 34,
+          "mono": 8900.964171364
+        },
+        {
+          "offset": 35,
+          "mono": 8900.9880576
+        },
+        {
+          "offset": 36,
+          "mono": 8901.011633
+        },
+        {
+          "offset": 37,
+          "mono": 8901.035175328
+        },
+        {
+          "offset": 38,
+          "mono": 8901.058879221
+        },
+        {
+          "offset": 39,
+          "mono": 8901.082528321
+        },
+        {
+          "offset": 40,
+          "mono": 8901.106457878
+        },
+        {
+          "offset": 41,
+          "mono": 8901.130218026
+        },
+        {
+          "offset": 42,
+          "mono": 8901.153332779
+        },
+        {
+          "offset": 43,
+          "mono": 8901.17703576
+        },
+        {
+          "offset": 44,
+          "mono": 8901.20088728
+        },
+        {
+          "offset": 45,
+          "mono": 8901.224518466
+        },
+        {
+          "offset": 46,
+          "mono": 8901.247976977
+        },
+        {
+          "offset": 47,
+          "mono": 8901.271548119
+        },
+        {
+          "offset": 48,
+          "mono": 8901.295129711
+        },
+        {
+          "offset": 49,
+          "mono": 8901.318494164
+        },
+        {
+          "offset": 50,
+          "mono": 8901.34172214
+        },
+        {
+          "offset": 51,
+          "mono": 8901.365383211
+        },
+        {
+          "offset": 52,
+          "mono": 8901.388947701
+        },
+        {
+          "offset": 53,
+          "mono": 8901.412565111
+        },
+        {
+          "offset": 54,
+          "mono": 8901.43578952
+        },
+        {
+          "offset": 55,
+          "mono": 8901.45956601
+        },
+        {
+          "offset": 56,
+          "mono": 8901.482963766
+        },
+        {
+          "offset": 57,
+          "mono": 8901.506093857
+        },
+        {
+          "offset": 58,
+          "mono": 8901.529316924
+        },
+        {
+          "offset": 59,
+          "mono": 8901.552957787
+        },
+        {
+          "offset": 60,
+          "mono": 8901.576294839
+        },
+        {
+          "offset": 61,
+          "mono": 8901.599976179
+        },
+        {
+          "offset": 62,
+          "mono": 8901.623213082
+        },
+        {
+          "offset": 63,
+          "mono": 8901.646454142
+        },
+        {
+          "offset": 64,
+          "mono": 8901.670029182
+        }
+      ]
+    }
+  ],
+  "median_recovery_gap_s": 1.1050224459995661,
+  "reference_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0",
+  "scope": "Planned handoff, warm TP1 replicas; reachable local authority; measured local IPC and GPU KV copies; no ISL or model reload; or source crash"
+}

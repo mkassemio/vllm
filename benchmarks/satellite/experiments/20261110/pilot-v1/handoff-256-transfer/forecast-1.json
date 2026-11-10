@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "issued_s": 1794277549.0582392,
+  "expires_s": 1794281150.0582387,
+  "windows": [
+    {
+      "start_s": 1794277549.0582387,
+      "end_s": 1794281149.0582387,
+      "max_power_w": 1000,
+      "energy_j": 1000000,
+      "max_step_s": 10,
+      "max_tokens": 128,
+      "max_requests": 8
+    }
+  ]
+}

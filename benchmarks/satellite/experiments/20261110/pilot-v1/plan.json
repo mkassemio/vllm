@@ -1,0 +1,411 @@
+{
+  "sha256": "fe9c01d32b77e66b99435dc8d8545eca222e3049b47ef132dc70963d74356238",
+  "jobs": [
+    {
+      "name": "scheduler-steady-0-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-steady-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-steady-0-stock",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-steady-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-steady-0-stock_guard",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-steady-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-windows-0-stock_guard",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-windows-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-windows-0-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-windows-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-windows-0-stock",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-windows-0.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-steady-1-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-steady-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-steady-1-stock",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-steady-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-steady-1-stock_guard",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-steady-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-windows-1-stock",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-windows-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-windows-1-stock_guard",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-windows-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-windows-1-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-windows-1.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-steady-2-stock",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-steady-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-steady-2-stock_guard",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-steady-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-steady-2-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-steady-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-windows-2-stock",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-windows-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-windows-2-stock_guard",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_guard",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-windows-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "scheduler-windows-2-orbital",
+      "args": [
+        "scheduler",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "orbital",
+        "--trace",
+        "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-windows-2.json",
+        "--calibration",
+        "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+      ]
+    },
+    {
+      "name": "handoff-256-transfer",
+      "args": [
+        "handoff",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "transfer",
+        "--context",
+        "256",
+        "--repeats",
+        "3"
+      ]
+    },
+    {
+      "name": "handoff-256-stock_replay",
+      "args": [
+        "handoff",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_replay",
+        "--context",
+        "256",
+        "--repeats",
+        "3"
+      ]
+    },
+    {
+      "name": "handoff-256-recompute",
+      "args": [
+        "handoff",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "recompute",
+        "--context",
+        "256",
+        "--repeats",
+        "3"
+      ]
+    },
+    {
+      "name": "handoff-2048-restart",
+      "args": [
+        "handoff",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "restart",
+        "--context",
+        "2048",
+        "--repeats",
+        "3"
+      ]
+    },
+    {
+      "name": "handoff-2048-transfer",
+      "args": [
+        "handoff",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "transfer",
+        "--context",
+        "2048",
+        "--repeats",
+        "3"
+      ]
+    },
+    {
+      "name": "handoff-2048-recompute",
+      "args": [
+        "handoff",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "recompute",
+        "--context",
+        "2048",
+        "--repeats",
+        "3"
+      ]
+    },
+    {
+      "name": "handoff-2048-wait",
+      "args": [
+        "handoff",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "wait",
+        "--context",
+        "2048",
+        "--repeats",
+        "3"
+      ]
+    },
+    {
+      "name": "handoff-2048-stock_replay",
+      "args": [
+        "handoff",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_replay",
+        "--context",
+        "2048",
+        "--repeats",
+        "3"
+      ]
+    },
+    {
+      "name": "handoff-8192-stock_replay",
+      "args": [
+        "handoff",
+        "--source",
+        "/home/ubuntu/orbital-upstream-baseline-20261110",
+        "--mode",
+        "stock_replay",
+        "--context",
+        "8192",
+        "--repeats",
+        "3"
+      ]
+    },
+    {
+      "name": "handoff-8192-recompute",
+      "args": [
+        "handoff",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "recompute",
+        "--context",
+        "8192",
+        "--repeats",
+        "3"
+      ]
+    },
+    {
+      "name": "handoff-8192-transfer",
+      "args": [
+        "handoff",
+        "--source",
+        "/home/ubuntu/orbital-validation-20261110",
+        "--mode",
+        "transfer",
+        "--context",
+        "8192",
+        "--repeats",
+        "3"
+      ]
+    }
+  ]
+}

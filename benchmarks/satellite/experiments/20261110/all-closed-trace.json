@@ -1,0 +1,1 @@
+{"schema_version": 1, "seed": 0, "scenario": "all_closed", "duration_s": 1, "windows": [], "requests": [{"id": "closed", "arrival_s": 0, "deadline_s": 1, "prompt_tokens": 32, "output_tokens": 8, "priority": 0, "class": "interactive"}]}

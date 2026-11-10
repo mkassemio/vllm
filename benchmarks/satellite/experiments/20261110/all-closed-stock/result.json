@@ -1,0 +1,109 @@
+{
+  "kind": "scheduler",
+  "mode": "stock_guard",
+  "engine": {
+    "source_commit": "8f2ba935a5cb82f5fc231eea6b687a87443e88a6",
+    "vllm_file": "/home/ubuntu/orbital-upstream-baseline-20261110/vllm/__init__.py",
+    "torch": "2.14.0+cu130",
+    "gpu": "NVIDIA A100 80GB PCIe",
+    "pid": 49067
+  },
+  "engine_options": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "dtype": "bfloat16",
+    "enforce_eager": true,
+    "async_scheduling": false,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": false,
+    "max_model_len": 12288,
+    "max_num_batched_tokens": 128,
+    "max_num_seqs": 8,
+    "gpu_memory_utilization": 0.25,
+    "scheduling_policy": "priority",
+    "seed": 42,
+    "disable_log_stats": true
+  },
+  "trace_sha256": "8cb78086e235c49d9fa3dbd2383f3e6ccf3e8782d40968c129ff9875ebb31143",
+  "calibration_sha256": "8f074db05a3c00684d6b00a27c21c0a14d53fb43eddf51ccf40b77d03b0ffa73",
+  "reference_sha256": {
+    "32": "e544ad38415048ce7ce3f980ff2fb6dbc81ef2681cfa33e3ddf817d77f9c635d"
+  },
+  "all_generated_prefixes_match_reference": true,
+  "epoch_start": 1794278399.7424664,
+  "monotonic_start": 9087.264585524,
+  "metrics": {
+    "offered": 1,
+    "completed_on_time": 0,
+    "missed": 1,
+    "completion_fraction": 0.0,
+    "deadline_goodput_requests_s": 0.0,
+    "ttft_p50_s": null,
+    "ttft_p95_s": null,
+    "ttft_observations": 0,
+    "generated_tokens": 0,
+    "by_class": {
+      "interactive": {
+        "offered": 1,
+        "completed_on_time": 0,
+        "missed": 1,
+        "completion_fraction": 0.0,
+        "deadline_goodput_requests_s": 0.0,
+        "ttft_p50_s": null,
+        "ttft_p95_s": null,
+        "ttft_observations": 0,
+        "generated_tokens": 0
+      },
+      "onboard": {
+        "offered": 0,
+        "completed_on_time": 0,
+        "missed": 0,
+        "completion_fraction": null,
+        "deadline_goodput_requests_s": 0.0,
+        "ttft_p50_s": null,
+        "ttft_p95_s": null,
+        "ttft_observations": 0,
+        "generated_tokens": 0
+      }
+    }
+  },
+  "step_calls": 0,
+  "step_wall_s": 0.0,
+  "step_time_outside_windows_s": 0.0,
+  "measured_device_energy_j": 60.038000000000466,
+  "energy_samples": [
+    {
+      "monotonic_s": 9087.300466893,
+      "total_device_j": {
+        "0": 504406.826
+      }
+    },
+    {
+      "monotonic_s": 9088.276914728,
+      "total_device_j": {
+        "0": 504466.864
+      }
+    }
+  ],
+  "stock_guard_s": 0.026786434512119737,
+  "requests": [
+    {
+      "id": "closed",
+      "arrival_s": 0,
+      "deadline_s": 1,
+      "prompt_tokens": 32,
+      "output_tokens": 8,
+      "priority": 0,
+      "class": "interactive",
+      "tokens": [],
+      "first_s": null,
+      "finish_s": null,
+      "admitted_s": 0.03787446499882208,
+      "outcome": "deadline_expired"
+    }
+  ],
+  "final_status": {
+    "live": []
+  },
+  "scope": "TP1, eager, synchronous EngineCore; synthetic compute windows; local token recipient; no power cap or ground-contact emulation"
+}

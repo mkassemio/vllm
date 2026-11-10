@@ -1,0 +1,16 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "dtype": "bfloat16",
+  "enforce_eager": true,
+  "async_scheduling": false,
+  "enable_chunked_prefill": true,
+  "enable_prefix_caching": false,
+  "max_model_len": 12288,
+  "max_num_batched_tokens": 128,
+  "max_num_seqs": 8,
+  "gpu_memory_utilization": 0.25,
+  "scheduling_policy": "priority",
+  "seed": 42,
+  "disable_log_stats": true
+}

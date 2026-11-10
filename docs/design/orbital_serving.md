@@ -369,3 +369,96 @@ otherwise idle host with identical arguments. Reports preserve each measured
 run and its accuracy, as well as median latency and throughput. These defaults
 compare eager TP=2 execution with custom all-reduce disabled; they do not compare
 against stock vLLM's fastest possible CUDA-graph configuration.
+
+### Scheduler and handoff experiment harness
+
+`benchmarks/satellite/run_experiments.py` runs real, isolated TP=1 GPU engines.
+Pass `--source` to select an immutable upstream checkout or the orbital fork.
+The same worker program and installed CUDA dependencies serve both checkouts;
+each artifact records the imported vLLM location, source commit, model revision,
+engine options, harness hashes, and raw measurements. Check that generated wheel
+wrappers and compiled extensions are present in both source trees before running.
+
+```bash
+PYTHONPATH=. .venv/bin/python benchmarks/satellite/run_experiments.py calibrate \
+  --source /path/to/upstream --output /tmp/orbital-calibration
+PYTHONPATH=. .venv/bin/python benchmarks/satellite/run_experiments.py make-trace \
+  --scenario windows --seed 0 --output /tmp/orbital-trace.json
+PYTHONPATH=. .venv/bin/python benchmarks/satellite/run_experiments.py scheduler \
+  --source /path/to/orbital --mode orbital --trace /tmp/orbital-trace.json \
+  --calibration /tmp/orbital-calibration/result.json \
+  --output /tmp/orbital-scheduler-run
+PYTHONPATH=. .venv/bin/python benchmarks/satellite/run_experiments.py handoff \
+  --source /path/to/orbital --mode transfer --context 2048 \
+  --output /tmp/orbital-handoff-run
+```
+
+The scheduler trace schema contains `schema_version: 1`, `duration_s`, disjoint
+`windows` of `[start_s, end_s]`, and `requests`. Each request contains a unique
+`id`, relative `arrival_s` and `deadline_s`, positive `prompt_tokens` and
+`output_tokens`, integer `priority`, and `class` (`interactive` or `onboard`).
+Every deadline must fall within the measurement horizon. Relative timestamps
+are mapped once to host monotonic time and the engine's Unix-time forecasts.
+An external XeoVerse/resource adapter can emit this format. The supplied traces
+are synthetic compute availability, not physical eclipse or ground-contact
+predictions. The harness does not yet integrate XeoVerse network emulation.
+
+Scheduler modes are `stock`, `stock_guard`, and `orbital`. All receive identical
+open-loop arrivals and priority metadata and share the same external gate: no
+new step is requested in a closed window, and existing KV remains resident.
+`stock_guard` also stops requesting steps near a window's end using a calibrated
+p99 duration plus margin. Orbital additionally uses its batch-level policy and
+deadline metadata. Both stock modes cancel expired requests externally. Steps
+that straddle window boundaries are measured, not silently discarded. This
+gate is an in-process equivalent of pause/keep, not an HTTP pause benchmark.
+
+All offered requests remain in deadline-goodput denominators. Token timestamps
+record actual gateway receipt of chunks; first-token percentiles disclose their
+observation counts and exclude requests with no first token. Generated prefixes
+must exactly match unbatched greedy references under `VLLM_BATCH_INVARIANT=1`.
+Whole-GPU energy counter deltas include idle GPU power during closed windows;
+their sampling boundaries are retained. These are distinct from the profile's
+illustrative `power_w=100` and do not establish battery savings or a power cap.
+
+Handoff modes are `wait`, `restart`, `stock_replay`, `recompute`, and `transfer`.
+Both replicas have resident weights and use separate physical GPUs. All modes
+commit tokens to the same SQLite journal before recording delivery. Stock replay
+supplies the original prompt plus delivered tokens and preserves the remaining
+output allowance. Restart suppresses already delivered tokens and verifies that
+the regenerated prefix agrees. Orbital additionally checks stale-owner fencing
+and idempotent retry after completion. Every run requires exact continuation and
+the original total output limit. Three repetitions within one engine pair are
+request repetitions, not three independent engine launches.
+The trigger begins a planned inference suspension: the source remains reachable
+for state export. It is not an instantaneous loss of GPU power. `wait` resumes
+source inference after `--outage-s`; other modes move the request immediately.
+`--fault lost_activate_reply` deliberately discards a successful destination
+activation response, retries the durable decision, and requires the same exact
+continuation. Use this separately from the no-fault timing campaign.
+
+The reported handoff gap includes checkpoint, local IPC serialization, GPU
+copies, journal operations, and destination execution. KV payload bytes count
+the image once, not every control message. No network delay is injected: this
+is a warm-replica local-transport measurement, not an intersatellite-link result.
+Authority partition, abrupt source loss, cold model loading, and HTTP session
+migration are outside this pilot. Images remain subject to the 256 MiB/rank cap.
+
+`run_campaign.py` runs paired scheduler traces in seeded randomized order, then
+a context-length handoff sweep. It checks for foreign GPU processes, takes a
+cooperative GPU lease, launches jobs serially, stops on errors, and records a
+plan and progress file. Output directories cannot be overwritten. `--resume`
+only skips completed results from the same plan; incomplete attempts must be
+inspected separately. Resume also checks source commits, harness hashes,
+calibration contents, and regenerated traces. Its default pilot has 18 fresh scheduler launches and
+11 handoff configurations, each with three requests in one fresh engine pair.
+All configurations use eager synchronous execution. Production-tuned stock,
+larger models, shaped links, uncertain forecasts, and larger paired campaigns
+remain separate follow-up experiments.
+
+`summarize_experiments.py ROOT --output summary.json` validates paired trace,
+calibration, and greedy-reference hashes before aggregating results. Missing
+latency and energy stay null. Per-run completion counts and handoff ranges
+remain visible. `plot_experiments.py summary.json pilot.png` exports a figure
+using matplotlib, which is only needed in the analysis environment. Scheduler
+step logs also expose repeated prefill after decoding; reported excess prefill
+is a lower bound because steps that reset progress are not fully counted.

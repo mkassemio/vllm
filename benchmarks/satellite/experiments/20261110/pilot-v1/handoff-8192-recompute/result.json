@@ -1,0 +1,1019 @@
+{
+  "kind": "handoff",
+  "mode": "recompute",
+  "engines": [
+    {
+      "source_commit": "12b28fdd4c1775bed8a4a1fca1fb090e5a13ee5e",
+      "vllm_file": "/home/ubuntu/orbital-validation-20261110/vllm/__init__.py",
+      "torch": "2.14.0+cu130",
+      "gpu": "NVIDIA A100 80GB PCIe",
+      "pid": 46077
+    },
+    {
+      "source_commit": "12b28fdd4c1775bed8a4a1fca1fb090e5a13ee5e",
+      "vllm_file": "/home/ubuntu/orbital-validation-20261110/vllm/__init__.py",
+      "torch": "2.14.0+cu130",
+      "gpu": "NVIDIA A100 80GB PCIe",
+      "pid": 46376
+    }
+  ],
+  "engine_options": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "dtype": "bfloat16",
+    "enforce_eager": true,
+    "async_scheduling": false,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": false,
+    "max_model_len": 12288,
+    "max_num_batched_tokens": 128,
+    "max_num_seqs": 8,
+    "gpu_memory_utilization": 0.25,
+    "scheduling_policy": "priority",
+    "seed": 42,
+    "disable_log_stats": true
+  },
+  "context_tokens": 8192,
+  "output_tokens": 64,
+  "outage_s": 2,
+  "runs": [
+    {
+      "repetition": 0,
+      "cut_tokens": 16,
+      "recovery_gap_s": 1.384092125999814,
+      "transition_s": 0.028110305000154767,
+      "completion_s": 4.17208551099975,
+      "measured_device_energy_j": 641.25,
+      "energy_samples": [
+        {
+          "monotonic_s": 8816.186940071,
+          "total_device_j": {
+            "0": 487409.299,
+            "1": 464186.361
+          }
+        },
+        {
+          "monotonic_s": 8820.38614012,
+          "total_device_j": {
+            "0": 487724.261,
+            "1": 464512.649
+          }
+        }
+      ],
+      "exact_tokens": true,
+      "output_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0",
+      "output_tokens": 64,
+      "stale_source_fenced": true,
+      "kv_image_bytes": 0,
+      "rpc_events": [
+        {
+          "node": "source",
+          "command": "checkpoint",
+          "elapsed_s": 0.007866621999710333,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "prepare",
+          "elapsed_s": 0.007127479000700987,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "inspect",
+          "elapsed_s": 0.0002037229987763567,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "activate",
+          "elapsed_s": 0.0001198760000988841,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.00024706699878151994,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.0002939139994850848,
+          "kv_payload_bytes": 0
+        }
+      ],
+      "deliveries": [
+        {
+          "offset": 1,
+          "mono": 8817.524678248
+        },
+        {
+          "offset": 2,
+          "mono": 8817.548551068
+        },
+        {
+          "offset": 3,
+          "mono": 8817.572545918
+        },
+        {
+          "offset": 4,
+          "mono": 8817.596277573
+        },
+        {
+          "offset": 5,
+          "mono": 8817.619407192
+        },
+        {
+          "offset": 6,
+          "mono": 8817.643095314
+        },
+        {
+          "offset": 7,
+          "mono": 8817.666693426
+        },
+        {
+          "offset": 8,
+          "mono": 8817.690453534
+        },
+        {
+          "offset": 9,
+          "mono": 8817.714033051
+        },
+        {
+          "offset": 10,
+          "mono": 8817.73774063
+        },
+        {
+          "offset": 11,
+          "mono": 8817.761131772
+        },
+        {
+          "offset": 12,
+          "mono": 8817.784535688
+        },
+        {
+          "offset": 13,
+          "mono": 8817.80724143
+        },
+        {
+          "offset": 14,
+          "mono": 8817.829916022
+        },
+        {
+          "offset": 15,
+          "mono": 8817.852548225
+        },
+        {
+          "offset": 16,
+          "mono": 8817.876191692
+        },
+        {
+          "offset": 17,
+          "mono": 8819.260283818
+        },
+        {
+          "offset": 18,
+          "mono": 8819.283608505
+        },
+        {
+          "offset": 19,
+          "mono": 8819.30747847
+        },
+        {
+          "offset": 20,
+          "mono": 8819.331026308
+        },
+        {
+          "offset": 21,
+          "mono": 8819.353941043
+        },
+        {
+          "offset": 22,
+          "mono": 8819.377205446
+        },
+        {
+          "offset": 23,
+          "mono": 8819.400660068
+        },
+        {
+          "offset": 24,
+          "mono": 8819.424047203
+        },
+        {
+          "offset": 25,
+          "mono": 8819.447495804
+        },
+        {
+          "offset": 26,
+          "mono": 8819.470800883
+        },
+        {
+          "offset": 27,
+          "mono": 8819.494772881
+        },
+        {
+          "offset": 28,
+          "mono": 8819.519110847
+        },
+        {
+          "offset": 29,
+          "mono": 8819.542765526
+        },
+        {
+          "offset": 30,
+          "mono": 8819.566168921
+        },
+        {
+          "offset": 31,
+          "mono": 8819.589803552
+        },
+        {
+          "offset": 32,
+          "mono": 8819.612670888
+        },
+        {
+          "offset": 33,
+          "mono": 8819.636214448
+        },
+        {
+          "offset": 34,
+          "mono": 8819.65944101
+        },
+        {
+          "offset": 35,
+          "mono": 8819.682415838
+        },
+        {
+          "offset": 36,
+          "mono": 8819.705471419
+        },
+        {
+          "offset": 37,
+          "mono": 8819.729121829
+        },
+        {
+          "offset": 38,
+          "mono": 8819.753029204
+        },
+        {
+          "offset": 39,
+          "mono": 8819.7767196
+        },
+        {
+          "offset": 40,
+          "mono": 8819.800541674
+        },
+        {
+          "offset": 41,
+          "mono": 8819.8241046
+        },
+        {
+          "offset": 42,
+          "mono": 8819.846945607
+        },
+        {
+          "offset": 43,
+          "mono": 8819.87028439
+        },
+        {
+          "offset": 44,
+          "mono": 8819.893703586
+        },
+        {
+          "offset": 45,
+          "mono": 8819.917117431
+        },
+        {
+          "offset": 46,
+          "mono": 8819.94081478
+        },
+        {
+          "offset": 47,
+          "mono": 8819.964275755
+        },
+        {
+          "offset": 48,
+          "mono": 8819.987232228
+        },
+        {
+          "offset": 49,
+          "mono": 8820.010406432
+        },
+        {
+          "offset": 50,
+          "mono": 8820.033400275
+        },
+        {
+          "offset": 51,
+          "mono": 8820.056291055
+        },
+        {
+          "offset": 52,
+          "mono": 8820.079526173
+        },
+        {
+          "offset": 53,
+          "mono": 8820.103265312
+        },
+        {
+          "offset": 54,
+          "mono": 8820.12681321
+        },
+        {
+          "offset": 55,
+          "mono": 8820.150617771
+        },
+        {
+          "offset": 56,
+          "mono": 8820.173945855
+        },
+        {
+          "offset": 57,
+          "mono": 8820.197475407
+        },
+        {
+          "offset": 58,
+          "mono": 8820.22117441
+        },
+        {
+          "offset": 59,
+          "mono": 8820.244910532
+        },
+        {
+          "offset": 60,
+          "mono": 8820.268427783
+        },
+        {
+          "offset": 61,
+          "mono": 8820.291807924
+        },
+        {
+          "offset": 62,
+          "mono": 8820.314837414
+        },
+        {
+          "offset": 63,
+          "mono": 8820.337910719
+        },
+        {
+          "offset": 64,
+          "mono": 8820.36103063
+        }
+      ]
+    },
+    {
+      "repetition": 1,
+      "cut_tokens": 16,
+      "recovery_gap_s": 1.359197474001121,
+      "transition_s": 0.01839892700081691,
+      "completion_s": 4.170285235999472,
+      "measured_device_energy_j": 648.3619999999646,
+      "energy_samples": [
+        {
+          "monotonic_s": 8820.42229973,
+          "total_device_j": {
+            "0": 487731.014,
+            "1": 464520.679
+          }
+        },
+        {
+          "monotonic_s": 8824.61602371,
+          "total_device_j": {
+            "0": 488052.692,
+            "1": 464847.363
+          }
+        }
+      ],
+      "exact_tokens": true,
+      "output_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0",
+      "output_tokens": 64,
+      "stale_source_fenced": true,
+      "kv_image_bytes": 0,
+      "rpc_events": [
+        {
+          "node": "source",
+          "command": "checkpoint",
+          "elapsed_s": 0.002612592999867047,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "prepare",
+          "elapsed_s": 0.002702220001083333,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "inspect",
+          "elapsed_s": 0.00019686099949467462,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "activate",
+          "elapsed_s": 0.0001215089996549068,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.00022303999867290258,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.00032508299955225084,
+          "kv_payload_bytes": 0
+        }
+      ],
+      "deliveries": [
+        {
+          "offset": 1,
+          "mono": 8821.788911673
+        },
+        {
+          "offset": 2,
+          "mono": 8821.81278793
+        },
+        {
+          "offset": 3,
+          "mono": 8821.835714917
+        },
+        {
+          "offset": 4,
+          "mono": 8821.859332235
+        },
+        {
+          "offset": 5,
+          "mono": 8821.882678694
+        },
+        {
+          "offset": 6,
+          "mono": 8821.905900537
+        },
+        {
+          "offset": 7,
+          "mono": 8821.92937635
+        },
+        {
+          "offset": 8,
+          "mono": 8821.952794884
+        },
+        {
+          "offset": 9,
+          "mono": 8821.976395431
+        },
+        {
+          "offset": 10,
+          "mono": 8821.999816449
+        },
+        {
+          "offset": 11,
+          "mono": 8822.023128032
+        },
+        {
+          "offset": 12,
+          "mono": 8822.046620486
+        },
+        {
+          "offset": 13,
+          "mono": 8822.070536166
+        },
+        {
+          "offset": 14,
+          "mono": 8822.094242722
+        },
+        {
+          "offset": 15,
+          "mono": 8822.118031183
+        },
+        {
+          "offset": 16,
+          "mono": 8822.141352444
+        },
+        {
+          "offset": 17,
+          "mono": 8823.500549918
+        },
+        {
+          "offset": 18,
+          "mono": 8823.524605032
+        },
+        {
+          "offset": 19,
+          "mono": 8823.548047932
+        },
+        {
+          "offset": 20,
+          "mono": 8823.571175196
+        },
+        {
+          "offset": 21,
+          "mono": 8823.594074814
+        },
+        {
+          "offset": 22,
+          "mono": 8823.616891554
+        },
+        {
+          "offset": 23,
+          "mono": 8823.640222773
+        },
+        {
+          "offset": 24,
+          "mono": 8823.663113632
+        },
+        {
+          "offset": 25,
+          "mono": 8823.686339433
+        },
+        {
+          "offset": 26,
+          "mono": 8823.709488941
+        },
+        {
+          "offset": 27,
+          "mono": 8823.733028343
+        },
+        {
+          "offset": 28,
+          "mono": 8823.756084924
+        },
+        {
+          "offset": 29,
+          "mono": 8823.779536972
+        },
+        {
+          "offset": 30,
+          "mono": 8823.802955095
+        },
+        {
+          "offset": 31,
+          "mono": 8823.826171929
+        },
+        {
+          "offset": 32,
+          "mono": 8823.849512136
+        },
+        {
+          "offset": 33,
+          "mono": 8823.872881558
+        },
+        {
+          "offset": 34,
+          "mono": 8823.89588486
+        },
+        {
+          "offset": 35,
+          "mono": 8823.919501907
+        },
+        {
+          "offset": 36,
+          "mono": 8823.943144073
+        },
+        {
+          "offset": 37,
+          "mono": 8823.966313667
+        },
+        {
+          "offset": 38,
+          "mono": 8823.989698729
+        },
+        {
+          "offset": 39,
+          "mono": 8824.012883572
+        },
+        {
+          "offset": 40,
+          "mono": 8824.035726552
+        },
+        {
+          "offset": 41,
+          "mono": 8824.058927025
+        },
+        {
+          "offset": 42,
+          "mono": 8824.082671533
+        },
+        {
+          "offset": 43,
+          "mono": 8824.105930316
+        },
+        {
+          "offset": 44,
+          "mono": 8824.129508671
+        },
+        {
+          "offset": 45,
+          "mono": 8824.152985766
+        },
+        {
+          "offset": 46,
+          "mono": 8824.176416032
+        },
+        {
+          "offset": 47,
+          "mono": 8824.199256698
+        },
+        {
+          "offset": 48,
+          "mono": 8824.22293407
+        },
+        {
+          "offset": 49,
+          "mono": 8824.246455406
+        },
+        {
+          "offset": 50,
+          "mono": 8824.269819449
+        },
+        {
+          "offset": 51,
+          "mono": 8824.293089863
+        },
+        {
+          "offset": 52,
+          "mono": 8824.31617524
+        },
+        {
+          "offset": 53,
+          "mono": 8824.338821428
+        },
+        {
+          "offset": 54,
+          "mono": 8824.361208339
+        },
+        {
+          "offset": 55,
+          "mono": 8824.383575793
+        },
+        {
+          "offset": 56,
+          "mono": 8824.406722394
+        },
+        {
+          "offset": 57,
+          "mono": 8824.430271565
+        },
+        {
+          "offset": 58,
+          "mono": 8824.453789485
+        },
+        {
+          "offset": 59,
+          "mono": 8824.476981823
+        },
+        {
+          "offset": 60,
+          "mono": 8824.500417019
+        },
+        {
+          "offset": 61,
+          "mono": 8824.523050013
+        },
+        {
+          "offset": 62,
+          "mono": 8824.546872658
+        },
+        {
+          "offset": 63,
+          "mono": 8824.570420415
+        },
+        {
+          "offset": 64,
+          "mono": 8824.594184501
+        }
+      ]
+    },
+    {
+      "repetition": 2,
+      "cut_tokens": 16,
+      "recovery_gap_s": 1.3689696689998527,
+      "transition_s": 0.01871047299937345,
+      "completion_s": 4.18433135000123,
+      "measured_device_energy_j": 657.2669999999925,
+      "energy_samples": [
+        {
+          "monotonic_s": 8824.654453948,
+          "total_device_j": {
+            "0": 488052.692,
+            "1": 464855.517
+          }
+        },
+        {
+          "monotonic_s": 8828.863468876,
+          "total_device_j": {
+            "0": 488374.339,
+            "1": 465191.137
+          }
+        }
+      ],
+      "exact_tokens": true,
+      "output_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0",
+      "output_tokens": 64,
+      "stale_source_fenced": true,
+      "kv_image_bytes": 0,
+      "rpc_events": [
+        {
+          "node": "source",
+          "command": "checkpoint",
+          "elapsed_s": 0.0030358999993040925,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "prepare",
+          "elapsed_s": 0.002437682000163477,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "inspect",
+          "elapsed_s": 0.00020049800150445662,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "activate",
+          "elapsed_s": 0.00012092799988749903,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.00031661600041843485,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.0002708989995880984,
+          "kv_payload_bytes": 0
+        }
+      ],
+      "deliveries": [
+        {
+          "offset": 1,
+          "mono": 8826.009546298
+        },
+        {
+          "offset": 2,
+          "mono": 8826.033276229
+        },
+        {
+          "offset": 3,
+          "mono": 8826.057049962
+        },
+        {
+          "offset": 4,
+          "mono": 8826.080830338
+        },
+        {
+          "offset": 5,
+          "mono": 8826.104358869
+        },
+        {
+          "offset": 6,
+          "mono": 8826.127718473
+        },
+        {
+          "offset": 7,
+          "mono": 8826.151561726
+        },
+        {
+          "offset": 8,
+          "mono": 8826.175289765
+        },
+        {
+          "offset": 9,
+          "mono": 8826.198589725
+        },
+        {
+          "offset": 10,
+          "mono": 8826.222967727
+        },
+        {
+          "offset": 11,
+          "mono": 8826.247366037
+        },
+        {
+          "offset": 12,
+          "mono": 8826.272227429
+        },
+        {
+          "offset": 13,
+          "mono": 8826.296109007
+        },
+        {
+          "offset": 14,
+          "mono": 8826.31996265
+        },
+        {
+          "offset": 15,
+          "mono": 8826.343258873
+        },
+        {
+          "offset": 16,
+          "mono": 8826.366653573
+        },
+        {
+          "offset": 17,
+          "mono": 8827.735623242
+        },
+        {
+          "offset": 18,
+          "mono": 8827.758843001
+        },
+        {
+          "offset": 19,
+          "mono": 8827.781983131
+        },
+        {
+          "offset": 20,
+          "mono": 8827.805734873
+        },
+        {
+          "offset": 21,
+          "mono": 8827.829185698
+        },
+        {
+          "offset": 22,
+          "mono": 8827.85243896
+        },
+        {
+          "offset": 23,
+          "mono": 8827.875571486
+        },
+        {
+          "offset": 24,
+          "mono": 8827.898902144
+        },
+        {
+          "offset": 25,
+          "mono": 8827.922306481
+        },
+        {
+          "offset": 26,
+          "mono": 8827.945893923
+        },
+        {
+          "offset": 27,
+          "mono": 8827.969216016
+        },
+        {
+          "offset": 28,
+          "mono": 8827.99312265
+        },
+        {
+          "offset": 29,
+          "mono": 8828.017041096
+        },
+        {
+          "offset": 30,
+          "mono": 8828.040647906
+        },
+        {
+          "offset": 31,
+          "mono": 8828.063861934
+        },
+        {
+          "offset": 32,
+          "mono": 8828.087045767
+        },
+        {
+          "offset": 33,
+          "mono": 8828.110663485
+        },
+        {
+          "offset": 34,
+          "mono": 8828.134028349
+        },
+        {
+          "offset": 35,
+          "mono": 8828.157336815
+        },
+        {
+          "offset": 36,
+          "mono": 8828.180714422
+        },
+        {
+          "offset": 37,
+          "mono": 8828.203441043
+        },
+        {
+          "offset": 38,
+          "mono": 8828.229602474
+        },
+        {
+          "offset": 39,
+          "mono": 8828.252869433
+        },
+        {
+          "offset": 40,
+          "mono": 8828.275966342
+        },
+        {
+          "offset": 41,
+          "mono": 8828.298995892
+        },
+        {
+          "offset": 42,
+          "mono": 8828.322229479
+        },
+        {
+          "offset": 43,
+          "mono": 8828.344960166
+        },
+        {
+          "offset": 44,
+          "mono": 8828.368087302
+        },
+        {
+          "offset": 45,
+          "mono": 8828.390755582
+        },
+        {
+          "offset": 46,
+          "mono": 8828.413833033
+        },
+        {
+          "offset": 47,
+          "mono": 8828.436827619
+        },
+        {
+          "offset": 48,
+          "mono": 8828.459362297
+        },
+        {
+          "offset": 49,
+          "mono": 8828.482485625
+        },
+        {
+          "offset": 50,
+          "mono": 8828.505727817
+        },
+        {
+          "offset": 51,
+          "mono": 8828.534072243
+        },
+        {
+          "offset": 52,
+          "mono": 8828.557673471
+        },
+        {
+          "offset": 53,
+          "mono": 8828.581117543
+        },
+        {
+          "offset": 54,
+          "mono": 8828.604496212
+        },
+        {
+          "offset": 55,
+          "mono": 8828.627451273
+        },
+        {
+          "offset": 56,
+          "mono": 8828.651306059
+        },
+        {
+          "offset": 57,
+          "mono": 8828.674851653
+        },
+        {
+          "offset": 58,
+          "mono": 8828.698448412
+        },
+        {
+          "offset": 59,
+          "mono": 8828.722269093
+        },
+        {
+          "offset": 60,
+          "mono": 8828.745854152
+        },
+        {
+          "offset": 61,
+          "mono": 8828.769146538
+        },
+        {
+          "offset": 62,
+          "mono": 8828.79303087
+        },
+        {
+          "offset": 63,
+          "mono": 8828.816712149
+        },
+        {
+          "offset": 64,
+          "mono": 8828.84072329
+        }
+      ]
+    }
+  ],
+  "median_recovery_gap_s": 1.3689696689998527,
+  "reference_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0",
+  "scope": "Planned handoff, warm TP1 replicas; reachable local authority; measured local IPC and GPU KV copies; no ISL or model reload; or source crash"
+}

@@ -1,0 +1,2035 @@
+{
+  "kind": "calibration",
+  "engine": {
+    "source_commit": "8f2ba935a5cb82f5fc231eea6b687a87443e88a6",
+    "vllm_file": "/home/ubuntu/orbital-upstream-baseline-20261110/vllm/__init__.py",
+    "torch": "2.14.0+cu130",
+    "gpu": "NVIDIA A100 80GB PCIe",
+    "pid": 30789
+  },
+  "engine_options": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "dtype": "bfloat16",
+    "enforce_eager": true,
+    "async_scheduling": false,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": false,
+    "max_model_len": 12288,
+    "max_num_batched_tokens": 128,
+    "max_num_seqs": 8,
+    "gpu_memory_utilization": 0.25,
+    "scheduling_policy": "priority",
+    "seed": 42,
+    "disable_log_stats": true
+  },
+  "profile": {
+    "fixed_step_s": 0.010836382249863163,
+    "prefill_token_s": 8.262163867023276e-05,
+    "decode_token_s": 0.011172112800477408,
+    "power_w": 100.0,
+    "safety_factor": 1.2
+  },
+  "stock_guard_s": 0.026786434512119737,
+  "samples": [
+    {
+      "request_id": "c0-128",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.021341259000109858
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021716617000492988
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02144952300022851
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021736835000410792
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02137575399956404
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021462778000568505
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021432572000776418
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02132273500046722
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02165542100010498
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02145039600054588
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021337852999749884
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02162391199999547
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02159626000047865
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02157104299931234
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021982608000143955
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02161667899963504
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021709552999709558
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.0215798889994403
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.022012233999703312
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021528733000195643
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021495601000424358
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02163334000033501
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021546205000049667
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.022337526999763213
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.0215735069996299
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021560732000580174
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021525166000174067
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021537741000429378
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02156973100045434
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02161642800001573
+    },
+    {
+      "request_id": "c0-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021605728000395175
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02136064600017562
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.021176518999709515
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02081222299966612
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020849542999712867
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021828005999850575
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021606299999803014
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021922373999586853
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021728318999521434
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021677122000255622
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.022062298000491865
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021700886999497015
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021671260999937658
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02164148500014562
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02185274300063611
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02177790299992921
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021583885999461927
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.022011542000655027
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021662223999555863
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.0218758759992852
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02161532599984639
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02193567999984225
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021664830000190705
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021646614999554004
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021737045000008948
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021671671999683895
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.0219158330000937
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021665289999873494
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021722778000366816
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02174651299992547
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021669998000106716
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021897247999731917
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021630404000461567
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021953292999569385
+    },
+    {
+      "request_id": "c0-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021601207999992766
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.021206495999649633
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02090806399974099
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020700593000583467
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02076318000035826
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020770242999788024
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020737793000080273
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020508390000031795
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020635519999814278
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02058167900031549
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020735808999233996
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02065378400038753
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02067338100005145
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020659103999605577
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02055430700056604
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02076059599949076
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020801099999516737
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021729692000008072
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.0215807410004345
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021664368000529066
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021620024000185367
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021930920999693626
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021633059000123467
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021792298999571358
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02172636499926739
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02144679699995322
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021648969000125362
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021454452999932982
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021615588000713615
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.0214718859997447
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021518322000702028
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021589648000372108
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021696188000532857
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021711497999604035
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021649250000336906
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021671552000043448
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021644680999997945
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02156431999992492
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021651764000125695
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021839580000232672
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021655753000231925
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021563729999797943
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02176656199935678
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02182689399978699
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.022159881999868958
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021624934000101348
+    },
+    {
+      "request_id": "c0-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021991655000419996
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.021275916999911715
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.022031959999367245
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021715933999985282
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021792491000269365
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021598905000246305
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02173926900013612
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021708291000322788
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021663266000359727
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.0217336890000297
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021608093000395456
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021680689999811875
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021660560999407608
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021734771000410547
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021798552000291238
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021963443000458938
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021673815999747603
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021643500000209315
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021864837000066473
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021625164999932167
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.022494153000479855
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021801927999149484
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021928696000031778
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02181879999989178
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021764796999377722
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021716956999625836
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02165825700012647
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021672744999705174
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021518783999454172
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02185824399930425
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021585860999948636
+    },
+    {
+      "request_id": "c1-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02152857200053404
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.021272490000228572
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020850093999797537
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02079061200038268
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020864520999566594
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021835078999174584
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021904732999246335
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021606770000289544
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021562445999734337
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021735793000516423
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021800042999529978
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02194813299956877
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021561153999755334
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021457818999806477
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021447830000397516
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021584127000096487
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021519936999538913
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021419476999653853
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02146697599982872
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02155309799945826
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02145368200035591
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02159519800079579
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021579207999820937
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021556875999522163
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02147758699993574
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021997806999934255
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02144306099944515
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02158344599956763
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02153130799979408
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021659248999640113
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021520025999961945
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.0215566859997125
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021620434999931604
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021620546000121976
+    },
+    {
+      "request_id": "c1-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021752884999841626
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02114439900014986
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02071413600060623
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020931748000293737
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02060479099964141
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02082704999975249
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02075491499999771
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020868337999672804
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02071392600009858
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020536693999929412
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020554868000544957
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020673942000030365
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020719457999803126
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02065386499998567
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020653604000472114
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02065560800019739
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020695111000350153
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021558588000516465
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.022004770999956236
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021817456999997376
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02176062099988485
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02168527699996048
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02158657200016023
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021708229999603645
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02170458399996278
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02178098799959116
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021613402999719256
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021685577999960515
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021717610000450804
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02158160199996928
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021627799999805575
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021990612999616133
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021749728999566287
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02161951299967768
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021815742999933718
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021675719999620924
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021814632000314305
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021722917000261077
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021541508000154863
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021715325000513985
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021755560000201513
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021597372000542236
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021686621000299056
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021778692999760096
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02175627200085728
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021957380999992893
+    },
+    {
+      "request_id": "c1-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02180453300024965
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.021230399999694782
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02179206799974054
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.022016884000549908
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021689154999876337
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021647817000484793
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021684666000510333
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02177255199967476
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021877889999814215
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02160701000047993
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021779935999802547
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021572744999502902
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02176503699956811
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021735591999458848
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.03135914899939962
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021739831000559207
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021582344000307785
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021601550000013958
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021660041000359342
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021837675000824674
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021967120000226714
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021610147000501456
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02674278900030913
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021777372000542528
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021874153000680963
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02159520799978054
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021548319999965315
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021756151999397844
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021397043999968446
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021685607999643253
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02158749399950466
+    },
+    {
+      "request_id": "c2-128",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021574999000222306
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.021411951999652956
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02089775300009933
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020776474999365746
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020789950999642315
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021771619999526592
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021922433999861823
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021625004999805242
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021589538000625907
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021648027000082948
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021742466000432614
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021948032999716816
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021576763000666688
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021672623999620555
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02172341999994387
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02167443700000149
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02185316499981127
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021613633000015398
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02195513500009838
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021667514000000665
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021652075999554654
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02155302900064271
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021650081999723625
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02168938500017248
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02160262200050056
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021692351999263337
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02159414499965351
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02170732800004771
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021710385000005772
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021613934000015433
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021573857000475982
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021722108000176377
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021948202999737987
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021499679000044125
+    },
+    {
+      "request_id": "c2-512",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021950699000626628
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.021303708999766968
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020834234000176366
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02062938899962319
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020720750999316806
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020698548000837036
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020793758000763773
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.021127767000507447
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020763140000781277
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020661508999182843
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020627695999792195
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020816961000491574
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020771405999767012
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020748562999870046
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02085054500003025
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.020671467000283883
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 128,
+      "kind": "prefill",
+      "elapsed_s": 0.02096121399972617
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021778023000479152
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021961497999654966
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021578255999884277
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021508363999600988
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021544031999837898
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021970525000142516
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02168217199960054
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02170747900072456
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021727007000663434
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021892528000535094
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.022289095000814996
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021748686999671918
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021786528999655275
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021870296000088274
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02167278399974748
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021698673000173585
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021575740999651316
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02162655700067262
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021644550999553758
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021597321999252017
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.022031419999620994
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02161244099988835
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021709392999582633
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021690839000257256
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02168970700040518
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02166494999983115
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021653636999872106
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.022014678999767057
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.021674077000170655
+    },
+    {
+      "request_id": "c2-2048",
+      "tokens": 1,
+      "kind": "decode",
+      "elapsed_s": 0.02201686399985192
+    }
+  ],
+  "scope": "Single-request timing envelope; power_w=100 is modeled only"
+}

@@ -1,0 +1,29 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "dtype": "bfloat16",
+  "enforce_eager": true,
+  "async_scheduling": false,
+  "enable_chunked_prefill": true,
+  "enable_prefix_caching": false,
+  "max_model_len": 12288,
+  "max_num_batched_tokens": 128,
+  "max_num_seqs": 8,
+  "gpu_memory_utilization": 0.25,
+  "scheduling_policy": "priority",
+  "seed": 42,
+  "disable_log_stats": true,
+  "scheduler_cls": "vllm.satellite.scheduler.SatelliteScheduler",
+  "additional_config": {
+    "orbital": {
+      "forecast_path": "/home/ubuntu/orbital-experiments-20261110/pilot-v1/handoff-256-transfer/forecast-1.json",
+      "guard_s": 0.001,
+      "profile": {
+        "fixed_step_s": 1e-05,
+        "prefill_token_s": 1e-06,
+        "decode_token_s": 1e-06,
+        "power_w": 100
+      }
+    }
+  }
+}

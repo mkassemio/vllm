@@ -1,0 +1,908 @@
+{
+  "kind": "handoff",
+  "mode": "stock_replay",
+  "engines": [
+    {
+      "source_commit": "8f2ba935a5cb82f5fc231eea6b687a87443e88a6",
+      "vllm_file": "/home/ubuntu/orbital-upstream-baseline-20261110/vllm/__init__.py",
+      "torch": "2.14.0+cu130",
+      "gpu": "NVIDIA A100 80GB PCIe",
+      "pid": 45360
+    },
+    {
+      "source_commit": "8f2ba935a5cb82f5fc231eea6b687a87443e88a6",
+      "vllm_file": "/home/ubuntu/orbital-upstream-baseline-20261110/vllm/__init__.py",
+      "torch": "2.14.0+cu130",
+      "gpu": "NVIDIA A100 80GB PCIe",
+      "pid": 45655
+    }
+  ],
+  "engine_options": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "dtype": "bfloat16",
+    "enforce_eager": true,
+    "async_scheduling": false,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": false,
+    "max_model_len": 12288,
+    "max_num_batched_tokens": 128,
+    "max_num_seqs": 8,
+    "gpu_memory_utilization": 0.25,
+    "scheduling_policy": "priority",
+    "seed": 42,
+    "disable_log_stats": true
+  },
+  "context_tokens": 8192,
+  "output_tokens": 64,
+  "outage_s": 2,
+  "runs": [
+    {
+      "repetition": 0,
+      "cut_tokens": 16,
+      "recovery_gap_s": 1.287784518999615,
+      "transition_s": 0.0012232650005898904,
+      "completion_s": 4.002886741998736,
+      "measured_device_energy_j": 626.4499999999534,
+      "energy_samples": [
+        {
+          "monotonic_s": 8743.951987408,
+          "total_device_j": {
+            "0": 482682.313,
+            "1": 460018.025
+          }
+        },
+        {
+          "monotonic_s": 8747.979068565,
+          "total_device_j": {
+            "0": 482990.19,
+            "1": 460336.598
+          }
+        }
+      ],
+      "exact_tokens": true,
+      "output_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0",
+      "output_tokens": 64,
+      "stale_source_fenced": null,
+      "kv_image_bytes": 0,
+      "rpc_events": [],
+      "deliveries": [
+        {
+          "offset": 1,
+          "mono": 8745.263328299
+        },
+        {
+          "offset": 2,
+          "mono": 8745.285872815
+        },
+        {
+          "offset": 3,
+          "mono": 8745.309309252
+        },
+        {
+          "offset": 4,
+          "mono": 8745.332416919
+        },
+        {
+          "offset": 5,
+          "mono": 8745.354722244
+        },
+        {
+          "offset": 6,
+          "mono": 8745.377868074
+        },
+        {
+          "offset": 7,
+          "mono": 8745.40061413
+        },
+        {
+          "offset": 8,
+          "mono": 8745.42185996
+        },
+        {
+          "offset": 9,
+          "mono": 8745.443225044
+        },
+        {
+          "offset": 10,
+          "mono": 8745.46579072
+        },
+        {
+          "offset": 11,
+          "mono": 8745.48889419
+        },
+        {
+          "offset": 12,
+          "mono": 8745.511563741
+        },
+        {
+          "offset": 13,
+          "mono": 8745.534238082
+        },
+        {
+          "offset": 14,
+          "mono": 8745.557740514
+        },
+        {
+          "offset": 15,
+          "mono": 8745.581356929
+        },
+        {
+          "offset": 16,
+          "mono": 8745.604538366
+        },
+        {
+          "offset": 17,
+          "mono": 8746.892322885
+        },
+        {
+          "offset": 18,
+          "mono": 8746.915833822
+        },
+        {
+          "offset": 19,
+          "mono": 8746.938335577
+        },
+        {
+          "offset": 20,
+          "mono": 8746.960217736
+        },
+        {
+          "offset": 21,
+          "mono": 8746.982084706
+        },
+        {
+          "offset": 22,
+          "mono": 8747.003694851
+        },
+        {
+          "offset": 23,
+          "mono": 8747.026140742
+        },
+        {
+          "offset": 24,
+          "mono": 8747.048428726
+        },
+        {
+          "offset": 25,
+          "mono": 8747.071278648
+        },
+        {
+          "offset": 26,
+          "mono": 8747.094841683
+        },
+        {
+          "offset": 27,
+          "mono": 8747.118148827
+        },
+        {
+          "offset": 28,
+          "mono": 8747.139995317
+        },
+        {
+          "offset": 29,
+          "mono": 8747.162047987
+        },
+        {
+          "offset": 30,
+          "mono": 8747.183654987
+        },
+        {
+          "offset": 31,
+          "mono": 8747.204840833
+        },
+        {
+          "offset": 32,
+          "mono": 8747.226326314
+        },
+        {
+          "offset": 33,
+          "mono": 8747.248806699
+        },
+        {
+          "offset": 34,
+          "mono": 8747.271830399
+        },
+        {
+          "offset": 35,
+          "mono": 8747.295044808
+        },
+        {
+          "offset": 36,
+          "mono": 8747.317746079
+        },
+        {
+          "offset": 37,
+          "mono": 8747.341342949
+        },
+        {
+          "offset": 38,
+          "mono": 8747.364411212
+        },
+        {
+          "offset": 39,
+          "mono": 8747.387172236
+        },
+        {
+          "offset": 40,
+          "mono": 8747.409496978
+        },
+        {
+          "offset": 41,
+          "mono": 8747.432565411
+        },
+        {
+          "offset": 42,
+          "mono": 8747.45430481
+        },
+        {
+          "offset": 43,
+          "mono": 8747.476288982
+        },
+        {
+          "offset": 44,
+          "mono": 8747.498583236
+        },
+        {
+          "offset": 45,
+          "mono": 8747.520673537
+        },
+        {
+          "offset": 46,
+          "mono": 8747.544177271
+        },
+        {
+          "offset": 47,
+          "mono": 8747.567740988
+        },
+        {
+          "offset": 48,
+          "mono": 8747.591051147
+        },
+        {
+          "offset": 49,
+          "mono": 8747.614992335
+        },
+        {
+          "offset": 50,
+          "mono": 8747.638450722
+        },
+        {
+          "offset": 51,
+          "mono": 8747.661480804
+        },
+        {
+          "offset": 52,
+          "mono": 8747.684532926
+        },
+        {
+          "offset": 53,
+          "mono": 8747.706739647
+        },
+        {
+          "offset": 54,
+          "mono": 8747.729275917
+        },
+        {
+          "offset": 55,
+          "mono": 8747.751793503
+        },
+        {
+          "offset": 56,
+          "mono": 8747.77513981
+        },
+        {
+          "offset": 57,
+          "mono": 8747.798354008
+        },
+        {
+          "offset": 58,
+          "mono": 8747.821189112
+        },
+        {
+          "offset": 59,
+          "mono": 8747.843177249
+        },
+        {
+          "offset": 60,
+          "mono": 8747.865646014
+        },
+        {
+          "offset": 61,
+          "mono": 8747.888676516
+        },
+        {
+          "offset": 62,
+          "mono": 8747.911038488
+        },
+        {
+          "offset": 63,
+          "mono": 8747.934812722
+        },
+        {
+          "offset": 64,
+          "mono": 8747.957017328
+        }
+      ]
+    },
+    {
+      "repetition": 1,
+      "cut_tokens": 16,
+      "recovery_gap_s": 1.3059413809987745,
+      "transition_s": 0.001277097000638605,
+      "completion_s": 4.04730647299948,
+      "measured_device_energy_j": 641.744000000006,
+      "energy_samples": [
+        {
+          "monotonic_s": 8748.014630297,
+          "total_device_j": {
+            "0": 482990.19,
+            "1": 460336.598
+          }
+        },
+        {
+          "monotonic_s": 8752.086532351,
+          "total_device_j": {
+            "0": 483304.802,
+            "1": 460663.73
+          }
+        }
+      ],
+      "exact_tokens": true,
+      "output_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0",
+      "output_tokens": 64,
+      "stale_source_fenced": null,
+      "kv_image_bytes": 0,
+      "rpc_events": [],
+      "deliveries": [
+        {
+          "offset": 1,
+          "mono": 8749.332628974
+        },
+        {
+          "offset": 2,
+          "mono": 8749.356024354
+        },
+        {
+          "offset": 3,
+          "mono": 8749.379695572
+        },
+        {
+          "offset": 4,
+          "mono": 8749.403034136
+        },
+        {
+          "offset": 5,
+          "mono": 8749.426321411
+        },
+        {
+          "offset": 6,
+          "mono": 8749.449145224
+        },
+        {
+          "offset": 7,
+          "mono": 8749.472792919
+        },
+        {
+          "offset": 8,
+          "mono": 8749.49579128
+        },
+        {
+          "offset": 9,
+          "mono": 8749.519031096
+        },
+        {
+          "offset": 10,
+          "mono": 8749.542211792
+        },
+        {
+          "offset": 11,
+          "mono": 8749.565544613
+        },
+        {
+          "offset": 12,
+          "mono": 8749.589078735
+        },
+        {
+          "offset": 13,
+          "mono": 8749.612438437
+        },
+        {
+          "offset": 14,
+          "mono": 8749.635688673
+        },
+        {
+          "offset": 15,
+          "mono": 8749.659227974
+        },
+        {
+          "offset": 16,
+          "mono": 8749.681742794
+        },
+        {
+          "offset": 17,
+          "mono": 8750.987684175
+        },
+        {
+          "offset": 18,
+          "mono": 8751.011270184
+        },
+        {
+          "offset": 19,
+          "mono": 8751.03470641
+        },
+        {
+          "offset": 20,
+          "mono": 8751.05782061
+        },
+        {
+          "offset": 21,
+          "mono": 8751.081672009
+        },
+        {
+          "offset": 22,
+          "mono": 8751.105132441
+        },
+        {
+          "offset": 23,
+          "mono": 8751.128683123
+        },
+        {
+          "offset": 24,
+          "mono": 8751.152137814
+        },
+        {
+          "offset": 25,
+          "mono": 8751.175438435
+        },
+        {
+          "offset": 26,
+          "mono": 8751.19910695
+        },
+        {
+          "offset": 27,
+          "mono": 8751.221121688
+        },
+        {
+          "offset": 28,
+          "mono": 8751.24314851
+        },
+        {
+          "offset": 29,
+          "mono": 8751.266470881
+        },
+        {
+          "offset": 30,
+          "mono": 8751.288891915
+        },
+        {
+          "offset": 31,
+          "mono": 8751.312101114
+        },
+        {
+          "offset": 32,
+          "mono": 8751.335570392
+        },
+        {
+          "offset": 33,
+          "mono": 8751.358754774
+        },
+        {
+          "offset": 34,
+          "mono": 8751.380321298
+        },
+        {
+          "offset": 35,
+          "mono": 8751.402753182
+        },
+        {
+          "offset": 36,
+          "mono": 8751.426513539
+        },
+        {
+          "offset": 37,
+          "mono": 8751.449917625
+        },
+        {
+          "offset": 38,
+          "mono": 8751.472741679
+        },
+        {
+          "offset": 39,
+          "mono": 8751.495321632
+        },
+        {
+          "offset": 40,
+          "mono": 8751.518780391
+        },
+        {
+          "offset": 41,
+          "mono": 8751.541242272
+        },
+        {
+          "offset": 42,
+          "mono": 8751.562749895
+        },
+        {
+          "offset": 43,
+          "mono": 8751.587737854
+        },
+        {
+          "offset": 44,
+          "mono": 8751.611075485
+        },
+        {
+          "offset": 45,
+          "mono": 8751.634076161
+        },
+        {
+          "offset": 46,
+          "mono": 8751.656315052
+        },
+        {
+          "offset": 47,
+          "mono": 8751.679640399
+        },
+        {
+          "offset": 48,
+          "mono": 8751.703190931
+        },
+        {
+          "offset": 49,
+          "mono": 8751.725405106
+        },
+        {
+          "offset": 50,
+          "mono": 8751.747468525
+        },
+        {
+          "offset": 51,
+          "mono": 8751.769776817
+        },
+        {
+          "offset": 52,
+          "mono": 8751.79217663
+        },
+        {
+          "offset": 53,
+          "mono": 8751.815605182
+        },
+        {
+          "offset": 54,
+          "mono": 8751.83870229
+        },
+        {
+          "offset": 55,
+          "mono": 8751.861823914
+        },
+        {
+          "offset": 56,
+          "mono": 8751.884215773
+        },
+        {
+          "offset": 57,
+          "mono": 8751.906984732
+        },
+        {
+          "offset": 58,
+          "mono": 8751.929408351
+        },
+        {
+          "offset": 59,
+          "mono": 8751.952319368
+        },
+        {
+          "offset": 60,
+          "mono": 8751.975045296
+        },
+        {
+          "offset": 61,
+          "mono": 8751.997733794
+        },
+        {
+          "offset": 62,
+          "mono": 8752.019970661
+        },
+        {
+          "offset": 63,
+          "mono": 8752.041993133
+        },
+        {
+          "offset": 64,
+          "mono": 8752.063578173
+        }
+      ]
+    },
+    {
+      "repetition": 2,
+      "cut_tokens": 16,
+      "recovery_gap_s": 1.2999920649999694,
+      "transition_s": 0.0014400729996850714,
+      "completion_s": 3.983221708000201,
+      "measured_device_energy_j": 629.0169999999925,
+      "energy_samples": [
+        {
+          "monotonic_s": 8752.121825277,
+          "total_device_j": {
+            "0": 483304.802,
+            "1": 460663.73
+          }
+        },
+        {
+          "monotonic_s": 8756.128842387,
+          "total_device_j": {
+            "0": 483612.839,
+            "1": 460984.71
+          }
+        }
+      ],
+      "exact_tokens": true,
+      "output_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0",
+      "output_tokens": 64,
+      "stale_source_fenced": null,
+      "kv_image_bytes": 0,
+      "rpc_events": [],
+      "deliveries": [
+        {
+          "offset": 1,
+          "mono": 8753.399087804
+        },
+        {
+          "offset": 2,
+          "mono": 8753.420427872
+        },
+        {
+          "offset": 3,
+          "mono": 8753.442754087
+        },
+        {
+          "offset": 4,
+          "mono": 8753.466625234
+        },
+        {
+          "offset": 5,
+          "mono": 8753.489829714
+        },
+        {
+          "offset": 6,
+          "mono": 8753.512702448
+        },
+        {
+          "offset": 7,
+          "mono": 8753.535598647
+        },
+        {
+          "offset": 8,
+          "mono": 8753.558566441
+        },
+        {
+          "offset": 9,
+          "mono": 8753.581864106
+        },
+        {
+          "offset": 10,
+          "mono": 8753.605276338
+        },
+        {
+          "offset": 11,
+          "mono": 8753.62769661
+        },
+        {
+          "offset": 12,
+          "mono": 8753.649065942
+        },
+        {
+          "offset": 13,
+          "mono": 8753.670594645
+        },
+        {
+          "offset": 14,
+          "mono": 8753.692229037
+        },
+        {
+          "offset": 15,
+          "mono": 8753.713713777
+        },
+        {
+          "offset": 16,
+          "mono": 8753.735178208
+        },
+        {
+          "offset": 17,
+          "mono": 8755.035170273
+        },
+        {
+          "offset": 18,
+          "mono": 8755.059177154
+        },
+        {
+          "offset": 19,
+          "mono": 8755.082562114
+        },
+        {
+          "offset": 20,
+          "mono": 8755.105433467
+        },
+        {
+          "offset": 21,
+          "mono": 8755.128263071
+        },
+        {
+          "offset": 22,
+          "mono": 8755.151677987
+        },
+        {
+          "offset": 23,
+          "mono": 8755.174595106
+        },
+        {
+          "offset": 24,
+          "mono": 8755.196180254
+        },
+        {
+          "offset": 25,
+          "mono": 8755.217669012
+        },
+        {
+          "offset": 26,
+          "mono": 8755.239175602
+        },
+        {
+          "offset": 27,
+          "mono": 8755.261700753
+        },
+        {
+          "offset": 28,
+          "mono": 8755.284071311
+        },
+        {
+          "offset": 29,
+          "mono": 8755.306902798
+        },
+        {
+          "offset": 30,
+          "mono": 8755.329554477
+        },
+        {
+          "offset": 31,
+          "mono": 8755.352772572
+        },
+        {
+          "offset": 32,
+          "mono": 8755.376599325
+        },
+        {
+          "offset": 33,
+          "mono": 8755.399451471
+        },
+        {
+          "offset": 34,
+          "mono": 8755.42201865
+        },
+        {
+          "offset": 35,
+          "mono": 8755.445158428
+        },
+        {
+          "offset": 36,
+          "mono": 8755.468180565
+        },
+        {
+          "offset": 37,
+          "mono": 8755.491041246
+        },
+        {
+          "offset": 38,
+          "mono": 8755.514350424
+        },
+        {
+          "offset": 39,
+          "mono": 8755.537465154
+        },
+        {
+          "offset": 40,
+          "mono": 8755.560101403
+        },
+        {
+          "offset": 41,
+          "mono": 8755.582782097
+        },
+        {
+          "offset": 42,
+          "mono": 8755.606259952
+        },
+        {
+          "offset": 43,
+          "mono": 8755.629989962
+        },
+        {
+          "offset": 44,
+          "mono": 8755.652815899
+        },
+        {
+          "offset": 45,
+          "mono": 8755.673977319
+        },
+        {
+          "offset": 46,
+          "mono": 8755.696209327
+        },
+        {
+          "offset": 47,
+          "mono": 8755.718180353
+        },
+        {
+          "offset": 48,
+          "mono": 8755.74063497
+        },
+        {
+          "offset": 49,
+          "mono": 8755.762832743
+        },
+        {
+          "offset": 50,
+          "mono": 8755.78557895
+        },
+        {
+          "offset": 51,
+          "mono": 8755.807182113
+        },
+        {
+          "offset": 52,
+          "mono": 8755.830063193
+        },
+        {
+          "offset": 53,
+          "mono": 8755.852935627
+        },
+        {
+          "offset": 54,
+          "mono": 8755.876513802
+        },
+        {
+          "offset": 55,
+          "mono": 8755.899987318
+        },
+        {
+          "offset": 56,
+          "mono": 8755.92263533
+        },
+        {
+          "offset": 57,
+          "mono": 8755.945252673
+        },
+        {
+          "offset": 58,
+          "mono": 8755.96669297
+        },
+        {
+          "offset": 59,
+          "mono": 8755.990192876
+        },
+        {
+          "offset": 60,
+          "mono": 8756.013615357
+        },
+        {
+          "offset": 61,
+          "mono": 8756.036167308
+        },
+        {
+          "offset": 62,
+          "mono": 8756.059697291
+        },
+        {
+          "offset": 63,
+          "mono": 8756.083470292
+        },
+        {
+          "offset": 64,
+          "mono": 8756.1067006
+        }
+      ]
+    }
+  ],
+  "median_recovery_gap_s": 1.2999920649999694,
+  "reference_sha256": "34b3367749cef341be3d195afd173f1569e1fb544b14095451c0802f16ea7cc0",
+  "scope": "Planned handoff, warm TP1 replicas; reachable local authority; measured local IPC and GPU KV copies; no ISL or model reload; or source crash"
+}

@@ -1,0 +1,1061 @@
+{
+  "kind": "handoff",
+  "mode": "recompute",
+  "engines": [
+    {
+      "source_commit": "12b28fdd4c1775bed8a4a1fca1fb090e5a13ee5e",
+      "vllm_file": "/home/ubuntu/orbital-validation-20261110/vllm/__init__.py",
+      "torch": "2.14.0+cu130",
+      "gpu": "NVIDIA A100 80GB PCIe",
+      "pid": 48046
+    },
+    {
+      "source_commit": "12b28fdd4c1775bed8a4a1fca1fb090e5a13ee5e",
+      "vllm_file": "/home/ubuntu/orbital-validation-20261110/vllm/__init__.py",
+      "torch": "2.14.0+cu130",
+      "gpu": "NVIDIA A100 80GB PCIe",
+      "pid": 48344
+    }
+  ],
+  "engine_options": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "dtype": "bfloat16",
+    "enforce_eager": true,
+    "async_scheduling": false,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": false,
+    "max_model_len": 12288,
+    "max_num_batched_tokens": 128,
+    "max_num_seqs": 8,
+    "gpu_memory_utilization": 0.25,
+    "scheduling_policy": "priority",
+    "seed": 42,
+    "disable_log_stats": true
+  },
+  "context_tokens": 2048,
+  "output_tokens": 64,
+  "outage_s": 2,
+  "runs": [
+    {
+      "repetition": 0,
+      "cut_tokens": 16,
+      "recovery_gap_s": 0.3751564319991303,
+      "transition_s": 0.0219503389998863,
+      "completion_s": 2.1955506060003245,
+      "measured_device_energy_j": 333.3499999999767,
+      "energy_samples": [
+        {
+          "monotonic_s": 9020.188888692,
+          "total_device_j": {
+            "0": 500472.032,
+            "1": 475647.476
+          }
+        },
+        {
+          "monotonic_s": 9022.408727184,
+          "total_device_j": {
+            "0": 500632.605,
+            "1": 475820.253
+          }
+        }
+      ],
+      "exact_tokens": true,
+      "output_sha256": "144d7da01d32977aef839e75f6f86c86e1a810d1865d2bb3326897a6943d0029",
+      "output_tokens": 64,
+      "stale_source_fenced": true,
+      "lost_activation_reply_injected": true,
+      "kv_image_bytes": 0,
+      "rpc_events": [
+        {
+          "node": "source",
+          "command": "checkpoint",
+          "elapsed_s": 0.006664426999122952,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "prepare",
+          "elapsed_s": 0.006355415998768876,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "inspect",
+          "elapsed_s": 0.00021941399973002262,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "activate",
+          "elapsed_s": 0.00014274000022851396,
+          "kv_payload_bytes": 0,
+          "reply_discarded": true
+        },
+        {
+          "node": "target",
+          "command": "inspect",
+          "elapsed_s": 0.0001205869994009845,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "activate",
+          "elapsed_s": 9.190399941871874e-05,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.00019349399917700794,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.0002498910016583977,
+          "kv_payload_bytes": 0
+        }
+      ],
+      "deliveries": [
+        {
+          "offset": 1,
+          "mono": 9020.549477095
+        },
+        {
+          "offset": 2,
+          "mono": 9020.57453541
+        },
+        {
+          "offset": 3,
+          "mono": 9020.598192616
+        },
+        {
+          "offset": 4,
+          "mono": 9020.621703075
+        },
+        {
+          "offset": 5,
+          "mono": 9020.645450601
+        },
+        {
+          "offset": 6,
+          "mono": 9020.669199679
+        },
+        {
+          "offset": 7,
+          "mono": 9020.693166609
+        },
+        {
+          "offset": 8,
+          "mono": 9020.717225982
+        },
+        {
+          "offset": 9,
+          "mono": 9020.741118201
+        },
+        {
+          "offset": 10,
+          "mono": 9020.764890484
+        },
+        {
+          "offset": 11,
+          "mono": 9020.78897831
+        },
+        {
+          "offset": 12,
+          "mono": 9020.812994242
+        },
+        {
+          "offset": 13,
+          "mono": 9020.836909344
+        },
+        {
+          "offset": 14,
+          "mono": 9020.860516375
+        },
+        {
+          "offset": 15,
+          "mono": 9020.884265734
+        },
+        {
+          "offset": 16,
+          "mono": 9020.908165286
+        },
+        {
+          "offset": 17,
+          "mono": 9021.283321718
+        },
+        {
+          "offset": 18,
+          "mono": 9021.307030171
+        },
+        {
+          "offset": 19,
+          "mono": 9021.330417768
+        },
+        {
+          "offset": 20,
+          "mono": 9021.353545025
+        },
+        {
+          "offset": 21,
+          "mono": 9021.376839337
+        },
+        {
+          "offset": 22,
+          "mono": 9021.400107089
+        },
+        {
+          "offset": 23,
+          "mono": 9021.423520716
+        },
+        {
+          "offset": 24,
+          "mono": 9021.446981862
+        },
+        {
+          "offset": 25,
+          "mono": 9021.470203857
+        },
+        {
+          "offset": 26,
+          "mono": 9021.493346153
+        },
+        {
+          "offset": 27,
+          "mono": 9021.516633762
+        },
+        {
+          "offset": 28,
+          "mono": 9021.540175339
+        },
+        {
+          "offset": 29,
+          "mono": 9021.563307346
+        },
+        {
+          "offset": 30,
+          "mono": 9021.586439672
+        },
+        {
+          "offset": 31,
+          "mono": 9021.609786823
+        },
+        {
+          "offset": 32,
+          "mono": 9021.633398965
+        },
+        {
+          "offset": 33,
+          "mono": 9021.656480195
+        },
+        {
+          "offset": 34,
+          "mono": 9021.680212863
+        },
+        {
+          "offset": 35,
+          "mono": 9021.70350992
+        },
+        {
+          "offset": 36,
+          "mono": 9021.726668536
+        },
+        {
+          "offset": 37,
+          "mono": 9021.749778572
+        },
+        {
+          "offset": 38,
+          "mono": 9021.772722953
+        },
+        {
+          "offset": 39,
+          "mono": 9021.796096445
+        },
+        {
+          "offset": 40,
+          "mono": 9021.819469034
+        },
+        {
+          "offset": 41,
+          "mono": 9021.842721197
+        },
+        {
+          "offset": 42,
+          "mono": 9021.873813332
+        },
+        {
+          "offset": 43,
+          "mono": 9021.897384776
+        },
+        {
+          "offset": 44,
+          "mono": 9021.920740092
+        },
+        {
+          "offset": 45,
+          "mono": 9021.944049412
+        },
+        {
+          "offset": 46,
+          "mono": 9021.967379662
+        },
+        {
+          "offset": 47,
+          "mono": 9021.990736031
+        },
+        {
+          "offset": 48,
+          "mono": 9022.014029321
+        },
+        {
+          "offset": 49,
+          "mono": 9022.037101173
+        },
+        {
+          "offset": 50,
+          "mono": 9022.060499973
+        },
+        {
+          "offset": 51,
+          "mono": 9022.083633672
+        },
+        {
+          "offset": 52,
+          "mono": 9022.107040576
+        },
+        {
+          "offset": 53,
+          "mono": 9022.130321813
+        },
+        {
+          "offset": 54,
+          "mono": 9022.153880073
+        },
+        {
+          "offset": 55,
+          "mono": 9022.177369682
+        },
+        {
+          "offset": 56,
+          "mono": 9022.200593671
+        },
+        {
+          "offset": 57,
+          "mono": 9022.223618615
+        },
+        {
+          "offset": 58,
+          "mono": 9022.24669654
+        },
+        {
+          "offset": 59,
+          "mono": 9022.269764335
+        },
+        {
+          "offset": 60,
+          "mono": 9022.293069467
+        },
+        {
+          "offset": 61,
+          "mono": 9022.316338622
+        },
+        {
+          "offset": 62,
+          "mono": 9022.339843671
+        },
+        {
+          "offset": 63,
+          "mono": 9022.363105571
+        },
+        {
+          "offset": 64,
+          "mono": 9022.38666354
+        }
+      ]
+    },
+    {
+      "repetition": 1,
+      "cut_tokens": 16,
+      "recovery_gap_s": 0.3650330569998914,
+      "transition_s": 0.010533037000641343,
+      "completion_s": 2.154919450000307,
+      "measured_device_energy_j": 333.17699999996694,
+      "energy_samples": [
+        {
+          "monotonic_s": 9022.447496213,
+          "total_device_j": {
+            "0": 500632.605,
+            "1": 475820.253
+          }
+        },
+        {
+          "monotonic_s": 9024.629063273,
+          "total_device_j": {
+            "0": 500792.729,
+            "1": 475993.306
+          }
+        }
+      ],
+      "exact_tokens": true,
+      "output_sha256": "144d7da01d32977aef839e75f6f86c86e1a810d1865d2bb3326897a6943d0029",
+      "output_tokens": 64,
+      "stale_source_fenced": true,
+      "lost_activation_reply_injected": true,
+      "kv_image_bytes": 0,
+      "rpc_events": [
+        {
+          "node": "source",
+          "command": "checkpoint",
+          "elapsed_s": 0.001098179000109667,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "prepare",
+          "elapsed_s": 0.0013260499999887543,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "inspect",
+          "elapsed_s": 0.00020403399867063854,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "activate",
+          "elapsed_s": 0.00012409500050125644,
+          "kv_payload_bytes": 0,
+          "reply_discarded": true
+        },
+        {
+          "node": "target",
+          "command": "inspect",
+          "elapsed_s": 0.00014030400052433833,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "activate",
+          "elapsed_s": 0.0001047570003720466,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.0002650900005392032,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.0002467949998390395,
+          "kv_payload_bytes": 0
+        }
+      ],
+      "deliveries": [
+        {
+          "offset": 1,
+          "mono": 9022.785374444
+        },
+        {
+          "offset": 2,
+          "mono": 9022.808914189
+        },
+        {
+          "offset": 3,
+          "mono": 9022.832209373
+        },
+        {
+          "offset": 4,
+          "mono": 9022.856100829
+        },
+        {
+          "offset": 5,
+          "mono": 9022.87949
+        },
+        {
+          "offset": 6,
+          "mono": 9022.90277319
+        },
+        {
+          "offset": 7,
+          "mono": 9022.925841988
+        },
+        {
+          "offset": 8,
+          "mono": 9022.949480748
+        },
+        {
+          "offset": 9,
+          "mono": 9022.972680592
+        },
+        {
+          "offset": 10,
+          "mono": 9022.995731046
+        },
+        {
+          "offset": 11,
+          "mono": 9023.01858152
+        },
+        {
+          "offset": 12,
+          "mono": 9023.041856106
+        },
+        {
+          "offset": 13,
+          "mono": 9023.065108057
+        },
+        {
+          "offset": 14,
+          "mono": 9023.088129154
+        },
+        {
+          "offset": 15,
+          "mono": 9023.111300695
+        },
+        {
+          "offset": 16,
+          "mono": 9023.134681991
+        },
+        {
+          "offset": 17,
+          "mono": 9023.499715048
+        },
+        {
+          "offset": 18,
+          "mono": 9023.522913439
+        },
+        {
+          "offset": 19,
+          "mono": 9023.545966897
+        },
+        {
+          "offset": 20,
+          "mono": 9023.569315842
+        },
+        {
+          "offset": 21,
+          "mono": 9023.592622467
+        },
+        {
+          "offset": 22,
+          "mono": 9023.615984217
+        },
+        {
+          "offset": 23,
+          "mono": 9023.639117485
+        },
+        {
+          "offset": 24,
+          "mono": 9023.662231166
+        },
+        {
+          "offset": 25,
+          "mono": 9023.685725956
+        },
+        {
+          "offset": 26,
+          "mono": 9023.709232057
+        },
+        {
+          "offset": 27,
+          "mono": 9023.732471445
+        },
+        {
+          "offset": 28,
+          "mono": 9023.755610946
+        },
+        {
+          "offset": 29,
+          "mono": 9023.779201085
+        },
+        {
+          "offset": 30,
+          "mono": 9023.802683471
+        },
+        {
+          "offset": 31,
+          "mono": 9023.825720769
+        },
+        {
+          "offset": 32,
+          "mono": 9023.848834901
+        },
+        {
+          "offset": 33,
+          "mono": 9023.87210094
+        },
+        {
+          "offset": 34,
+          "mono": 9023.895716567
+        },
+        {
+          "offset": 35,
+          "mono": 9023.918922332
+        },
+        {
+          "offset": 36,
+          "mono": 9023.942168293
+        },
+        {
+          "offset": 37,
+          "mono": 9023.965612016
+        },
+        {
+          "offset": 38,
+          "mono": 9023.989030632
+        },
+        {
+          "offset": 39,
+          "mono": 9024.012462985
+        },
+        {
+          "offset": 40,
+          "mono": 9024.036066359
+        },
+        {
+          "offset": 41,
+          "mono": 9024.05916938
+        },
+        {
+          "offset": 42,
+          "mono": 9024.082627381
+        },
+        {
+          "offset": 43,
+          "mono": 9024.106444948
+        },
+        {
+          "offset": 44,
+          "mono": 9024.130145525
+        },
+        {
+          "offset": 45,
+          "mono": 9024.153279465
+        },
+        {
+          "offset": 46,
+          "mono": 9024.176608743
+        },
+        {
+          "offset": 47,
+          "mono": 9024.204747794
+        },
+        {
+          "offset": 48,
+          "mono": 9024.229430783
+        },
+        {
+          "offset": 49,
+          "mono": 9024.253029198
+        },
+        {
+          "offset": 50,
+          "mono": 9024.276543114
+        },
+        {
+          "offset": 51,
+          "mono": 9024.300413851
+        },
+        {
+          "offset": 52,
+          "mono": 9024.323573229
+        },
+        {
+          "offset": 53,
+          "mono": 9024.346661342
+        },
+        {
+          "offset": 54,
+          "mono": 9024.369700033
+        },
+        {
+          "offset": 55,
+          "mono": 9024.393336268
+        },
+        {
+          "offset": 56,
+          "mono": 9024.416809437
+        },
+        {
+          "offset": 57,
+          "mono": 9024.440055138
+        },
+        {
+          "offset": 58,
+          "mono": 9024.463709568
+        },
+        {
+          "offset": 59,
+          "mono": 9024.487357848
+        },
+        {
+          "offset": 60,
+          "mono": 9024.510810317
+        },
+        {
+          "offset": 61,
+          "mono": 9024.534133394
+        },
+        {
+          "offset": 62,
+          "mono": 9024.557421503
+        },
+        {
+          "offset": 63,
+          "mono": 9024.581308192
+        },
+        {
+          "offset": 64,
+          "mono": 9024.60460058
+        }
+      ]
+    },
+    {
+      "repetition": 2,
+      "cut_tokens": 16,
+      "recovery_gap_s": 0.3639036189997569,
+      "transition_s": 0.010409614998934558,
+      "completion_s": 2.161511090998829,
+      "measured_device_energy_j": 334.16800000006333,
+      "energy_samples": [
+        {
+          "monotonic_s": 9024.66569691,
+          "total_device_j": {
+            "0": 500792.729,
+            "1": 475993.306
+          }
+        },
+        {
+          "monotonic_s": 9026.851144694,
+          "total_device_j": {
+            "0": 500953.509,
+            "1": 476166.694
+          }
+        }
+      ],
+      "exact_tokens": true,
+      "output_sha256": "144d7da01d32977aef839e75f6f86c86e1a810d1865d2bb3326897a6943d0029",
+      "output_tokens": 64,
+      "stale_source_fenced": true,
+      "lost_activation_reply_injected": true,
+      "kv_image_bytes": 0,
+      "rpc_events": [
+        {
+          "node": "source",
+          "command": "checkpoint",
+          "elapsed_s": 0.0010373850000178209,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "prepare",
+          "elapsed_s": 0.0012998490001336904,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "inspect",
+          "elapsed_s": 0.00020892499924229924,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "activate",
+          "elapsed_s": 0.0001208280009450391,
+          "kv_payload_bytes": 0,
+          "reply_discarded": true
+        },
+        {
+          "node": "target",
+          "command": "inspect",
+          "elapsed_s": 0.0001508250006736489,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "target",
+          "command": "activate",
+          "elapsed_s": 0.00011171000005560927,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.00020718899941130076,
+          "kv_payload_bytes": 0
+        },
+        {
+          "node": "source",
+          "command": "retire",
+          "elapsed_s": 0.00022828100009064656,
+          "kv_payload_bytes": 0
+        }
+      ],
+      "deliveries": [
+        {
+          "offset": 1,
+          "mono": 9025.003829481
+        },
+        {
+          "offset": 2,
+          "mono": 9025.027067516
+        },
+        {
+          "offset": 3,
+          "mono": 9025.050771139
+        },
+        {
+          "offset": 4,
+          "mono": 9025.074333416
+        },
+        {
+          "offset": 5,
+          "mono": 9025.098266451
+        },
+        {
+          "offset": 6,
+          "mono": 9025.12188305
+        },
+        {
+          "offset": 7,
+          "mono": 9025.14538827
+        },
+        {
+          "offset": 8,
+          "mono": 9025.168599896
+        },
+        {
+          "offset": 9,
+          "mono": 9025.192856652
+        },
+        {
+          "offset": 10,
+          "mono": 9025.216355449
+        },
+        {
+          "offset": 11,
+          "mono": 9025.240248569
+        },
+        {
+          "offset": 12,
+          "mono": 9025.264106292
+        },
+        {
+          "offset": 13,
+          "mono": 9025.287757196
+        },
+        {
+          "offset": 14,
+          "mono": 9025.311539448
+        },
+        {
+          "offset": 15,
+          "mono": 9025.3352911
+        },
+        {
+          "offset": 16,
+          "mono": 9025.359029881
+        },
+        {
+          "offset": 17,
+          "mono": 9025.7229335
+        },
+        {
+          "offset": 18,
+          "mono": 9025.746147831
+        },
+        {
+          "offset": 19,
+          "mono": 9025.769183485
+        },
+        {
+          "offset": 20,
+          "mono": 9025.792340519
+        },
+        {
+          "offset": 21,
+          "mono": 9025.816127139
+        },
+        {
+          "offset": 22,
+          "mono": 9025.839323636
+        },
+        {
+          "offset": 23,
+          "mono": 9025.862489637
+        },
+        {
+          "offset": 24,
+          "mono": 9025.885441744
+        },
+        {
+          "offset": 25,
+          "mono": 9025.908652778
+        },
+        {
+          "offset": 26,
+          "mono": 9025.93169179
+        },
+        {
+          "offset": 27,
+          "mono": 9025.954667872
+        },
+        {
+          "offset": 28,
+          "mono": 9025.977800319
+        },
+        {
+          "offset": 29,
+          "mono": 9026.001202694
+        },
+        {
+          "offset": 30,
+          "mono": 9026.024609709
+        },
+        {
+          "offset": 31,
+          "mono": 9026.04809514
+        },
+        {
+          "offset": 32,
+          "mono": 9026.071693885
+        },
+        {
+          "offset": 33,
+          "mono": 9026.095348437
+        },
+        {
+          "offset": 34,
+          "mono": 9026.118886808
+        },
+        {
+          "offset": 35,
+          "mono": 9026.142123241
+        },
+        {
+          "offset": 36,
+          "mono": 9026.165472657
+        },
+        {
+          "offset": 37,
+          "mono": 9026.188977916
+        },
+        {
+          "offset": 38,
+          "mono": 9026.21297364
+        },
+        {
+          "offset": 39,
+          "mono": 9026.236269745
+        },
+        {
+          "offset": 40,
+          "mono": 9026.259276356
+        },
+        {
+          "offset": 41,
+          "mono": 9026.282622265
+        },
+        {
+          "offset": 42,
+          "mono": 9026.306181836
+        },
+        {
+          "offset": 43,
+          "mono": 9026.33033691
+        },
+        {
+          "offset": 44,
+          "mono": 9026.353935254
+        },
+        {
+          "offset": 45,
+          "mono": 9026.37740117
+        },
+        {
+          "offset": 46,
+          "mono": 9026.400893235
+        },
+        {
+          "offset": 47,
+          "mono": 9026.424991591
+        },
+        {
+          "offset": 48,
+          "mono": 9026.448704442
+        },
+        {
+          "offset": 49,
+          "mono": 9026.472057614
+        },
+        {
+          "offset": 50,
+          "mono": 9026.495735639
+        },
+        {
+          "offset": 51,
+          "mono": 9026.524820332
+        },
+        {
+          "offset": 52,
+          "mono": 9026.548355207
+        },
+        {
+          "offset": 53,
+          "mono": 9026.571737506
+        },
+        {
+          "offset": 54,
+          "mono": 9026.595175698
+        },
+        {
+          "offset": 55,
+          "mono": 9026.618744107
+        },
+        {
+          "offset": 56,
+          "mono": 9026.641894257
+        },
+        {
+          "offset": 57,
+          "mono": 9026.665196123
+        },
+        {
+          "offset": 58,
+          "mono": 9026.688787014
+        },
+        {
+          "offset": 59,
+          "mono": 9026.712123425
+        },
+        {
+          "offset": 60,
+          "mono": 9026.735177023
+        },
+        {
+          "offset": 61,
+          "mono": 9026.758265017
+        },
+        {
+          "offset": 62,
+          "mono": 9026.781672192
+        },
+        {
+          "offset": 63,
+          "mono": 9026.805361708
+        },
+        {
+          "offset": 64,
+          "mono": 9026.828891603
+        }
+      ]
+    }
+  ],
+  "median_recovery_gap_s": 0.3650330569998914,
+  "reference_sha256": "144d7da01d32977aef839e75f6f86c86e1a810d1865d2bb3326897a6943d0029",
+  "scope": "Planned handoff, warm TP1 replicas; reachable local authority; measured local IPC and GPU KV copies; no ISL or model reload; or source crash"
+}

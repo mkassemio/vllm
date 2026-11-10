@@ -1,0 +1,22 @@
+{
+  "arguments": {
+    "experiment": "scheduler",
+    "source": "/home/ubuntu/orbital-upstream-baseline-20261110",
+    "output": "/home/ubuntu/orbital-experiments-20261110/pilot-v1/scheduler-steady-0-stock",
+    "gpu": 0,
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "max_model_len": 12288,
+    "batch_tokens": 128,
+    "max_seqs": 8,
+    "mode": "stock",
+    "trace": "/home/ubuntu/orbital-experiments-20261110/pilot-v1/trace-steady-0.json",
+    "calibration": "/home/ubuntu/orbital-experiments-20261110/calibration-02/result.json"
+  },
+  "harness_sha256": {
+    "run_experiments.py": "3836538c26dac54207ca02d99e9de7aa4e88444f25488416cfd7151863eff16f",
+    "experiment_worker.py": "ac3709572f95071325fd9fe334362b5fcff66a3887e440947c4a5a410eb7ae2a",
+    "experiment_utils.py": "0174f61d8dad31871ce3c9bf24178074fa6421e70c6e9a4b969ca56003c5b8ac"
+  },
+  "created_unix_s": 1794276696.0874026
+}

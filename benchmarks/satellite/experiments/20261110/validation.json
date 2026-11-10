@@ -1,0 +1,48 @@
+{
+  "validated_at": "2026-11-10T02:52:03.709517+00:00",
+  "scheduler_runs": 18,
+  "scheduler_offered_requests": 1440,
+  "handoff_timing_trials": 33,
+  "local_components_and_harness_unique_passes": 80,
+  "local_full_suite_passes": 79,
+  "latest_harness_suite_passes": 12,
+  "gpu_regression_passes": 9,
+  "fault_injection": [
+    {
+      "mode": "transfer",
+      "trials": 3,
+      "exact_continuation": true,
+      "stale_source_fenced": true,
+      "reply_loss_exercised": true
+    },
+    {
+      "mode": "recompute",
+      "trials": 3,
+      "exact_continuation": true,
+      "stale_source_fenced": true,
+      "reply_loss_exercised": true
+    }
+  ],
+  "closed_window_controls": [
+    {
+      "mode": "stock",
+      "gpu_step_calls": 0,
+      "offered": 1,
+      "missed": 1,
+      "generated_tokens": 0
+    },
+    {
+      "mode": "orbital",
+      "gpu_step_calls": 0,
+      "offered": 1,
+      "missed": 1,
+      "generated_tokens": 0
+    }
+  ],
+  "pilot_harness_hashes_verified": true,
+  "validation_harness_hashes_verified_against_current_code": true,
+  "pairing_and_cross_mode_reference_hashes_verified": true,
+  "gpu_processes_after_tests": [],
+  "preflight_issue": "Initial upstream model startup failed because its generated FlashMLA wrapper was missing. The same installed-runtime wrapper was linked before calibration-02 and the pilot. A harness cleanup error masking startup failures was also corrected before the measured campaign.",
+  "scope": "No claim of flight hardware validation, physical power protection, ISL emulation, or production-tuned stock comparison."
+}

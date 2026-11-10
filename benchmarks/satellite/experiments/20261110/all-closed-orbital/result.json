@@ -1,0 +1,143 @@
+{
+  "kind": "scheduler",
+  "mode": "orbital",
+  "engine": {
+    "source_commit": "12b28fdd4c1775bed8a4a1fca1fb090e5a13ee5e",
+    "vllm_file": "/home/ubuntu/orbital-validation-20261110/vllm/__init__.py",
+    "torch": "2.14.0+cu130",
+    "gpu": "NVIDIA A100 80GB PCIe",
+    "pid": 48708
+  },
+  "engine_options": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "dtype": "bfloat16",
+    "enforce_eager": true,
+    "async_scheduling": false,
+    "enable_chunked_prefill": true,
+    "enable_prefix_caching": false,
+    "max_model_len": 12288,
+    "max_num_batched_tokens": 128,
+    "max_num_seqs": 8,
+    "gpu_memory_utilization": 0.25,
+    "scheduling_policy": "priority",
+    "seed": 42,
+    "disable_log_stats": true,
+    "scheduler_cls": "vllm.satellite.scheduler.SatelliteScheduler",
+    "additional_config": {
+      "orbital": {
+        "forecast_path": "/home/ubuntu/orbital-experiments-20261110/all-closed-orbital/forecast.json",
+        "guard_s": 0.001,
+        "profile": {
+          "fixed_step_s": 0.010836382249863163,
+          "prefill_token_s": 8.262163867023276e-05,
+          "decode_token_s": 0.011172112800477408,
+          "power_w": 100.0,
+          "safety_factor": 1.2
+        }
+      }
+    }
+  },
+  "trace_sha256": "8cb78086e235c49d9fa3dbd2383f3e6ccf3e8782d40968c129ff9875ebb31143",
+  "calibration_sha256": "8f074db05a3c00684d6b00a27c21c0a14d53fb43eddf51ccf40b77d03b0ffa73",
+  "reference_sha256": {
+    "32": "e544ad38415048ce7ce3f980ff2fb6dbc81ef2681cfa33e3ddf817d77f9c635d"
+  },
+  "all_generated_prefixes_match_reference": true,
+  "epoch_start": 1794278370.9521496,
+  "monotonic_start": 9058.474268417001,
+  "metrics": {
+    "offered": 1,
+    "completed_on_time": 0,
+    "missed": 1,
+    "completion_fraction": 0.0,
+    "deadline_goodput_requests_s": 0.0,
+    "ttft_p50_s": null,
+    "ttft_p95_s": null,
+    "ttft_observations": 0,
+    "generated_tokens": 0,
+    "by_class": {
+      "interactive": {
+        "offered": 1,
+        "completed_on_time": 0,
+        "missed": 1,
+        "completion_fraction": 0.0,
+        "deadline_goodput_requests_s": 0.0,
+        "ttft_p50_s": null,
+        "ttft_p95_s": null,
+        "ttft_observations": 0,
+        "generated_tokens": 0
+      },
+      "onboard": {
+        "offered": 0,
+        "completed_on_time": 0,
+        "missed": 0,
+        "completion_fraction": null,
+        "deadline_goodput_requests_s": 0.0,
+        "ttft_p50_s": null,
+        "ttft_p95_s": null,
+        "ttft_observations": 0,
+        "generated_tokens": 0
+      }
+    }
+  },
+  "step_calls": 0,
+  "step_wall_s": 0.0,
+  "step_time_outside_windows_s": 0.0,
+  "measured_device_energy_j": 66.83399999997346,
+  "energy_samples": [
+    {
+      "monotonic_s": 9058.509907118,
+      "total_device_j": {
+        "0": 502770.476
+      }
+    },
+    {
+      "monotonic_s": 9059.48746169,
+      "total_device_j": {
+        "0": 502837.31
+      }
+    }
+  ],
+  "stock_guard_s": 0,
+  "requests": [
+    {
+      "id": "closed",
+      "arrival_s": 0,
+      "deadline_s": 1,
+      "prompt_tokens": 32,
+      "output_tokens": 8,
+      "priority": 0,
+      "class": "interactive",
+      "tokens": [],
+      "first_s": null,
+      "finish_s": null,
+      "admitted_s": 0.03754312899945944,
+      "outcome": "deadline_expired"
+    }
+  ],
+  "final_status": {
+    "live": [],
+    "orbital": {
+      "node_id": "satellite",
+      "engine_started_s": 1794278368.9171448,
+      "plan": {
+        "forecast_version": 1,
+        "tokens": [
+          [
+            "warmup-32",
+            1
+          ]
+        ],
+        "deferred": [],
+        "estimated_s": 0.026410194060408898,
+        "estimated_energy_j": 2.64101940604089
+      },
+      "forecast_error": null,
+      "reserved_energy_j": 20.104768804763395,
+      "executed_steps": 8,
+      "suspended": []
+    }
+  },
+  "scope": "TP1, eager, synchronous EngineCore; synthetic compute windows; local token recipient; no power cap or ground-contact emulation"
+}

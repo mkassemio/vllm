@@ -1,0 +1,743 @@
+{
+  "schema_version": 1,
+  "seed": 0,
+  "scenario": "windows",
+  "provenance": "Synthetic compute availability, not eclipse/ground contact",
+  "duration_s": 16,
+  "windows": [
+    [
+      0,
+      4.0
+    ],
+    [
+      6.4,
+      10.4
+    ],
+    [
+      12.8,
+      16
+    ]
+  ],
+  "requests": [
+    {
+      "id": "r0040",
+      "arrival_s": 0.012799576321596716,
+      "deadline_s": 6.012799576321597,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0035",
+      "arrival_s": 0.1572670418370123,
+      "deadline_s": 2.157267041837012,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0052",
+      "arrival_s": 0.9009931677883966,
+      "deadline_s": 6.900993167788396,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0075",
+      "arrival_s": 1.006032845390649,
+      "deadline_s": 3.0060328453906493,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0025",
+      "arrival_s": 1.127853530365697,
+      "deadline_s": 3.127853530365697,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0056",
+      "arrival_s": 1.2214478744283612,
+      "deadline_s": 7.221447874428361,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0071",
+      "arrival_s": 2.091370716462217,
+      "deadline_s": 4.091370716462217,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0070",
+      "arrival_s": 2.1211828798087886,
+      "deadline_s": 8.121182879808789,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0046",
+      "arrival_s": 2.1399514248267737,
+      "deadline_s": 8.139951424826773,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0048",
+      "arrival_s": 2.6724984004904657,
+      "deadline_s": 8.672498400490465,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0043",
+      "arrival_s": 2.731801821135878,
+      "deadline_s": 4.731801821135878,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0015",
+      "arrival_s": 2.805671023259334,
+      "deadline_s": 4.805671023259334,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0003",
+      "arrival_s": 2.8998676032811894,
+      "deadline_s": 4.899867603281189,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0032",
+      "arrival_s": 2.917513876389945,
+      "deadline_s": 8.917513876389945,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0012",
+      "arrival_s": 3.156583857276683,
+      "deadline_s": 9.156583857276683,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0069",
+      "arrival_s": 3.2516904269108897,
+      "deadline_s": 5.25169042691089,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0007",
+      "arrival_s": 3.3971025320839874,
+      "deadline_s": 5.397102532083988,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0020",
+      "arrival_s": 3.4736527763765253,
+      "deadline_s": 9.473652776376525,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0053",
+      "arrival_s": 3.5846115723325123,
+      "deadline_s": 5.584611572332513,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0044",
+      "arrival_s": 3.6422888627707684,
+      "deadline_s": 9.64228886277077,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0067",
+      "arrival_s": 4.310892834893797,
+      "deadline_s": 6.310892834893797,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0037",
+      "arrival_s": 4.46682367291181,
+      "deadline_s": 6.46682367291181,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0005",
+      "arrival_s": 4.53526233944464,
+      "deadline_s": 6.53526233944464,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0002",
+      "arrival_s": 4.710401705305464,
+      "deadline_s": 10.710401705305465,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0026",
+      "arrival_s": 4.862724557082377,
+      "deadline_s": 10.862724557082377,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0065",
+      "arrival_s": 4.983877094285781,
+      "deadline_s": 6.983877094285781,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0051",
+      "arrival_s": 5.017259200078388,
+      "deadline_s": 7.017259200078388,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0024",
+      "arrival_s": 5.287998413070389,
+      "deadline_s": 11.28799841307039,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0074",
+      "arrival_s": 5.3371471105050645,
+      "deadline_s": 11.337147110505065,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0008",
+      "arrival_s": 5.337885886506385,
+      "deadline_s": 11.337885886506385,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0030",
+      "arrival_s": 5.342509497390431,
+      "deadline_s": 11.34250949739043,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0041",
+      "arrival_s": 5.528072104411636,
+      "deadline_s": 7.528072104411636,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0011",
+      "arrival_s": 5.65249278515477,
+      "deadline_s": 7.65249278515477,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0054",
+      "arrival_s": 5.688935196230427,
+      "deadline_s": 11.688935196230428,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0004",
+      "arrival_s": 5.726276879328415,
+      "deadline_s": 11.726276879328415,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0061",
+      "arrival_s": 6.051176398067628,
+      "deadline_s": 8.051176398067629,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0059",
+      "arrival_s": 6.131338206878346,
+      "deadline_s": 8.131338206878347,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0034",
+      "arrival_s": 6.1454322029586,
+      "deadline_s": 12.145432202958599,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0057",
+      "arrival_s": 6.174193156214173,
+      "deadline_s": 8.174193156214173,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0047",
+      "arrival_s": 6.356120294951524,
+      "deadline_s": 8.356120294951523,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0068",
+      "arrival_s": 6.447291358646751,
+      "deadline_s": 12.447291358646751,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0009",
+      "arrival_s": 6.533878841896349,
+      "deadline_s": 8.53387884189635,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0064",
+      "arrival_s": 6.581311118764887,
+      "deadline_s": 12.581311118764887,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0066",
+      "arrival_s": 6.67841284973079,
+      "deadline_s": 12.67841284973079,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0063",
+      "arrival_s": 6.755679033167489,
+      "deadline_s": 8.755679033167489,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0027",
+      "arrival_s": 6.841934102570578,
+      "deadline_s": 8.841934102570578,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0072",
+      "arrival_s": 6.863059614528394,
+      "deadline_s": 12.863059614528394,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0014",
+      "arrival_s": 6.9257327627637135,
+      "deadline_s": 12.925732762763714,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0073",
+      "arrival_s": 7.354585156683842,
+      "deadline_s": 9.354585156683843,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0039",
+      "arrival_s": 7.483315853796729,
+      "deadline_s": 9.483315853796729,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0023",
+      "arrival_s": 7.660620037452942,
+      "deadline_s": 9.660620037452942,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0058",
+      "arrival_s": 7.913487790509164,
+      "deadline_s": 13.913487790509164,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0036",
+      "arrival_s": 8.060692487724285,
+      "deadline_s": 14.060692487724285,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0021",
+      "arrival_s": 8.17411558051344,
+      "deadline_s": 10.17411558051344,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0013",
+      "arrival_s": 8.465007086560908,
+      "deadline_s": 10.465007086560908,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0076",
+      "arrival_s": 8.485163926024091,
+      "deadline_s": 14.485163926024091,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0001",
+      "arrival_s": 8.489089312931387,
+      "deadline_s": 10.489089312931387,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0006",
+      "arrival_s": 8.778544197189452,
+      "deadline_s": 14.778544197189452,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0050",
+      "arrival_s": 8.995610055934543,
+      "deadline_s": 14.995610055934543,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0033",
+      "arrival_s": 9.01631166254585,
+      "deadline_s": 11.01631166254585,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0018",
+      "arrival_s": 9.074433043161802,
+      "deadline_s": 15.074433043161802,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0060",
+      "arrival_s": 9.122028868862962,
+      "deadline_s": 15.122028868862962,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0038",
+      "arrival_s": 9.238263744060209,
+      "deadline_s": 15.238263744060209,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0079",
+      "arrival_s": 9.435554499170042,
+      "deadline_s": 11.435554499170042,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0000",
+      "arrival_s": 9.457524737080538,
+      "deadline_s": 15.457524737080538,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0031",
+      "arrival_s": 9.691471191042368,
+      "deadline_s": 11.691471191042368,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0042",
+      "arrival_s": 9.717151085519145,
+      "deadline_s": 15.717151085519145,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0045",
+      "arrival_s": 9.749277799616932,
+      "deadline_s": 11.749277799616932,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0077",
+      "arrival_s": 9.819828153215077,
+      "deadline_s": 11.819828153215077,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0022",
+      "arrival_s": 10.066988825241527,
+      "deadline_s": 16,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0019",
+      "arrival_s": 10.104258644923325,
+      "deadline_s": 12.104258644923325,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0010",
+      "arrival_s": 10.170864314187753,
+      "deadline_s": 16,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0016",
+      "arrival_s": 10.18915806684429,
+      "deadline_s": 16,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0028",
+      "arrival_s": 10.22572379626446,
+      "deadline_s": 16,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0078",
+      "arrival_s": 10.341867378598343,
+      "deadline_s": 16,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0055",
+      "arrival_s": 10.447738831341354,
+      "deadline_s": 12.447738831341354,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0062",
+      "arrival_s": 10.794991714906569,
+      "deadline_s": 16,
+      "prompt_tokens": 2048,
+      "output_tokens": 128,
+      "priority": 1,
+      "class": "onboard"
+    },
+    {
+      "id": "r0029",
+      "arrival_s": 10.825991319032498,
+      "deadline_s": 12.825991319032498,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0049",
+      "arrival_s": 10.836450803249605,
+      "deadline_s": 12.836450803249605,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    },
+    {
+      "id": "r0017",
+      "arrival_s": 11.007197331621715,
+      "deadline_s": 13.007197331621715,
+      "prompt_tokens": 256,
+      "output_tokens": 32,
+      "priority": 0,
+      "class": "interactive"
+    }
+  ]
+}
