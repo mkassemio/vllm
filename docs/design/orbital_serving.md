@@ -8,10 +8,12 @@ with `additional_config["orbital_communication"]`. Both are disabled by default.
 Ordinary vLLM retains its scheduling and communication behavior.
 
 This branch implements resource scheduling, durable ownership and request replay,
-compatible KV images, and collective selection. Local CPU tests and real Gloo
-processes exercise the implementation. CUDA serving, GPU KV continuation, and
-NCCL model accuracy are release gates that require a Linux GPU host; they are
-not validated by the CPU results. This is not a flight-ready deployment.
+compatible KV images, and collective selection. Validation on two A100 80GB PCIe
+GPUs passed eight real-model tests, including independent-process handoffs by
+recomputation and KV transfer. A 64-question GSM8K comparison matched stock
+accuracy. See the [validation report](https://github.com/mkassemio/vllm/blob/codex/orbital-serving-engine/benchmarks/satellite/VALIDATION.md)
+for the environment, measured overhead, regression results, and limitations.
+This is not a flight-ready deployment.
 
 ## Architecture
 
@@ -324,11 +326,20 @@ The CUDA gates are wired into `.buildkite/test_areas/engine.yaml`:
 ```bash
 # One GPU: stock-vs-predictive LLM and replay/KV continuation.
 .venv/bin/python -m pytest tests/satellite_gpu/test_serving.py -v
-# Two GPUs: real-model native/direct/all-gather numerical comparison.
-.venv/bin/python -m pytest tests/satellite_gpu/test_tensor_parallel.py -v
+# Two GPUs: numerical comparison and handoff between independent engines.
+.venv/bin/python -m pytest \
+  tests/satellite_gpu/test_tensor_parallel.py \
+  tests/satellite_gpu/test_handoff.py -v
+# Run accuracy comparisons separately on the same host.
+PYTHONPATH=. .venv/bin/python benchmarks/satellite/evaluate_gsm8k.py \
+  --mode stock --output /tmp/gsm8k-stock.json
+PYTHONPATH=. .venv/bin/python benchmarks/satellite/evaluate_gsm8k.py \
+  --mode orbital --output /tmp/gsm8k-orbital.json
 ```
 
 These tests use real Qwen model weights, assert continued generation limits,
 compare to stock vLLM, and check that the selected communicator actually ran.
+The handoff tests consume EngineCore outputs through the journal; they do not
+test migration of an existing HTTP connection or frontend session.
 No CPU result substitutes for running them. Record the GPU model, drivers,
 PyTorch/CUDA/NCCL versions, model revision, traces, and branch SHA with results.

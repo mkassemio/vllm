@@ -6,6 +6,8 @@
   "branch": "codex/orbital-serving-engine",
   "prototype_reference_commit": "83630ab85eb27e456d99008cc0a27e025e73c0b4",
   "local_platform": "macOS arm64",
-  "gpu_validation": "pending_linux_cuda_host",
+  "gpu_validation": "two_a100_80gb_pcie_eight_real_model_tests_passed",
+  "gpu_validation_record": "linux_a100_validation.json",
+  "validation_commit": "5c5d820264784d88c719fc4a6780157c21ea6c54",
   "prototype_evidence": "Prior Orbit-TP measurements are not validation of this branch."
 }

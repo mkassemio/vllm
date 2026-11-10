@@ -1,0 +1,84 @@
+{
+  "backend": "nccl",
+  "dtype": "float16",
+  "torch_version": "2.14.0+cu130",
+  "samples": [
+    {
+      "algorithm": "native",
+      "message_bytes": 512,
+      "median_s": 0.00010359049997532566,
+      "p95_s": 0.00012517599998318474
+    },
+    {
+      "algorithm": "native",
+      "message_bytes": 8192,
+      "median_s": 0.00010469199992257927,
+      "p95_s": 0.0001413459999639599
+    },
+    {
+      "algorithm": "native",
+      "message_bytes": 131072,
+      "median_s": 0.0004310069999746702,
+      "p95_s": 0.0006607139998777711
+    },
+    {
+      "algorithm": "direct",
+      "message_bytes": 512,
+      "median_s": 0.0002738199999612334,
+      "p95_s": 0.00032606399986434553
+    },
+    {
+      "algorithm": "direct",
+      "message_bytes": 8192,
+      "median_s": 0.00027450649997717846,
+      "p95_s": 0.00030248999996729253
+    },
+    {
+      "algorithm": "direct",
+      "message_bytes": 131072,
+      "median_s": 0.00043513450009413646,
+      "p95_s": 0.0006465579999712645
+    },
+    {
+      "algorithm": "allgather",
+      "message_bytes": 512,
+      "median_s": 0.00019031849990369665,
+      "p95_s": 0.00021823199995196774
+    },
+    {
+      "algorithm": "allgather",
+      "message_bytes": 8192,
+      "median_s": 0.0001901425000596646,
+      "p95_s": 0.00021893199982514489
+    },
+    {
+      "algorithm": "allgather",
+      "message_bytes": 131072,
+      "median_s": 0.0005823325000164914,
+      "p95_s": 0.0006598220002160815
+    }
+  ],
+  "plan": {
+    "version": 1,
+    "world_size": 2,
+    "max_scratch_bytes": 268435456,
+    "costs": [
+      {
+        "name": "native",
+        "latency_s": 0.0001476573239363331,
+        "seconds_per_byte": 4.98803914743868e-09
+      },
+      {
+        "name": "direct",
+        "latency_s": 0.0003896753475292316,
+        "seconds_per_byte": 3.127836539029339e-09
+      },
+      {
+        "name": "allgather",
+        "latency_s": 0.0002597447779627835,
+        "seconds_per_byte": 4.167230428862779e-09
+      }
+    ]
+  },
+  "scope": "This execution group and tested sizes only; remeasure after route changes."
+}

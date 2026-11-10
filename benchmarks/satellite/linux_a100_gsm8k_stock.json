@@ -1,0 +1,19 @@
+{
+  "mode": "stock",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "tensor_parallel_size": 2,
+  "collective": "stock",
+  "result": {
+    "accuracy": 0.28125,
+    "invalid_rate": 0.0,
+    "latency": 28.71148405400004,
+    "questions_per_second": 2.229073212643065,
+    "total_output_tokens": 7135,
+    "tokens_per_second": 248.5068339407542,
+    "num_questions": 64,
+    "num_shots": 5,
+    "max_tokens": 256,
+    "timestamp": 1794270629.0285501
+  },
+  "scope": "Accuracy regression with permissive synthetic budgets; not a satellite performance claim."
+}

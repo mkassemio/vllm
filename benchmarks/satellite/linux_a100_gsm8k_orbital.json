@@ -1,0 +1,41 @@
+{
+  "mode": "orbital",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "tensor_parallel_size": 2,
+  "collective": "direct",
+  "result": {
+    "accuracy": 0.28125,
+    "invalid_rate": 0.0,
+    "latency": 48.53253508299986,
+    "questions_per_second": 1.3187030080037616,
+    "total_output_tokens": 7135,
+    "tokens_per_second": 147.01478065791935,
+    "num_questions": 64,
+    "num_shots": 5,
+    "max_tokens": 256,
+    "timestamp": 1794270709.8182802
+  },
+  "scope": "Accuracy regression with permissive synthetic budgets; not a satellite performance claim.",
+  "communication": [
+    {
+      "plan_version": 1,
+      "calls": {
+        "direct": 53900
+      },
+      "input_bytes": {
+        "direct": 4704050176
+      },
+      "direct_send_bytes": 4704050176
+    },
+    {
+      "plan_version": 1,
+      "calls": {
+        "direct": 53900
+      },
+      "input_bytes": {
+        "direct": 4704050176
+      },
+      "direct_send_bytes": 4704050176
+    }
+  ]
+}

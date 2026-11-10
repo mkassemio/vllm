@@ -1,0 +1,97 @@
+{
+  "python": "3.12.3",
+  "os": "Ubuntu 24.04.3 LTS",
+  "architecture": "x86_64",
+  "packages": {
+    "torch": "2.14.0+cu130",
+    "transformers": "5.22.0",
+    "vllm": "0.1.dev1+gf30925955.precompiled",
+    "safetensors": "0.8.0",
+    "pytest": "9.2.0",
+    "hypothesis": "6.170.15",
+    "flashinfer-python": "0.7.3",
+    "triton": "3.8.0",
+    "nvidia-nccl-cu13": "2.30.7"
+  },
+  "cuda_runtime": "13.0",
+  "nccl_runtime": "2.30.7",
+  "gpu_inventory": [
+    "0, NVIDIA A100 80GB PCIe, 81920 MiB, 570.195.03",
+    "1, NVIDIA A100 80GB PCIe, 81920 MiB, 570.195.03"
+  ],
+  "topology": "\tGPU0\tGPU1\tCPU Affinity\tNUMA Affinity\tGPU NUMA ID\nGPU0\t X \tPHB\t0-59\t0-1\t\tN/A\nGPU1\tPHB\t X \t0-59\t0-1\t\tN/A\n\nLegend:\n\n  X    = Self\n  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)\n  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node\n  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)\n  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)\n  PIX  = Connection traversing at most a single PCIe bridge\n  NV#  = Connection traversing a bonded set of # NVLinks\n",
+  "runtime_commit": "f309259552cdfaa3e899eaa600a4c0dd2e8703ab",
+  "dataset_sha256": {
+    "train": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+    "test": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14"
+  },
+  "test_results": {
+    "serving": {
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "time": 57.397,
+      "failed_cases": []
+    },
+    "two-gpu": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "time": 183.746,
+      "failed_cases": []
+    },
+    "components": {
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "time": 12.962,
+      "failed_cases": []
+    },
+    "upstream": {
+      "tests": 302,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "time": 175.781,
+      "failed_cases": [
+        {
+          "name": "test_diffusion_read_deferral_keeps_a_longer_pp_wait",
+          "message": "pydantic_core._pydantic_core.ValidationError: 1 validation error for ParallelConfig\n  Value error, World size (3) is larger than the number of available GPUs (2) in this node. If this is intentional and you are using:\n- ray, set '--distributed-executor-backend ray'.\n- multiprocessing, set '--nnodes' appropriately. [type=value_error, input_value=ArgsKwargs((), {'pipeline...data_parallel_size': 1}), input_type=ArgsKwargs]\n[+1 more line; full report in element text]"
+        }
+      ]
+    },
+    "upstream-baseline": {
+      "tests": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "time": 2.121,
+      "failed_cases": [
+        {
+          "name": "test_diffusion_read_deferral_keeps_a_longer_pp_wait",
+          "message": "pydantic_core._pydantic_core.ValidationError: 1 validation error for ParallelConfig\n  Value error, World size (3) is larger than the number of available GPUs (2) in this node. If this is intentional and you are using:\n- ray, set '--distributed-executor-backend ray'.\n- multiprocessing, set '--nnodes' appropriately. [type=value_error, input_value=ArgsKwargs((), {'pipeline...data_parallel_size': 1}), input_type=ArgsKwargs]\n[+1 more line; full report in element text]"
+        }
+      ]
+    }
+  },
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "validation_commit": "5c5d820264784d88c719fc4a6780157c21ea6c54",
+  "upstream_commit": "8f2ba935a5cb82f5fc231eea6b687a87443e88a6",
+  "tested_validation_files": {
+    "tests/satellite_gpu/test_serving.py": "39e29ad8195df768621711af390bfeec2fc7b872",
+    "tests/satellite_gpu/test_handoff.py": "16f46bc3c28342c7c59c611eb1e483211b3a3eb7",
+    "benchmarks/satellite/evaluate_gsm8k.py": "c764e1f18bcd9ec21093a522a3a321b66ea169b2"
+  },
+  "provenance": "Runtime at runtime_commit plus validation files with the listed Git blob hashes, subsequently committed at validation_commit. No runtime source changes between these commits.",
+  "compatibility_package": {
+    "name": "cuda-compat-13-0_580.196.07-1ubuntu1_amd64.deb",
+    "sha256": "41fea2138cad65ffdda951c720499a0ac6d9d1f4429844cd63f174a00df9f4a0",
+    "scope": "Unprivileged extraction; LD_LIBRARY_PATH for this validation only. System driver unchanged."
+  },
+  "accuracy_scope": "First 64 GSM8K questions, 5-shot completion, greedy, max_tokens=256. Equal aggregate accuracy is not evidence of per-question equality or full-dataset accuracy.",
+  "timing_scope": "CPU component and scheduler tests overlapped parts of serving/accuracy validation. No concurrent GPU workloads; NCCL calibration ran alone. Timings are observational, not controlled performance claims."
+}
